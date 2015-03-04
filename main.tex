@@ -1,0 +1,178 @@
+\documentclass[11pt, oneside]{book}
+
+\usepackage[spanish, catalan, english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} % from http://www.monperrus.net/martin/producing+searchable+and+copyable+pdf+files+with+accents+using+latex-pdflatex
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{color, colortbl}
+\usepackage{hhline}
+\usepackage{eurosym}
+\usepackage{parskip}
+\usepackage[labelfont=bf]{caption} %labelfont is to make the Figure X.X: in bold
+\usepackage[titletoc,toc,page]{appendix}
+\usepackage{nameref}
+\usepackage[hidelinks]{hyperref}
+\usepackage{bookmark}
+\usepackage{listings}
+\usepackage[algo2e, ruled]{algorithm2e}
+\usepackage{pdflscape}
+\usepackage{titlesec}
+\usepackage{lipsum} %FIXME
+\usepackage[xindy, toc]{glossaries}
+\usepackage{multicol}
+% Tabular setting
+\usepackage[table,xcdraw]{xcolor}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{N}{@{}m{0pt}@{}}
+
+% Footnote
+\usepackage{footnote}
+\makesavenoteenv{tabular}
+\makesavenoteenv{table}
+
+%So that subsubsections appear in the TOC and are numbered
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+%http://tex.stackexchange.com/questions/11233/distance-between-chapter-title-and-text
+\titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter}{15pt}{\Huge\bfseries}
+\titlespacing{\chapter}{0pt}{-50pt}{20pt}
+
+\selectlanguage{english}
+\def\Tiny{\fontsize{5pt}{5pt} \selectfont}
+
+\hypersetup
+{
+    %pdfborder={0 0 0 [0 0]}, % Treu tots bordes dels links
+    %kidelinks,               % Treu els bordes dels links
+    linkbordercolor={1 1 1},  % Bordes dels links de dins del doc en blanc
+    %urlbordercolor={1 1 1},   % Bordes dels links de les url en blanc
+    %pdfborder={1 1 0.45},     % Bordes però més prims (0.45)
+        % colorlinks=true,          % Coloreja els links (anula linkbordercolor)
+        % linkcolor=black,          % Els links en negre com la resta de text
+    % Pdf options:
+    pdfstartview=FitH,
+    pdfauthor={Pablo Pardo Garcia},
+    pdfsubject={Master Thesis},
+    pdftitle={Automatic Age Estimation in Still Images},
+    pdfkeywords={gesture recognition, NAO, wifibot, robotics, Msc Thesis},
+}
+
+%Commands for references
+\newcommand{\myref}[2]{\hyperref[#2]{#1~\ref*{#2}}}
+\newcommand{\figref}[1]{\hyperref[#1]{Figure~\ref*{#1}}}
+\newcommand{\algref}[1]{\hyperref[#1]{Algorithm~\ref*{#1}}}
+\newcommand{\coderef}[1]{\hyperref[#1]{Code~\ref*{#1}}}
+\newcommand{\chapterref}[1]{\hyperref[#1]{\ref*{#1}~\nameref*{#1}}}
+\newcommand{\annexref}[1]{\hyperref[#1]{Appendix \ref*{#1}~\nameref*{#1}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DontPrintSemicolon
+% To make listings and algorithms in the same table of contents.
+% from http://tex.stackexchange.com/questions/115023/combine-listoflistings-and-listofalgorithms-into-one-list
+\makeatletter
+\AtBeginDocument{
+    \let\c@algocf\c@lstlisting % Say algorithm2e to use the counter of listings
+    \renewcommand{\algocf@list}{lol} % Say algorithm2e to write the material to the listings file lol
+    \renewcommand*\l@algocf{\@dottedtocline{1}{1.5em}{2.3em}} % Make the indent of the entries of algorithm and listings equal
+}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\lstset{
+    breaklines=true,
+    captionpos=b,
+    basicstyle=\footnotesize \ttfamily,
+    frame=single
+}
+\renewcommand{\lstlistlistingname}{List of Algorithms}
+
+
+%\title{\textbf{Automatic Age Estimation in Still Images}}
+%\author{Pablo Pardo Garcia \\ \\ \\
+%       {\small \emph{Supervisor:} Sergio Escalera Guerrero} \\ 
+%       {\small \emph{Cosupervisor:} Marc Oliu} }
+%\date{February 2015}
+
+%\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+%% Glossary
+\makeglossaries
+\input{glossary_entries.tex}
+
+\begin{document}
+
+%Title page
+%\maketitle
+%\thispagestyle{empty}
+\setcounter{page}{3}
+\input{title.tex}
+\chapter*{} % empty chapter to have a blank page after the title
+\thispagestyle{empty}
+\chapter*{Acknowledgements}
+\thispagestyle{empty}
+To write some time in the future...
+
+\pagenumbering{arabic}
+\setcounter{page}{0}
+\clearpage
+
+%Table of contents
+\newpage
+\pagenumbering{roman} % Roman numerals
+\input{0-abstracts.tex} \selectlanguage{english}
+\tableofcontents
+\listoftables
+\listoffigures
+\lstlistoflistings
+\newpage
+\pagenumbering{arabic} % Normal numerals
+
+%Document
+\input{1-introduction.tex}
+\input{2-background.tex}
+\input{3-state-of-the-art.tex}
+\input{4-resources.tex}
+\input{5-system-overview.tex}
+\input{6-experimental-evaluation.tex}
+\input{7-conclusions-future.tex}
+
+% References
+\renewcommand{\bibname}{\refname} % To change the heading of the chapter from Bibliography to References
+\addcontentsline{toc}{chapter}{\bibname}
+\bibliographystyle{plain}
+%\nocite{*} % Should be removed at the end to make sure all references are cited
+\bibliography{references}
+
+%\glsaddall
+\printglossaries
+
+\end{document}
+
+
+%1. Introduction
+%  1.1. Motivation
+%  1.2. Goals
+%2. State of the art
+%3. Resources
+%  3.1. NAO and Wifibot
+%  3.2. Kinect v2
+%  3.3. ROS & SMACH
+%  3.4. SOAR?
+%4. The System
+%  4.1. Architecture/Overview -> Diagramas, tipos de gestos
+%  4.2. Computer Vision: Real Time OnLine Gesture Recognition
+%            4.2.1. Dynamic Time Warping
+%            4.2.2. Skeletal extracted features per gesture
+%  4.3. Mobile Robotics: (Cognitive) Interaction
+%            4.3.1. State Machines
+%            4.3.2. Robot interaction (en este apartado 4.3 . no tengo muy claro como segmentarlo y que poner aún...)
+%            4.3.3. Moving to a more general, cognitive approach (explicar cómo he jugado con SOAR y cómo se podria aplicar)
+%5. Experimental evaluation
+%            5.1 Data, methods, and settings
+%            5.2 Gesture recognition evaluation
+%            5.3 User experience evaluation (preguntas, experimento, y opiniones, todo junto)
+%6. Conclusions and future work
+%References

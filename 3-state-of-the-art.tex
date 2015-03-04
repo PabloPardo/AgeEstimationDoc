@@ -1,0 +1,76 @@
+\chapter{State of the art}
+
+\section{Historical context}
+One of the earliest works in age estimation was done by A. Lanitis et al. \cite{Lanitis:2004:CDC:2225304.2226166, 791208, 993553} where the age is modelled by a quadratic aging function. They propose two different aging estimation methods: weighted appearance specific method \cite{791208, 993553}  -where the aging factor of a new individual is computed by the weighted sum of the aging functions of other individual- and appearance and age specific method \cite{Lanitis:2004:CDC:2225304.2226166} -where the new individual is first classified into a cluster with similar aging factor patterns, then is classified into different age ranges and an age-specific classifier is applied to estimate the final age-. 
+
+There are some drawbacks to this "aging function" approach pointed out by X. Geng et al. \cite{Geng:2006:LFA:1180639.1180711}. The formula of the aging function is empirically determined, there is no evidence suggesting that the relation between face and age is described just by a quadratic function. The new aging function for the unseen images is simply a linear combination of the already known aging functions. X. Geng et al. claimed to solve these problems in their new proposed method AGing pattErn Subspace (AGES) \cite{Geng:2006:LFA:1180639.1180711}. Where each face image is represented by a point in the aging pattern subspace.
+
+Later N. Ramanathan et al. \cite{1709980, 1640784} approached the age estimation problem in two different scenarios, estimating the age difference between two face images of the same individual based on a Bayesian age-difference classifier \cite{1709980} and estimating the age of young faces using the facial growth geometry \cite{1640784}. The problem of the last approach is that only can be applied to face images of young people in a growing age since afterwards the facial geometry does not change as much.
+
+Y. Fu et al. were the first on approach the problem through manifold analysis methods \cite{4284917, 4523958}. Each face image is assigned to its low-dimensional representation via manifold embedding. Following this approach G. Guo and Y. Fu et al. \cite{4531189} proposed a new method based on a study of different dimensionality reduction and manifold embedding and add a robust regression step to the previous framework. In a posterior work \cite{5995404}, G. Guo et al. introduces a new approach, using kernel partial least square (KPLS) regression which reduces feature dimensionality and learn the aging function in a single step.
+
+G. Guo et al. also proposed different approaches to the age estimation problem such as
+\cite{4563041}, where they propose probabilistic fusion approach, or \cite{conf/cvpr/GuoMFH09} where they introduce the Biological Inspired Features (BIF) for the age estimation problem and propose some changes adding a novel "STD" operator. H. Han et al. \cite{han:age} uses the BIF features in an hybrid classification framework improving the previous results. G. Guo et al. \cite{Guo2014761}, in a recent paper (2014), used the BIF features, and focus to investigate a proposed single-step framework for joint estimation of age, gender and ethnicity. Both the CCA (Canonical Correlation Analysis) and PLS (Partial Least Square) based methods were explored under the joint estimation framework.
+
+Under the same idea as Y. Fu et al. \cite{4284917}, K. Luu et al. \cite{Luu:2009:AEU:1736406.1736456, LuuSSBS11} reduced dimensionality by using facial landmarks and Active Shape Models (ASM) \cite{Luu:2009:AEU:1736406.1736456} and an improved version, Contourlet Appearance Model (CAM) \cite{LuuSSBS11}, where they prove the efficiency of using facial landmarks. Then T. Wu et al. \cite{journals/tifs/WuTC12} proposed to use facial landmarks and project them into a Grassmann manifold to model the age patterns.
+
+Other different variations of the problem has been addressed, A. Lanitis et al. \cite{5463396} performed a first approach to age estimation using Head and Mouse tracking movements, Y. Makihara et al. \cite{6117531} used a gait-based database to estimate the age, B. Xia et al. \cite{xia:hal-00904007} proposed an age estimation method based on 3D face images.
+
+There are also some surveys in age estimation by N. Ramanathan et al. \cite{Ramanathan2009131} and Y. Fu et al. \cite{5406526}.
+
+More recently studies have obtained a very high accuracy in face validation using deep learning \cite{facebook}.
+
+
+\section{Applications}
+Age estimation has always been a topic of interest because of its applications, however its a difficult task and it was not until few years ago that the community started getting useful results. The main applications for age estimation methods are the following:
+
+\begin{itemize}
+	\item Security control: Automatic age estimation systems can be used to prevent users from a certain age to access banned products.
+	\item Human-computer interaction: The systems can be used to give a more personalised service to the user.
+	\item Age-based indexing face images: Indexing large face images datasets for a fast an easy retrieval of faces is very important in for example law enforcement (filtering suspects images).
+\end{itemize}
+
+\section{Age-based Databases}
+
+\begin{table}[h!]
+	\centering
+	\resizebox{\textwidth}{!}{
+		\begin{tabular}{l|c|c|c|c|M{2.5cm}|M{2.5cm}|M{2.5cm}|N}
+			\cline{1-8}
+			\cellcolor[HTML]{EFEFEF}\textbf{Database} & \cellcolor[HTML]{EFEFEF}\textbf{\#Faces} & \cellcolor[HTML]{EFEFEF}\textbf{\#Subj.} & \cellcolor[HTML]{EFEFEF}\textbf{Range} & \cellcolor[HTML]{EFEFEF}\textbf{Type of age} & \cellcolor[HTML]{EFEFEF}\textbf{Controlled Env.} & \cellcolor[HTML]{EFEFEF}\textbf{Balanced age Distr.} & \cellcolor[HTML]{EFEFEF}\textbf{Other annotation} &\\[8pt] \hline
+			\multicolumn{1}{|p{1.8cm}|}{\textbf{FG-NET \cite{FGNET}}} & 1.002 & 82 & 0 - 69 & Real Age & No & No & 68 Landmarks &\\[5pt] \hline
+			\multicolumn{1}{|p{1.8cm}|}{\textbf{Morph2 \cite{1613043}}} & 55.134 & - & 16 - 77 & Real Age & Yes & No & - &\\[5pt] \hline
+			\multicolumn{1}{|p{1.8cm}|}{\textbf{YGA \cite{4523958}}} & 8.000 & 1.600 & 0 - 93 & Real Age & No & No & - &\\[5pt] \hline
+			\multicolumn{1}{|p{1.8cm}|}{\textbf{FERET\cite{Phillips1998295}}} & 14.126 & 1.199 & - & Real Age & Partially & No & - &\\[5pt] \hline
+			\multicolumn{1}{|p{1.8cm}|}{\textbf{Iranian face \cite{4469272}}} & ~3.600 & 616 & 2 - 85 & Real Age & No & No & Kind of skin and cosmetic points\footnote{Surgical points, fracture or laceration on face.}  &\\[5pt] \hline
+			\multicolumn{1}{|p{1.8cm}|}{\textbf{PIE \cite{1004130}}} & 41.638 & 68 & - & Real Age & Yes & No & - &\\[5pt] \hline
+			\multicolumn{1}{|p{1.8cm}|}{\textbf{Images of Gropus \cite{gallagher_cvpr_09_groups}}} & 28.231 & - & 0 - 66+ & Age group & No & No & - &\\[5pt] \hline
+			\multicolumn{1}{|p{1.8cm}|}{\textbf{WIT-BD \cite{Ueki:2006:SAC:1126250.1126269}}} & 26.222 & 5.500 & 3 - 85 & Age group & No & No & - &\\[5pt] \hline
+			\multicolumn{1}{|p{1.8cm}|}{\textbf{Caucasian Face Database \cite{burt1995perception}}} & 147 & - & 20 - 62 & Real Age & Yes & No & Shape represented in 208 key points &\\[5pt] \hline
+			\multicolumn{1}{|p{1.8cm}|}{\textbf{LHI \cite{LHI}}} & 8.000 & 8.000 & 9 - 89 & Real Age & Yes & Yes & - &\\[5pt] \hline
+			\multicolumn{1}{|p{1.8cm}|}{\textbf{HOIP \cite{HOIP}}} & 306.600 & 300 & 15 - 64 & Age Group & Yes & No & - &\\[5pt] \hline
+			\multicolumn{1}{|p{1.8cm}|}{\textbf{Gallagher’s Web-Collected Database \cite{gallagher_cvpr_09_groups}}} & 28.231 & - & 0 - 66+ & Age Group & No & No & - &\\[5pt] \hline
+			\multicolumn{1}{|p{1.8cm}|}{\textbf{Ni’s Web-Collected Database \cite{Ni:2009:WIM:1631272.1631287}}} & 219.892 & - & 1 - 80 & Real Age & No & No & - &\\[5pt] \hline
+			
+			\multicolumn{1}{|p{1.8cm}|}{\textbf{OUI-Adience \cite{6906255}}} & 26.580 & 2.284 & 0 - 60+ & Age Group & No & No & Gender &\\[5pt] \hline
+			
+		\end{tabular}
+	}
+	\caption{Age-based Databases}
+	\label{tab:age-db}
+\end{table}
+
+\begin{table}[h!]
+	\centering
+	\resizebox{\textwidth}{!}{
+		\begin{tabular}{|l|c|M{3cm}|M{3cm}|M{3cm}|c|c|N}
+			\cline{1-7}
+			\cellcolor[HTML]{EFEFEF}\textbf{Publication} & \cellcolor[HTML]{EFEFEF}\textbf{Year} &\cellcolor[HTML]{EFEFEF}\textbf{Database (\#subjects, \#images)} & \cellcolor[HTML]{EFEFEF}\textbf{Age Image Representation} & \cellcolor[HTML]{EFEFEF}\textbf{Method} & \cellcolor[HTML]{EFEFEF}\textbf{Accuracy} & \cellcolor[HTML]{EFEFEF}\textbf{MAE} &\\[8pt] \hline
+			\multicolumn{1}{|p{2.5cm}|}{\textbf{A. Lanitis et al. \cite{993553}}} & 2002 & Private (60, 500) & Active Appearance Models & Quadratic Aging Function & 71$\%$ & $3.94\pm3.8$&\\[5pt] \hline
+			\multicolumn{1}{|p{2.5cm}|}{\textbf{A. Lanitis et al. \cite{Lanitis:2004:CDC:2225304.2226166}}} & 2004 & Private (40, 400) & Active Appearance Models & Quadratic Aging Function & N/A & $3.82\pm5.58$&\\[5pt] \hline
+			\multicolumn{1}{|p{2.5cm}|}{\textbf{X. Geng et al. \cite{Geng:2006:LFA:1180639.1180711}}} & 2006 & FG-NET (82, 1.002) & AGES & Regression & N/A & $6.77$ &\\[5pt] \hline
+		\end{tabular}
+	}
+	\caption{Age Estimation Methods}
+	\label{tab:age-methods}
+\end{table}
