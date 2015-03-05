@@ -24,14 +24,17 @@ More recently studies have obtained a very high accuracy in face validation usin
 \section{Applications}
 Age estimation has always been a topic of interest because of its applications, however its a difficult task and it was not until few years ago that the community started getting useful results. The main applications for age estimation methods are the following:
 
-\begin{itemize}
-	\item Security control: Automatic age estimation systems can be used to prevent users from a certain age to access banned products.
-	\item Human-computer interaction: The systems can be used to give a more personalised service to the user.
-	\item Age-based indexing face images: Indexing large face images datasets for a fast an easy retrieval of faces is very important in for example law enforcement (filtering suspects images).
-\end{itemize}
+\subsection{Safety and control}
+Automatic age estimation systems can be used to prevent users from a certain age to access banned products.
+\subsection{Age-based indexing face images}
+The systems can be used to give a more personalised service to the user.
+\subsection{Human-computer interaction}
+Indexing large face images datasets for a fast an easy retrieval of faces is very important in for example law enforcement (filtering suspects images).
+
 
 \section{Age-based Databases}
-
+There are many databases of faces in the literature, however, not so many capture the age of the individuals. This fact is due to the complexity of crawling such an information (if existent) from the usual fonts such as \textit{Flickr} or \textit{Facebook} and due to privacy issues. Moreover, the difficulty is even higher if the database contains chronological image series of individuals. The Table \ref{tab:age-db} shows the most relevant databases used in the literature. 
+ 
 \begin{table}[h!]
 	\centering
 	\resizebox{\textwidth}{!}{
@@ -41,7 +44,7 @@ Age estimation has always been a topic of interest because of its applications, 
 			\multicolumn{1}{|p{1.8cm}|}{\textbf{FG-NET \cite{FGNET}}} & 1.002 & 82 & 0 - 69 & Real Age & No & No & 68 Landmarks &\\[5pt] \hline
 			\multicolumn{1}{|p{1.8cm}|}{\textbf{Morph2 \cite{1613043}}} & 55.134 & - & 16 - 77 & Real Age & Yes & No & - &\\[5pt] \hline
 			\multicolumn{1}{|p{1.8cm}|}{\textbf{YGA \cite{4523958}}} & 8.000 & 1.600 & 0 - 93 & Real Age & No & No & - &\\[5pt] \hline
-			\multicolumn{1}{|p{1.8cm}|}{\textbf{FERET\cite{Phillips1998295}}} & 14.126 & 1.199 & - & Real Age & Partially & No & - &\\[5pt] \hline
+			\multicolumn{1}{|p{1.8cm}|}{\textbf{FERET \cite{Phillips1998295}}} & 14.126 & 1.199 & - & Real Age & Partially & No & - &\\[5pt] \hline
 			\multicolumn{1}{|p{1.8cm}|}{\textbf{Iranian face \cite{4469272}}} & ~3.600 & 616 & 2 - 85 & Real Age & No & No & Kind of skin and cosmetic points\footnote{Surgical points, fracture or laceration on face.}  &\\[5pt] \hline
 			\multicolumn{1}{|p{1.8cm}|}{\textbf{PIE \cite{1004130}}} & 41.638 & 68 & - & Real Age & Yes & No & - &\\[5pt] \hline
 			\multicolumn{1}{|p{1.8cm}|}{\textbf{Images of Gropus \cite{gallaghercvpr09groups}}} & 28.231 & - & 0 - 66+ & Age group & No & No & - &\\[5pt] \hline
