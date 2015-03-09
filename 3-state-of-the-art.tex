@@ -1,6 +1,21 @@
 \chapter{State of the art} \label{chap:sota}
 
 \section{Historical context}
+Age estimation has historically been one of the most challenging problems within the field of facial analysis \cite{5406526} \cite{han:age}. Despite the multiple applications in many different areas of age estimation there are relatively few publications compared to other topics in facial analysis. This difficulty is due to many factors: 
+\begin{itemize}
+	\item Depending on the application scenario, the age estimation problem can be taken as a multiclass classification problem or a regression problem.
+	\item Large database are difficult to collect, especially series of chronological image from the same individuals.
+	\item The factors the affect the aging process are uncontrollable and person specific \cite{4284917} \cite{4359348} \cite{1709980}.
+\end{itemize}
+
+\note{Talk about close related fields (age synthesis, face validation, etc)}
+\note{Structure:}
+
+\note{Age Representation: List of techniques}
+
+\note{Age Estimation Algorithm: Classificaiton, Regression and Hybrid}
+
+
 One of the earliest works in age estimation was done by A. Lanitis et al. \cite{Lanitis:2004:CDC:2225304.2226166, 791208, 993553} where the age is modelled by a quadratic aging function. They propose two different aging estimation methods: weighted appearance specific method \cite{791208, 993553}  -where the aging factor of a new individual is computed by the weighted sum of the aging functions of other individual- and appearance and age specific method \cite{Lanitis:2004:CDC:2225304.2226166} -where the new individual is first classified into a cluster with similar aging factor patterns, then is classified into different age ranges and an age-specific classifier is applied to estimate the final age-. 
 
 There are some drawbacks to this "aging function" approach pointed out by X. Geng et al. \cite{Geng:2006:LFA:1180639.1180711}. The formula of the aging function is empirically determined, there is no evidence suggesting that the relation between face and age is described just by a quadratic function. The new aging function for the unseen images is simply a linear combination of the already known aging functions. X. Geng et al. claimed to solve these problems in their new proposed method AGing pattErn Subspace (AGES) \cite{Geng:2006:LFA:1180639.1180711}. Where each face image is represented by a point in the aging pattern subspace.
