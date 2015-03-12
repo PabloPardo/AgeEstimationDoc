@@ -62,10 +62,10 @@ With the rise of interest for big data new and more efficient ways to retrieve d
 With the growth of e-commerce, companies want to offer a more personalized experience to their customers. Personalizing the offer or the product itself increase the user's satisfaction and the companies sells. Some examples of such a policies are the following: Google \cite{Brin:1998:ALH:297810.297827} indexes the search results so the links that appear first appeal more to the user, Amazon \cite{Linden:2003:ARI:642462.642471} uses a recommender system to suggest products to the potential buyers according to their previous purchases, Netflix \cite{Koren:2009:MFT:1608565.1608614} held a competition in 2009 to create a film recommender system and gave a price of US \$1,000,000. Age estimation system could have an important role in the sector since age is a discriminative feature for different client profiles. Visada \cite{visada} is an example of the use of age estimation for recommend products.
 
 
-\section{Age-based Databases} \label{sec:ageDB}
+\section{Age-based Datasets} \label{sec:ageDB}
 There are many databases of faces in the literature, however, not so many capture the age of the individuals. This fact is due to the complexity of crawling such an information (if existent) from the usual fonts such as \textit{Flickr} or \textit{Facebook} and due to privacy issues. Moreover, the difficulty is even higher if the database contains chronological image series of individuals. The Table \ref{tab:age-db} shows the most relevant databases used in the literature with the number of samples, the number of subjects, the age range, the type of age and additional information if any. The \textit{FG-NET} \cite{993553} is one of the first and most consolidated age database, it is used to compare with other age estimation methods.
 
-After an initial interest on automatic age estimation from images dated back to the early 2000s \cite{Lanitis:2004:CDC:2225304.2226166}, \cite{993553}, \cite{palDB}, research in the field has experienced a renewed interest from 2006 on, since the availability of large databases like \textit{MORPH-Album 2} \cite{1613043}, which contains 55 times more age-annotated images than the \textit{FG-NET} database.
+After an initial interest in automatic age estimation from images dated back to the early 2000s \cite{Lanitis:2004:CDC:2225304.2226166}, \cite{993553}, \cite{palDB}, research in the field has experienced a renewed interest from 2006 on, since the availability of large databases like \textit{MORPH-Album 2} \cite{1613043}, which contains 55 times more age-annotated images than the \textit{FG-NET} database.
 
 \begin{table}[t!]
 
@@ -77,7 +77,7 @@ After an initial interest on automatic age estimation from images dated back to 
 	\cline{1-8}
 	\cellcolor[HTML]{EFEFEF}\textbf{Database} & \cellcolor[HTML]{EFEFEF}\textbf{\#Faces} & \cellcolor[HTML]{EFEFEF}\textbf{\#Subj.} & \cellcolor[HTML]{EFEFEF}\textbf{Range} & \cellcolor[HTML]{EFEFEF}\textbf{Type of age} & \cellcolor[HTML]{EFEFEF}\textbf{Controlled Env.} & \cellcolor[HTML]{EFEFEF}\textbf{Balanced age Distr.} & \cellcolor[HTML]{EFEFEF}\textbf{Other annotation} &\\[8pt] \hline
 	
-	\multicolumn{1}{|p{2cm}|}{\textbf{FG-NET \cite{993553, FGNET}}} & 1,002 & 82 & 0 - 69 & Real Age & No & No & 68 Landmarks &\\[5pt] \hline
+	\multicolumn{1}{|p{2cm}|}{\textbf{FG-NET \cite{993553, FGNET}}} & 1,002 & 82 & 0 - 69 & Real Age & No & No & 68 Facial Landmarks &\\[5pt] \hline
 	
 	\multicolumn{1}{|p{2cm}|}{\textbf{GROUPS \cite{gallagher_cvpr_09_groups}}} & 28,231 & 28,231 & 0 - 66+ & Age group & No & No & - &\\[5pt] \hline
 	
