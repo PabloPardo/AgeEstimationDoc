@@ -32,7 +32,7 @@ The application uses the API of Facebook to create a ranking with the user's Fac
 		\caption{Ranking Panel}
 		\label{fig:ranking}
 	\end{subfigure}
-	\caption{Age Recognition Application. (a) User can see the images of the rest of participants and vote for the apparent age. (b) User can upload images and see their uploads in the gallery, they also can see what is the average age the other users think the people of their uploaded images look like. (c) User can see the points they achieves by uploading and voting photos and the ranking among their friends and all the participants in the application.}\label{fig:application}
+	\caption{Age Recognition Application.} \label{fig:application}
 \end{figure}
 
 \subsection{Gamification Strategy}
@@ -41,18 +41,38 @@ The web-application is basically a platform to label and upload images, which is
 \begin{itemize}
 	\item The users or players get \textbf{points} for uploading and voting (labelling) images. The closer the vote is to the apparent age (average current voted age) the more points the player gets. This strategy is pretended to persuade the users to wrongly label the images.
 	\item Two \textbf{ranking} tables are shown to the users, one with the ranking positions of the users' Facebook friends and another showing the global classification. This strategy was created with the purpose of increase engagement between users, making them compete with each other. 
+	\item A system of achievements was implemented, including the four types of achievements shown in the Table \ref{tab:achiev}.
+	\begin{table}[!h]
+		\centering
+		\begin{tabular}{l|l}
+			\textbf{Achievement} & \textbf{Description} \\ \hline
+			Share it! &	Invite your friends to play and you will get stars.	\\
+			Precision &	The better your guesses, the higher your rank. \\
+			Vote! &	Vote on more images to get more stars.\\	
+			Add Pictures! &	Upload more images to get more stars. \\
+		\end{tabular}
+		\caption{List of achievements}
+		\label{tab:achiev}
+	\end{table}
 	\item Thanks to one of the Challenge sponsors, California Naturel \footnote{\url{http://www.californianaturel.com/}}, a bunch of cosmetic lots were offer as a \textbf{prize} for the ones who lid the global ranking. The aim of the prize was to push participation further.
 \end{itemize}
 
 
 \subsection{Application Structure}
-The web application
+When the users access the web for first time they have to register using their Facebook account and accept the terms and conditions for the application usage (further explanation of the legal terms in the Subsection \ref{sec:trouble}). After registration the \textit{How to play} panel will be displayed giving a short description of all the parts of the application.
 
+As it is shown in the Figure \ref{fig:application}, at the top of the site, there is a control menu that allows the users to move through all the site with just one click. A description of the different panels is written below:
 
+\begin{itemize}
+	\item \textbf{Profile}: In this section the users can keep track of their statistics (Number of uploaded images, number of votes, points obtained and global ranking position).
+	\item \textbf{Game}: This is the main section, four images are shown at the same time and the users are asked to guess the age of all of them. They can report the images if any of them is considered offensive, bad quality, more than one person appear in the image, etc.
+	\item \textbf{Achievements}: In this panel the users can keep track of their achievements and shows the next goals.
+	\item \textbf{Gallery}: In this section the players are able to see the images they have uploaded and see how many people have voted on them and get an estimation of the people opinion.
+	\item \textbf{Ranking}:	The last panel allows users to compare their scores with their Facebook friends in the \textit{Friends Ranking} and to all the players in the \textit{Global Ranking}.
+\end{itemize}
+
+\subsection{Troubleshooting}\label{sec:trouble}
 We ask the users to upload images of a single person and we give them tools to crop the image if necessary, we also ask them to give the real age (or as close as possible) of the person in uploaded image, allowing more analysis and comparisons with real age and apparent age.
-
-\subsection{Troubleshooting}
-The application was developed using Django's framework
 
 
 \section{HuPBA Age Dataset}
