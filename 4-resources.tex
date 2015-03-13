@@ -7,7 +7,7 @@ The idea of this work is to compare the performance between predicting real or a
 
 \section{Web Application}
 
-The aim of the web-based application was to speed up the collection and labelling processes and reach more people with broader backgrounds to create an age database as diverse as possible. These processes were implemented in a "gamified"\footnote{Gamification is the use of game thinking and game mechanics in non-game contexts to engage users in solving problems and increase users' self contributions. \cite{Deterding:2011:GDE:2181037.2181040}} fashion so the experience of the users with the application was satisfactory and engaging. 
+The aim of the web-based application was to speed up the collection and labelling processes and reach more people with broader backgrounds to create an age database as diverse as possible. These processes were implemented in a gamified \footnote{Gamification is the use of game thinking and game mechanics in non-game contexts to engage users in solving problems and increase users' self contributions. \cite{Deterding:2011:GDE:2181037.2181040}} fashion so the experience of the users with the application was satisfactory and engaging. 
 
 The application uses the API of Facebook to create a ranking with the user's Facebook friends and add a factor of competitiveness to the game, and also to collect information about the labellers such as gender, age and nationality.
 
@@ -35,17 +35,25 @@ The application uses the API of Facebook to create a ranking with the user's Fac
 	\caption{Age Recognition Application. (a) User can see the images of the rest of participants and vote for the apparent age. (b) User can upload images and see their uploads in the gallery, they also can see what is the average age the other users think the people of their uploaded images look like. (c) User can see the points they achieves by uploading and voting photos and the ranking among their friends and all the participants in the application.}\label{fig:application}
 \end{figure}
 
-\subsection{Gamification strategy}
-The gamification strategies were mainly three
-Ranking
-Feedback points
-Prizes
-\subsection{Application structure}
+\subsection{Gamification Strategy}
+The web-application is basically a platform to label and upload images, which is not funny or motivating. However, using gamification techniques the labeller engagement can be increased. The gamification strategies used were mainly three:
 
-\subsection{Implementation details}
+\begin{itemize}
+	\item The users or players get \textbf{points} for uploading and voting (labelling) images. The closer the vote is to the apparent age (average current voted age) the more points the player gets. This strategy is pretended to persuade the users to wrongly label the images.
+	\item Two \textbf{ranking} tables are shown to the users, one with the ranking positions of the users' Facebook friends and another showing the global classification. This strategy was created with the purpose of increase engagement between users, making them compete with each other. 
+	\item Thanks to one of the Challenge sponsors, California Naturel \footnote{\url{http://www.californianaturel.com/}}, a bunch of cosmetic lots were offer as a \textbf{prize} for the ones who lid the global ranking. The aim of the prize was to push participation further.
+\end{itemize}
 
-The web application was developed in a gamified way, i.e. the users or players get points for uploading and labeling images, the closer the age guess was to the apparent age (average labeled age) the more points the player obtains. In order to increase the engagement of the players we add a global and friends leaderboard where the users can see their position in the ranking. We ask the users to upload images of a single person and we give them tools to crop the image if necessary, we also ask them to give the real age (or as close as possible) of the person in uploaded image, allowing more analysis and
-comparisons with real age and apparent age.
+
+\subsection{Application Structure}
+The web application
+
+
+We ask the users to upload images of a single person and we give them tools to crop the image if necessary, we also ask them to give the real age (or as close as possible) of the person in uploaded image, allowing more analysis and comparisons with real age and apparent age.
+
+\subsection{Troubleshooting}
+The application was developed using Django's framework
+
 
 \section{HuPBA Age Dataset}
 
