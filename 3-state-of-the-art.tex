@@ -17,6 +17,8 @@ The age estimation problem has generally two stages or blocks, the first one is 
 \subsection{Age Representation}
 \note{Age Representation: List of techniques}
 
+There are many ways in the literature to represent age components. The first researchers in the field tried to extract age just with geometrical proportions \cite{Lanitis:2004:CDC:2225304.2226166}
+
 \subsection{Age Estimation Algorithm}
 \subsubsection{Classification Methods}
 \subsubsection{Regression Methods}
@@ -45,20 +47,34 @@ There are also some surveys in age estimation by N. Ramanathan et al. \cite{Rama
 
 More recently studies have obtained a very high accuracy in face validation using deep learning \cite{taigman2014deepface}.
 
+\begin{table}[h!]
+	\centering
+	\resizebox{\textwidth}{!}{
+		\begin{tabular}{|l|c|M{3cm}|M{3cm}|M{3cm}|c|c|N}
+			\cline{1-7}
+			\cellcolor[HTML]{EFEFEF}\textbf{Publication} & \cellcolor[HTML]{EFEFEF}\textbf{Year} &\cellcolor[HTML]{EFEFEF}\textbf{Database (\#subjects, \#images)} & \cellcolor[HTML]{EFEFEF}\textbf{Age Image Representation} & \cellcolor[HTML]{EFEFEF}\textbf{Method} & \cellcolor[HTML]{EFEFEF}\textbf{Accuracy} & \cellcolor[HTML]{EFEFEF}\textbf{MAE} &\\[8pt] \hline
+			\multicolumn{1}{|p{2.5cm}|}{\textbf{A. Lanitis et al. \cite{993553}}} & 2002 & Private (60, 500) & Active Appearance Models & Quadratic Aging Function & 71$\%$ & $3.94\pm3.8$&\\[5pt] \hline
+			\multicolumn{1}{|p{2.5cm}|}{\textbf{A. Lanitis et al. \cite{Lanitis:2004:CDC:2225304.2226166}}} & 2004 & Private (40, 400) & Active Appearance Models & Quadratic Aging Function & N/A & $3.82\pm5.58$&\\[5pt] \hline
+			\multicolumn{1}{|p{2.5cm}|}{\textbf{X. Geng et al. \cite{Geng:2006:LFA:1180639.1180711}}} & 2006 & FG-NET (82, 1.002) & AGES & Regression & N/A & $6.77$ &\\[5pt] \hline
+		\end{tabular}
+	}
+	\caption{Age Estimation Methods}
+	\label{tab:age-methods}
+\end{table}
 
 \section{Applications}
 There are many real-world application related to age estimation. Automatic age estimation is useful in situations where there is no need to specifically identify the individual, such as a government employee, but want to know his or her age.
 
-\subsection{Security control and surveillance monitoring}
+\subsection{Security Control and Surveillance Monitoring}
 In the last years security control and surveillance monitoring have gotten more relevant with the growth of internet content and the spread of technology that allows access to that content to under-age teenagers. Automatic age estimation systems can be used to prevent minors to buy alcohol in a grocery store, enter a bar or purchase tobacco from vending machines.
 
 \subsection{Biometrics}
 There are two types of biometric systems based on the number of traits used for recognition, unimodal biometric systems which consist on a single recognition trait and multimodal biometric systems, which combines evidences obtained from multiple sources \cite{MSU-CSE-99-39} such as fingerprints, iris, face, etc. The multimodal system is more robust, more reliable and secure against spoof attacks. However, the data acquisition is much more troublesome than the unimodal. In order to overcome this inconveniences, soft-biometrics \cite{conf/icba/JainDN04}, such as age, hight, weigh, gender, ethnicity and eye colour, are used in combination with classic biometric traits. 
 
-\subsection{Age-based indexing face images}
+\subsection{Age-based Indexing Face Databases}
 With the rise of interest for big data new and more efficient ways to retrieve data have to be developed. In large face image datasets, age can be used for index such a databases so the queries to the dataset are simpler and faster. This is specially important in law enforcement where large image databases of suspects have to be filtered in order to find the most accurate suspects.
 
-\subsection{Human-computer interaction}
+\subsection{Human-Computer Interaction and e-Commerce}
 With the growth of e-commerce, companies want to offer a more personalized experience to their customers. Personalizing the offer or the product itself increase the user's satisfaction and the companies sells. Some examples of such a policies are the following: Google \cite{Brin:1998:ALH:297810.297827} indexes the search results so the links that appear first appeal more to the user, Amazon \cite{Linden:2003:ARI:642462.642471} uses a recommender system to suggest products to the potential buyers according to their previous purchases, Netflix \cite{Koren:2009:MFT:1608565.1608614} held a competition in 2009 to create a film recommender system and gave a price of US \$1,000,000. Age estimation system could have an important role in the sector since age is a discriminative feature for different client profiles. Visada \cite{visada} is an example of the use of age estimation for recommend products.
 
 
@@ -114,46 +130,4 @@ After an initial interest in automatic age estimation from images dated back to 
 \caption{Age-based Databases}
 \label{tab:age-db}
 
-\end{table}
-%\begin{table}[h!]
-%	\centering
-%	\resizebox{\textwidth}{!}{
-%		\begin{tabular}{l|c|c|c|M{1.85cm}|M{2.3cm}|M{2.5cm}|M{2.5cm}|N}
-%			\cline{1-8}
-%			\cellcolor[HTML]{EFEFEF}\textbf{Database} & \cellcolor[HTML]{EFEFEF}\textbf{\#Faces} & \cellcolor[HTML]{EFEFEF}\textbf{\#Subj.} & \cellcolor[HTML]{EFEFEF}\textbf{Range} & \cellcolor[HTML]{EFEFEF}\textbf{Type of age} & \cellcolor[HTML]{EFEFEF}\textbf{Controlled Env.} & \cellcolor[HTML]{EFEFEF}\textbf{Balanced age Distr.} & \cellcolor[HTML]{EFEFEF}\textbf{Other annotation} &\\[8pt] \hline
-%			\multicolumn{1}{|p{2.2cm}|}{\textbf{FG-NET \cite{FGNET}}} & 1.002 & 82 & 0 - 69 & Real Age & No & No & 68 Landmarks &\\[5pt] \hline
-%			\multicolumn{1}{|p{2.2cm}|}{\textbf{Morph2 \cite{1613043}}} & 55.134 & - & 16 - 77 & Real Age & Yes & No & - &\\[5pt] \hline
-%			\multicolumn{1}{|p{2.2cm}|}{\textbf{YGA \cite{4523958}}} & 8.000 & 1.600 & 0 - 93 & Real Age & No & No & - &\\[5pt] \hline
-%			\multicolumn{1}{|p{2.2cm}|}{\textbf{FERET \cite{Phillips1998295}}} & 14.126 & 1.199 & - & Real Age & Partially & No & - &\\[5pt] \hline
-%			\multicolumn{1}{|p{2.2cm}|}{\textbf{Iranian face \cite{4469272}}} & ~3.600 & 616 & 2 - 85 & Real Age & No & No & Kind of skin and cosmetic points\footnote{Surgical points, fracture or laceration on face.}  &\\[5pt] \hline
-%			\multicolumn{1}{|p{2.2cm}|}{\textbf{PIE \cite{1004130}}} & 41.638 & 68 & - & Real Age & Yes & No & - &\\[5pt] \hline
-%			\multicolumn{1}{|p{2.2cm}|}{\textbf{Images of Gropus \cite{gallaghercvpr09groups}}} & 28.231 & - & 0 - 66+ & Age group & No & No & - &\\[5pt] \hline
-%			\multicolumn{1}{|p{2.2cm}|}{\textbf{WIT-BD \cite{Ueki:2006:SAC:1126250.1126269}}} & 26.222 & 5.500 & 3 - 85 & Age group & No & No & - &\\[5pt] \hline
-%			\multicolumn{1}{|p{2.2cm}|}{\textbf{Caucasian Face Database \cite{burt1995perception}}} & 147 & - & 20 - 62 & Real Age & Yes & No & Shape represented in 208 key points &\\[5pt] \hline
-%			\multicolumn{1}{|p{2.2cm}|}{\textbf{LHI \cite{LHI}}} & 8.000 & 8.000 & 9 - 89 & Real Age & Yes & Yes & - &\\[5pt] \hline
-%			\multicolumn{1}{|p{2.2cm}|}{\textbf{HOIP \cite{HOIP}}} & 306.600 & 300 & 15 - 64 & Age Group & Yes & No & - &\\[5pt] \hline
-%			\multicolumn{1}{|p{2.2cm}|}{\textbf{Gallagher’s Web-Collected Database \cite{gallaghercvpr09groups}}} & 28.231 & - & 0 - 66+ & Age Group & No & No & - &\\[5pt] \hline
-%			\multicolumn{1}{|p{2.2cm}|}{\textbf{Ni’s Web-Collected Database \cite{Ni:2009:WIM:1631272.1631287}}} & 219.892 & - & 1 - 80 & Real Age & No & No & - &\\[5pt] \hline
-%			
-%			\multicolumn{1}{|p{2.2cm}|}{\textbf{OUI-Adience \cite{6906255}}} & 26.580 & 2.284 & 0 - 60+ & Age Group & No & No & Gender &\\[5pt] \hline
-%			
-%		\end{tabular}
-%	}
-%	\caption{Age-based Databases}
-%	\label{tab:age-db}
-%\end{table}
-
-\begin{table}[h!]
-	\centering
-	\resizebox{\textwidth}{!}{
-		\begin{tabular}{|l|c|M{3cm}|M{3cm}|M{3cm}|c|c|N}
-			\cline{1-7}
-			\cellcolor[HTML]{EFEFEF}\textbf{Publication} & \cellcolor[HTML]{EFEFEF}\textbf{Year} &\cellcolor[HTML]{EFEFEF}\textbf{Database (\#subjects, \#images)} & \cellcolor[HTML]{EFEFEF}\textbf{Age Image Representation} & \cellcolor[HTML]{EFEFEF}\textbf{Method} & \cellcolor[HTML]{EFEFEF}\textbf{Accuracy} & \cellcolor[HTML]{EFEFEF}\textbf{MAE} &\\[8pt] \hline
-			\multicolumn{1}{|p{2.5cm}|}{\textbf{A. Lanitis et al. \cite{993553}}} & 2002 & Private (60, 500) & Active Appearance Models & Quadratic Aging Function & 71$\%$ & $3.94\pm3.8$&\\[5pt] \hline
-			\multicolumn{1}{|p{2.5cm}|}{\textbf{A. Lanitis et al. \cite{Lanitis:2004:CDC:2225304.2226166}}} & 2004 & Private (40, 400) & Active Appearance Models & Quadratic Aging Function & N/A & $3.82\pm5.58$&\\[5pt] \hline
-			\multicolumn{1}{|p{2.5cm}|}{\textbf{X. Geng et al. \cite{Geng:2006:LFA:1180639.1180711}}} & 2006 & FG-NET (82, 1.002) & AGES & Regression & N/A & $6.77$ &\\[5pt] \hline
-		\end{tabular}
-	}
-	\caption{Age Estimation Methods}
-	\label{tab:age-methods}
 \end{table}

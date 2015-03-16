@@ -41,7 +41,7 @@ The web-application is basically a platform to label and upload images, which is
 \begin{itemize}
 	\item The users or players get \textbf{points} for uploading and voting (labelling) images. The closer the vote is to the apparent age (average current voted age) the more points the player gets. This strategy is pretended to persuade the users to wrongly label the images.
 	\item Two \textbf{ranking} tables are shown to the users, one with the ranking positions of the users' Facebook friends and another showing the global classification. This strategy was created with the purpose of increase engagement between users, making them compete with each other. 
-	\item A system of achievements was implemented, including the four types of achievements shown in the Table \ref{tab:achiev}.
+	\item A system of \textbf{achievements} was implemented, including the four types of achievements shown in the Table \ref{tab:achiev}.
 	\begin{table}[!h]
 		\centering
 		\begin{tabular}{l|l}
@@ -51,7 +51,7 @@ The web-application is basically a platform to label and upload images, which is
 			Vote! &	Vote on more images to get more stars.\\	
 			Add Pictures! &	Upload more images to get more stars. \\
 		\end{tabular}
-		\caption{List of achievements}
+		\caption{List of achievements with its description}
 		\label{tab:achiev}
 	\end{table}
 	\item Thanks to one of the Challenge sponsors, California Naturel \footnote{\url{http://www.californianaturel.com/}}, a bunch of cosmetic lots were offer as a \textbf{prize} for the ones who lid the global ranking. The aim of the prize was to push participation further.
@@ -67,17 +67,21 @@ As it is shown in the Figure \ref{fig:application}, at the top of the site, ther
 	\item \textbf{Profile}: In this section the users can keep track of their statistics (Number of uploaded images, number of votes, points obtained and global ranking position).
 	\item \textbf{Game}: This is the main section (Figure \ref{fig:game}), four images are shown at the same time and the users are asked to guess the age of all of them. They can report the images if any of them is considered offensive, bad quality, more than one person appear in the image, etc.
 	\item \textbf{Achievements}: In this panel the users can keep track of their achievements and shows the next goals.
-	\item \textbf{Gallery}: In this section (Figure \ref{fig:gallery}) the players are able to see the images they have uploaded and see how many people have voted on them and get an estimation of the people opinion.
+	\item \textbf{Gallery}: In this section (Figure \ref{fig:gallery}) the players are able to see the images they have uploaded and see how many people have voted on them and get an estimation of the people opinion. They are also able to upload new images in this panel, while uploading they are asked to crop (if necessary) and specify the real age of the person in the image.
 	\item \textbf{Ranking}:	The last panel (Figure \ref{fig:ranking}) allows users to compare their scores with their Facebook friends in the \textit{Friends Ranking} and to all the players in the \textit{Global Ranking}.
 \end{itemize}
 
 \subsection{Troubleshooting}\label{sec:trouble}
+\note{Add}
+
 We ask the users to upload images of a single person and we give them tools to crop the image if necessary, we also ask them to give the real age (or as close as possible) of the person in uploaded image, allowing more analysis and comparisons with real age and apparent age.
 
 
 \section{HuPBA Age Dataset}
 
-Few weeks after release the application we have alread collected near 1000 images and near 10000 votes. These numbers will continue growing in order to generate the future competition. Some of the properties of the database which is being collected with the web application are listed below:
+\note{Show statistic analysis of the database}
+
+Few weeks after release the application we have already collected near 1000 images and near 10000 votes. These numbers will continue growing in order to generate the future competition. Some of the properties of the database which is being collected with the web application are listed below:
 
 \begin{itemize}
 	\item Thousands of faces labeled by many users.
