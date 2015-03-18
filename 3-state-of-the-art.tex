@@ -1,30 +1,32 @@
 \chapter{State of the art} \label{chap:sota}
 
-\section{Historical context}
-\note{Talk about soft computing}
-
 Age estimation has historically been one of the most challenging problems within the field of facial analysis \cite{5406526}\cite{han:age}. Despite the multiple applications in many different areas of age estimation there are relatively few publications compared to other topics in facial analysis. This difficulty is due to many factors: 
 \begin{itemize}
 	\item Depending on the application scenario, the age estimation problem can be taken as a multiclass classification problem or a regression problem.
 	\item Large database are difficult to collect, especially series of chronological image from the same individuals.
-	\item The factors the affect the aging process are uncontrollable and person specific \cite{4284917}\cite{4359348}\cite{1709980}.
+	\item The factors the affect the ageing process are uncontrollable and person specific \cite{4284917}\cite{4359348}\cite{1709980}.
 \end{itemize}
 
-\note{Talk about close related fields (age synthesis, face validation, etc)}
+The age estimation problem has generally three stages or blocks, the first one is the face detection and alignment, the second one is the age representation in the images and the third one the estimation itself with the computed data. There are many different techniques for both stages. \cite{5406526}
 
-The age estimation problem has generally two stages or blocks, the first one is the age representation in the images and the second one the estimation itself with the computed data. There are many different techniques for both stages. \cite{5406526}
+\section{Face Detection and Alignment}
+\section{Age Representation}
 
-\subsection{Age Representation}
-\note{Age Representation: List of techniques}
+There are many ways in the literature to represent ageing factors from an image such as geometric proportions, 
 
-There are many ways in the literature to represent age components. The first researchers in the field tried to extract age just with geometrical proportions \cite{Lanitis:2004:CDC:2225304.2226166}
+The first researchers in the field tried to tackle the problem by using geometrical proportions of the different face components  \cite{Lanitis:2004:CDC:2225304.2226166}, 
+\subsection{Geometrical Models}
+\subsection{Active Appearance Models}
+\subsection{Ageing Pattern Subspace}
+\subsection{Age Manifold}
+\subsection{Appearance Models}
 
-\subsection{Age Estimation Algorithm}
-\subsubsection{Classification Methods}
-\subsubsection{Regression Methods}
-\subsubsection{Hybrid Methods}
+\section{Age Estimation Algorithm}
+\subsection{Classification Methods}
+\subsection{Regression Methods}
+\subsection{Hybrid Methods}
 
-\subsection{Related areas}
+\section{Related areas}
 \note{Age Estimation Algorithm: Classificaiton, Regression and Hybrid}
 
 
