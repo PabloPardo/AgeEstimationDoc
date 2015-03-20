@@ -15,9 +15,14 @@ The age estimation problem has generally three stages or blocks, the first one i
 Age Representation is a very important step in the age estimation process. A good age representation will contain enough variation of the data to express the full complexity of the problem. There are many ways in the literature to represent ageing factors from an image, the most important are described below.
 
 \subsection{Anthropomorphic Models}
-The first known work on age estimation from facial images was done by Y. Kwon and N. Lobo \cite{Kwon:1999:ACF:311844.311845}. Their approach is based in cranio-facial development theory using geometrical ratios to classify images into one of three age groups (babies, young adults and senior adults).
+The first known work on age estimation from facial images was done by Y. Kwon and N. Lobo \cite{Kwon:1999:ACF:311844.311845}. Their approach is based in cranio-facial development theory using geometrical ratios between different face regions to classify images into one of three age groups (babies, young adults and senior adults). They used frontal images in a very strict set up to be able to locate all face components. N. Ramanathan et al. \cite{1640784} used a similar approach in this case using 8 ratios rather than the 6 used by Y. Kwon et al.
+
+The problem of this model is that only can be applied to face images of young people in a growing age since afterwards the facial geometry does not change as much. It is also a problem that the methods require of frontal images since it limits the future applications.
+
 \subsection{Active Appearance Models}
-The first researchers in the field tried to tackle the problem by using geometrical proportions of the different face components  \cite{Lanitis:2004:CDC:2225304.2226166}, 
+
+Active Appearance Models (AAM) is a statistical shape model proposed by T.F Cootes et al. \cite{Cootes:2001:AAM:378040.378090}. This model contains the shape and grey-level appearance of the object of interest which can generalize to almost any valid example. This technique has been used to find the shape of faces by many researchers. A. Lanitis et al. 
+\cite{Lanitis:2004:CDC:2225304.2226166} were the first in extend the AAM model for age estimation by defining an ageing function $age=f(b)$, where \textbf{f} is an ageing function, \textbf{b} is a vector containing the parameters learned by the AAM.
 \subsection{Ageing Pattern Subspace}
 \subsection{Age Manifold}
 \subsection{Appearance Models}
@@ -35,7 +40,7 @@ One of the earliest works in age estimation was done by A. Lanitis et al. \cite{
 
 There are some drawbacks to this "aging function" approach pointed out by X. Geng et al. \cite{Geng:2006:LFA:1180639.1180711}. The formula of the aging function is empirically determined, there is no evidence suggesting that the relation between face and age is described just by a quadratic function. The new aging function for the unseen images is simply a linear combination of the already known aging functions. X. Geng et al. claimed to solve these problems in their new proposed method AGing pattErn Subspace (AGES) \cite{Geng:2006:LFA:1180639.1180711}. Where each face image is represented by a point in the aging pattern subspace.
 
-Later N. Ramanathan et al. \cite{1709980, 1640784} approached the age estimation problem in two different scenarios, estimating the age difference between two face images of the same individual based on a Bayesian age-difference classifier \cite{1709980} and estimating the age of young faces using the facial growth geometry \cite{1640784}. The problem of the last approach is that only can be applied to face images of young people in a growing age since afterwards the facial geometry does not change as much.
+Later N. Ramanathan et al. \cite{1709980, 1640784} approached the age estimation problem in two different scenarios, estimating the age difference between two face images of the same individual based on a Bayesian age-difference classifier \cite{1709980}.
 
 Y. Fu et al. were the first on approach the problem through manifold analysis methods \cite{4284917, 4523958}. Each face image is assigned to its low-dimensional representation via manifold embedding. Following this approach G. Guo and Y. Fu et al. \cite{4531189} proposed a new method based on a study of different dimensionality reduction and manifold embedding and add a robust regression step to the previous framework. In a posterior work \cite{5995404}, G. Guo et al. introduces a new approach, using kernel partial least square (KPLS) regression which reduces feature dimensionality and learn the aging function in a single step.
 
