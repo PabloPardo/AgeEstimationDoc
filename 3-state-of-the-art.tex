@@ -10,6 +10,7 @@ Age estimation has historically been one of the most challenging problems within
 The age estimation problem has generally three stages or blocks, the first one is the face detection and alignment, the second one is the age representation in the images and the third one the estimation itself with the computed data. There are many different techniques for both stages. \cite{5406526}
 
 \section{Face Detection and Alignment}
+\note{See whether to write this section or not}
 \section{Age Representation}
 
 Age Representation is a very important step in the age estimation process. A good age representation will contain enough variation of the data to express the full complexity of the problem. There are many ways in the literature to represent ageing factors from an image, the most important are described below.
@@ -25,9 +26,11 @@ Active Appearance Models (AAM) is a statistical shape model proposed by T.F Coot
 
 A. Lanitis et al. \cite{Lanitis:2004:CDC:2225304.2226166} also tried different classifiers such as Quadratic Functions, Shortest Distance Classifier, Supervised Neural Network and Unsupervised Neural Network. Among all of them they reported that Quadratic Functions where the ones performing best.
 
-This model captures shape and texture information and in general performs better than the \textit{Anthropomorphic Models}. This method can deal with any range of ages rather than just with young ages like the previous model.
+This model captures shape and texture information and in general performs better than the \textit{Anthropomorphic Models}. This method can deal with any range of ages rather than just with young ages like the previous model. However, as suggested by X. Geng et al. \cite{Geng:2006:LFA:1180639.1180711}, the ageing functions is empirically determined, so there is no evidence suggesting that the relation between face and age is described just by a quadratic function.
 
 \subsection{Ageing Pattern Subspace}
+
+X. Geng et al. \cite{Geng:2006:LFA:1180639.1180711, 4359348} were the ones that explored this model initially which is called AGing pattErn Subspace (AGES). They define an \textit{ageing pattern} as a sequence of personal face images sorted in time order. Given a grey-scale face image $\textbf{I}$, where $\textbf{I}(x,y)$ determines the intensity of the pixel $(x,y)$, then an ageing pattern can be represented as a three-dimensional matrix $\textbf{P}$, where $\textbf{P}(x,y,t)$ is the intensity of the pixel $(x,y)$ in the face image at the time $t$. The images vector is filled with the available face images leaving empty the missing faces in the $t$ axis. Now, the images in the age pattern vector can be precessed and transformed into meaningful feature vectors.
 
 \subsection{Age Manifold}
 \subsection{Appearance Models}
@@ -41,7 +44,7 @@ This model captures shape and texture information and in general performs better
 
 
 
-There are some drawbacks to this "aging function" approach pointed out by X. Geng et al. \cite{Geng:2006:LFA:1180639.1180711}. The formula of the aging function is empirically determined, there is no evidence suggesting that the relation between face and age is described just by a quadratic function. The new aging function for the unseen images is simply a linear combination of the already known aging functions. X. Geng et al. claimed to solve these problems in their new proposed method AGing pattErn Subspace (AGES) \cite{Geng:2006:LFA:1180639.1180711}. Where each face image is represented by a point in the aging pattern subspace.
+
 
 Later N. Ramanathan et al. \cite{1709980, 1640784} approached the age estimation problem in two different scenarios, estimating the age difference between two face images of the same individual based on a Bayesian age-difference classifier \cite{1709980}.
 
