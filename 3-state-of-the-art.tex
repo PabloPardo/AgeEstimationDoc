@@ -30,11 +30,21 @@ This model captures shape and texture information and in general performs better
 
 \subsection{Ageing Pattern Subspace}
 
-X. Geng et al. \cite{Geng:2006:LFA:1180639.1180711, 4359348} were the ones that explored this model initially which is called AGing pattErn Subspace (AGES). They define an \textit{ageing pattern} as a sequence of personal face images sorted in time order. Given a grey-scale face image $\textbf{I}$, where $\textbf{I}(x,y)$ determines the intensity of the pixel $(x,y)$, then an ageing pattern can be represented as a three-dimensional matrix $\textbf{P}$, where $\textbf{P}(x,y,t)$ is the intensity of the pixel $(x,y)$ in the face image at the time $t$. The images vector is filled with the available face images leaving empty the missing faces in the $t$ axis. Now, the images in the age pattern vector can be precessed and transformed into meaningful feature vectors.
+X. Geng et al. \cite{4359348, Geng:2006:LFA:1180639.1180711} were the ones that explored this model initially which is called AGing pattErn Subspace (AGES). They define an \textit{ageing pattern} as a sequence of personal face images sorted in time order. Given a grey-scale face image $\textbf{I}$, where $\textbf{I}(x,y)$ determines the intensity of the pixel $(x,y)$, then an ageing pattern can be represented as a three-dimensional matrix $\textbf{P}$, where $\textbf{P}(x,y,t)$ is the intensity of the pixel $(x,y)$ in the face image at the time $t$. The images vector is filled with the available face images leaving empty the missing faces in the $t$ axis. Now, the images in the age pattern vector can be precessed and transformed into meaningful feature vectors.
+
+In order to extract the features X. Geng use AAM as used in \cite{791208} since they capture the shape and texture of the face images. By representing ageing patterns in this way, the concepts of identity and time are naturally integrated into the data without any pre-assumptions.
+
+The principal drawback of the AGES method is that assumes that there are images of the same individual at different ages, which is not true in all the age databases, like in the Yamaha Gender and Age (YGA) database \cite{4523958}, and it is difficult to collect such a databases.
 
 \subsection{Age Manifold}
+
+The manifold learning methods are applied to find a sufficient embedding space and model the low-dimensional manifold data with a multiple linear regression function. Y. Fu et al. \cite{4523958, 4284917} were the first in proposing a manifold embedding approach. 
+
+on approach the problem through manifold analysis methods \cite{4284917, 4523958}. Each face image is assigned to its low-dimensional representation via manifold embedding. Following this approach G. Guo and Y. Fu et al. \cite{4531189} proposed a new method based on a study of different dimensionality reduction and manifold embedding and add a robust regression step to the previous framework. In a posterior work \cite{5995404}, G. Guo et al. introduces a new approach, using kernel partial least square (KPLS) regression which reduces feature dimensionality and learn the aging function in a single step.
+
 \subsection{Appearance Models}
 \section{Age Estimation Algorithm}
+Given an age representation, the next step is to determine the age out of the ageing features. Age labels can be seen as a discrete set of classes or as a continuous label space, hence classification and regression methods can be used.
 \subsection{Classification Methods}
 \subsection{Regression Methods}
 \subsection{Hybrid Methods}
@@ -48,7 +58,7 @@ X. Geng et al. \cite{Geng:2006:LFA:1180639.1180711, 4359348} were the ones that 
 
 Later N. Ramanathan et al. \cite{1709980, 1640784} approached the age estimation problem in two different scenarios, estimating the age difference between two face images of the same individual based on a Bayesian age-difference classifier \cite{1709980}.
 
-Y. Fu et al. were the first on approach the problem through manifold analysis methods \cite{4284917, 4523958}. Each face image is assigned to its low-dimensional representation via manifold embedding. Following this approach G. Guo and Y. Fu et al. \cite{4531189} proposed a new method based on a study of different dimensionality reduction and manifold embedding and add a robust regression step to the previous framework. In a posterior work \cite{5995404}, G. Guo et al. introduces a new approach, using kernel partial least square (KPLS) regression which reduces feature dimensionality and learn the aging function in a single step.
+
 
 G. Guo et al. also proposed different approaches to the age estimation problem such as
 \cite{4563041}, where they propose probabilistic fusion approach, or \cite{conf/cvpr/GuoMFH09} where they introduce the Biological Inspired Features (BIF) for the age estimation problem and propose some changes adding a novel "STD" operator. H. Han et al. \cite{han:age} uses the BIF features in an hybrid classification framework improving the previous results. G. Guo et al. \cite{Guo2014761}, in a recent paper (2014), used the BIF features, and focus to investigate a proposed single-step framework for joint estimation of age, gender and ethnicity. Both the CCA (Canonical Correlation Analysis) and PLS (Partial Least Square) based methods were explored under the joint estimation framework.
