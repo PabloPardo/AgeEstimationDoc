@@ -40,9 +40,10 @@ The principal drawback of the AGES method is that assumes that there are images 
  
 The manifold learning methods are applied to find a sufficient embedding space and model the low-dimensional manifold data with a multiple linear regression function. Y. Fu et al. \cite{4523958, 4284917} were the first in proposing a manifold embedding approach for the age estimation problem. 
 
-Each face image is assigned to its low-dimensional representation via manifold embedding. Following this approach G. Guo and Y. Fu et al. \cite{4531189} proposed a new method based on a study of different dimensionality reduction and manifold embedding and add a robust regression step to the previous framework. In a posterior work \cite{5995404}, G. Guo et al. introduces a new approach, using kernel partial least square (KPLS) regression which reduces feature dimensionality and learn the aging function in a single step.
+The objective of this method is to find the low-dimensional representation in the embedded subspace capturing the intrinsic data distribution and geometric structure as well as its representation. G. Guo et al. \cite{Guo:2008:IHA:2319085.2321608} \cite{4531189} shows that the Orthogonal Locality Preserving Projections (OLPP) \cite{CHHZ06}  is a good an effective algorithm  to connect the manifold learning with subspace learning. In a posterior work \cite{5995404}, G. Guo et al. introduces a new approach, using kernel partial least square (KPLS) regression which reduces feature dimensionality and learn the ageing function in a single step.
 
-\note{Finish}
+The main drawback of the age manifold representation is the number of training instances required to learn the embedded manifold with statistical sufficiency.
+
 \subsection{Appearance Models}
 \note{Finish}
 
