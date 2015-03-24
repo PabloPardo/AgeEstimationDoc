@@ -82,9 +82,38 @@ When users first register in the website they are asked to read and accept the t
 
 \section{HuPBA Age Dataset}
 
+This section will describe and analyse the collected database called HuPBA Age Dataset.
+
+The Table \ref{tab:charact} shows the main characteristics of the database. The web application gather more than 1500 images and almost 15000 votes, which means almost 10 votes pes image in average.
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|l|l|}
+		\rowcolor[HTML]{EFEFEF} 
+		\hline
+		\multicolumn{2}{|l|}{\cellcolor[HTML]{EFEFEF}\textbf{Features}} & Count \\ \hline
+		\multicolumn{2}{|l|}{Images}                                    & 1506  \\ \hline
+		& female                & 44    \\ \cline{2-3} 
+		\multirow{-2}{*}{Users}                 & male                  & 110   \\ \hline
+		& female                & 1753  \\ \cline{2-3} 
+		\multirow{-2}{*}{Votes}                 & male                  & 13144 \\ \hline
+	\end{tabular}
+	\caption{HuPBA Age Database Characteristics}
+	\label{tab:charact}
+\end{table}
+	
+The distribution of the different age labels among the ages is not uniform
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\textwidth]{figures/Label_Distribution.png}
+	\caption{Labels Distribution}
+	\label{fig:distr}
+\end{figure}
+ 
 \note{Show statistic analysis of the database}
 
-Few weeks after release the application we have already collected near 1000 images and near 10000 votes. These numbers will continue growing in order to generate the future competition. Some of the properties of the database which is being collected with the web application are listed below:
+Some of the properties of the database which is being collected with the web application are listed below:
 
 \begin{itemize}
 	\item Thousands of faces labeled by many users.

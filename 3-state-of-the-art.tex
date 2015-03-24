@@ -77,7 +77,15 @@ Given an age representation, the next step is to determine the individual's age 
 	\resizebox{\textwidth}{!}{
 		\begin{tabular}{|l|c|M{3cm}|M{3cm}|M{3cm}|c|c|N}
 			\cline{1-7}
-			\cellcolor[HTML]{EFEFEF}\textbf{Publication} & \cellcolor[HTML]{EFEFEF}\textbf{Year} &\cellcolor[HTML]{EFEFEF}\textbf{Database (\#subjects, \#images)} & \cellcolor[HTML]{EFEFEF}\textbf{Age Image Representation} & \cellcolor[HTML]{EFEFEF}\textbf{Method} & \cellcolor[HTML]{EFEFEF}\textbf{Accuracy} & \cellcolor[HTML]{EFEFEF}\textbf{MAE} &\\[8pt] \hline
+			\rowcolor[HTML]{EFEFEF} 
+			\hline
+			\textbf{Publication} & 
+			\textbf{Year} &
+			\textbf{Database (\#subjects, \#images)} &
+			\textbf{Age Image Representation} &
+			\textbf{Method} & 
+			\textbf{Accuracy} & 
+			\textbf{MAE} &\\[8pt] \hline
 			\multicolumn{1}{|p{2.5cm}|}{\textbf{A. Lanitis et al. \cite{993553}}} & 2002 & Private (60, 500) & Active Appearance Models & Quadratic Aging Function & 71$\%$ & $3.94\pm3.8$&\\[5pt] \hline
 			\multicolumn{1}{|p{2.5cm}|}{\textbf{A. Lanitis et al. \cite{Lanitis:2004:CDC:2225304.2226166}}} & 2004 & Private (40, 400) & Active Appearance Models & Quadratic Aging Function & N/A & $3.82\pm5.58$&\\[5pt] \hline
 			\multicolumn{1}{|p{2.5cm}|}{\textbf{X. Geng et al. \cite{Geng:2006:LFA:1180639.1180711}}} & 2006 & FG-NET (82, 1.002) & AGES & Regression & N/A & $6.77$ &\\[5pt] \hline
@@ -116,6 +124,7 @@ After an initial interest in automatic age estimation from images dated back to 
 \begin{tabular}{|l|c|c|c|c|M{2.5cm}|M{2.5cm}|M{2.5cm}|N}
 	\hline
 	\cline{1-8}
+	\hline
 	\cellcolor[HTML]{EFEFEF}\textbf{Database} & \cellcolor[HTML]{EFEFEF}\textbf{\#Faces} & \cellcolor[HTML]{EFEFEF}\textbf{\#Subj.} & \cellcolor[HTML]{EFEFEF}\textbf{Range} & \cellcolor[HTML]{EFEFEF}\textbf{Type of age} & \cellcolor[HTML]{EFEFEF}\textbf{Controlled Env.} & \cellcolor[HTML]{EFEFEF}\textbf{Balanced age Distr.} & \cellcolor[HTML]{EFEFEF}\textbf{Other annotation} &\\[8pt] \hline
 	
 	\multicolumn{1}{|p{2cm}|}{\textbf{FG-NET \cite{993553, FGNET}}} & 1,002 & 82 & 0 - 69 & Real Age & No & No & 68 Facial Landmarks &\\[5pt] \hline
