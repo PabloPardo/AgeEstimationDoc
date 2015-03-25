@@ -39,6 +39,8 @@
 \makesavenoteenv{tabular}
 \makesavenoteenv{table}
 
+\usepackage[numbers]{natbib}
+
 %So that subsubsections appear in the TOC and are numbered
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
@@ -63,7 +65,7 @@
     pdfstartview=FitH,
     pdfauthor={Pablo Pardo Garcia},
     pdfsubject={Master Thesis},
-    pdftitle={Automatic Age Estimation in Still Images},
+    pdftitle={Automatic Real and Apparent Age Estimation in Still Images},
     pdfkeywords={gesture recognition, NAO, wifibot, robotics, Msc Thesis},
 }
 
@@ -149,7 +151,7 @@ To write some time in the future...
 % References
 \renewcommand{\bibname}{\refname} % To change the heading of the chapter from Bibliography to References
 \addcontentsline{toc}{chapter}{\bibname}
-\bibliographystyle{plain}
+\bibliographystyle{plainnat}
 %\nocite{*} % Should be removed at the end to make sure all references are cited
 \bibliography{references}
 
