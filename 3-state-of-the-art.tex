@@ -42,18 +42,27 @@ The manifold learning methods are applied to find a sufficient embedding space a
 
 The objective of this method is to find the low-dimensional representation in the embedded subspace capturing the intrinsic data distribution and geometric structure as well as its representation. G. Guo et al. \cite{Guo:2008:IHA:2319085.2321608} \cite{4531189} shows that the Orthogonal Locality Preserving Projections (OLPP) \cite{CHHZ06}  is a good an effective algorithm  to connect the manifold learning with subspace learning. In a posterior work \cite{5995404}, G. Guo et al. introduces a new approach, using kernel partial least square (KPLS) regression which reduces feature dimensionality and learn the ageing function in a single step.
 
+Then T. Wu et al. \cite{journals/tifs/WuTC12} proposed to model the facial shapes as points on a Grassmann manifold. Age estimation is then considered as regression and classification problems on this manifold. Then, they proposed a method for combining this shape-based approach with other texture-based algorithms.
+
 The main drawback of the age manifold representation is the number of training instances required to learn the embedded manifold with statistical sufficiency.
 
 \subsection{Appearance Models}
-\note{Finish}
 
-G. Guo et al. also proposed different approaches to the age estimation problem such as
+Appearance Models focus on wrinkles, face texture and pattern analysis. From the beginning, researchers have tried to capture wrinkles and distinguish them from facial lines. Y. Kwon et al. \cite{Kwon:1999:ACF:311844.311845} proposed a wrinkle detector based on snakelets \cite{Kass88snakes:active} placed into key wrinkle areas of the face. Hayashi et al. \cite{969698} \cite{1195171} \cite{conf/icpr/HayashiYIK02} combined both shape and texture to estimate age and gender. In Hayashi's proposed approach, the skin is extracted based on a shape model and then a histogram equalization is applied to emphasize wrinkles.
+
+Other researchers have used the texture descriptor Local Binary Patterns (LBP) \cite{Ahonen:2006:FDL:1175897.1176245} in the age estimation problem, such as \cite{4717926} \cite{6460367} obtaining good classification results with Nearest Neighbour and SVM classification algorithms. The Gabor \cite{Liu:2002:GFB:2319007.2320264} filter texture descriptor has also been used in the age estimation task  \cite{Gao:2009:FAC:1567988.1568003}, probing to be more discriminative than LBP.
+
+G. Guo et al. \cite{conf/cvpr/GuoMFH09} proposed to use Biological Inspired Features (BIF) \cite{Riesenhuber99hierarchicalmodels} for age estimation via faces. The BIF descriptor tries to mimic how the visual cortex works, with a hierarchy of increasingly sophisticated representations.
+
+\note{To Finish}
+
+G. Guo et al. proposed different approaches to the age estimation problem such as
 \cite{4563041}, where they propose probabilistic fusion approach, or \cite{conf/cvpr/GuoMFH09} where they introduce the Biological Inspired Features (BIF) for the age estimation problem and propose some changes adding a novel "STD" operator. H. Han et al. \cite{han:age} uses the BIF features in an hybrid classification framework improving the previous results. G. Guo et al. \cite{Guo2014761}, in a recent paper (2014), used the BIF features, and focus to investigate a proposed single-step framework for joint estimation of age, gender and ethnicity. Both the CCA (Canonical Correlation Analysis) and PLS (Partial Least Square) based methods were explored under the joint estimation framework.
 
-Under the same idea as Y. Fu et al. \cite{4284917}, K. Luu et al. \cite{Luu:2009:AEU:1736406.1736456, LuuSSBS11} reduced dimensionality by using facial landmarks and Active Shape Models (ASM) \cite{Luu:2009:AEU:1736406.1736456} and an improved version, Contourlet Appearance Model (CAM) \cite{LuuSSBS11}, where they prove the efficiency of using facial landmarks. Then T. Wu et al. \cite{journals/tifs/WuTC12} proposed to use facial landmarks and project them into a Grassmann manifold to model the age patterns.
+Under the same idea as Y. Fu et al. \cite{4284917}, K. Luu et al. \cite{Luu:2009:AEU:1736406.1736456, LuuSSBS11} reduced dimensionality by using facial landmarks and Active Shape Models (ASM) \cite{Luu:2009:AEU:1736406.1736456} and an improved version, Contourlet Appearance Model (CAM) \cite{LuuSSBS11}, where they prove the efficiency of using facial landmarks.
 
 \subsection{Other}
-\note{Finish}
+\note{To Finish}
 
 There are some other variations of the age estimation problem which require different approaches. 
 
@@ -89,6 +98,7 @@ Given an age representation, the next step is to determine the individual's age 
 			\multicolumn{1}{|p{2.5cm}|}{\textbf{A. Lanitis et al. \cite{993553}}} & 2002 & Private (60, 500) & Active Appearance Models & Quadratic Aging Function & 71$\%$ & $3.94\pm3.8$&\\[5pt] \hline
 			\multicolumn{1}{|p{2.5cm}|}{\textbf{A. Lanitis et al. \cite{Lanitis:2004:CDC:2225304.2226166}}} & 2004 & Private (40, 400) & Active Appearance Models & Quadratic Aging Function & N/A & $3.82\pm5.58$&\\[5pt] \hline
 			\multicolumn{1}{|p{2.5cm}|}{\textbf{X. Geng et al. \cite{Geng:2006:LFA:1180639.1180711}}} & 2006 & FG-NET (82, 1.002) & AGES & Regression & N/A & $6.77$ &\\[5pt] \hline
+			\note{Add More Methods}&&&&&&&\\\hline
 		\end{tabular}
 	}
 	\caption{Age Estimation Methods}
