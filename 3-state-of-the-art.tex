@@ -7,7 +7,7 @@ Age estimation has historically been one of the most challenging problems within
 	\item The factors the affect the ageing process are uncontrollable and person specific \cite{4284917}\cite{4359348}\cite{1709980}.
 \end{itemize}
 
-The age estimation problem has generally three stages or blocks, the first one is the face detection and alignment, the second one is the age representation in the images and the third one the estimation itself. Several techniques have been published in order to deal with these 3 stages \cite{5406526}.
+The age estimation problem has generally three stages or blocks, the first one is the face detection and alignment, the second one is the age representation in the images and the third one the learning algorithm. Several techniques have been published in order to deal with these 3 stages \cite{5406526}.
 
 \section{Face Detection and Alignment}
 \note{See whether to write this section or not}
@@ -60,26 +60,45 @@ Han et al. \cite{han:age} uses the BIF features in an hybrid classification fram
 
 The outstanding results obtained by some of these works point out the suitability of the BIF features for the age estimation via faces task.
 
-\subsection{Other}
-\note{To Finish}
+\subsection{Other Models}
 
-There are some other variations of the age estimation problem which require different approaches. 
+Depending on the available data the age estimation problem changes. Many researchers have tackled the age estimation problem with different types of data, a short overview is described below.
 
-Later N. Ramanathan et al. \cite{1709980} approached the age estimation problem by estimating the age difference between two face images of the same individual based on a Bayesian age-difference classifier.
+N. Ramanathan et al. \cite{1709980} studied age progression of individual faces and proposed a method to perform face verification using a Bayesian age-difference classifier to improve the face verification algorithm.
 
-Other different variations of the problem has been addressed, A. Lanitis et al. \cite{5463396} performed a first approach to age estimation using Head and Mouse tracking movements, Y. Makihara et al. \cite{6117531} used a gait-based database to estimate the age, B. Xia et al. \cite{xia:hal-00904007} proposed an age estimation method based on 3D face images.
+A. Lanitis et al. \cite{5463396} collected a database of head and mouse tracking movements and then attempted to perform age estimation with this data. This preliminary study shows the potential of using this type of data.
 
-G. Guo et al. proposed different approaches to the age estimation problem such as \cite{4563041}, where they propose probabilistic fusion approach
+Y. Mikihara et al. \cite{6117531} used a gait-based database to perform a viability study of age estimation using this type of data. The results show that in future research the combination of gait-based data and face-based age estimation could give very good results.
 
-\section{Age Estimation Algorithm}
-Given an age representation, the next step is to determine the individual's age out of the ageing features. Age labels can be seen as a discrete set of classes or as a continuous label space, hence classification and regression methods can be used.
+B. Xia et al. \cite{xia:hal-00904007} were the first to attempt age estimation using 3D face images. The obtained results show that the depth dimension has a very discriminative power in this problem. 
+
+\section{Age Estimation Learning Algorithm}
+Given an age representation, the next step is to determine the individual's age out of the ageing features. Age labels can be seen as a discrete set of classes or as a continuous label space, hence classification and regression learning methods can be used.
 
 \subsection{Classification Methods}
+
 \note{Finish}
+
+With regards to the learning algorithm, Support Vector Machines
+(SVM) have commonly been used for age classification and regression, as in \cite{conf/cvpr/GuoMFH09}. A binary decision tree with SVMs at each node is proposed in \cite{han:age} by Han et al. Age ranges are coarsely assigned, and later are more precisely estimated by Support Vector Regressors (SVR) at the leaves. Chang et al. in \cite{5995437} used a particular ranking formulation of support vectors, OHRank. The approach uses cost-sensitive aggregation to estimate ordinal hyperplanes (OH) and ranks them according to the relative order of ages. In this paper AAM features are used. In \cite{6553772}, Weng et al. employs a similar ranking technique called MFOR, Local Binary Patterns (LBP) histogram features are combined with principal components of BIF, shape and textural features of AAM, and PCA projection of the original image pixels. Fusion of texture and local appearance descriptors (LBP and HOG features) have independently also been used for age estimation by Huerta et al. in \cite{HuFerPra14}.
+
+There have been previous proposals training neural networks,
+which are able to learn complex mappings and deal with
+outliers, for age estimation. In \cite{Lanitis:2004:CDC:2225304.2226166}, Lanitis et al. used AAM encoded face parameters as an input for the supervised training
+of a neural network with a hidden layer. More recently, Geng
+et al. in \cite{4563041} tackle age estimation as a discrete classification problem using 70 classes, one for each age. The best algorithm proposed in this work (CPNN - Conditional Probability Neural Network) consists of a three-layered neural network, in which the input to the network includes both BIF features x and a numerical value for age y, and the output neuron is a single value of the conditional probability density function p(y|x). An extensive comparison of these classification schemes for age estimation has been reported in Fernandez et al. \cite{2014icprw}.
+
+In \cite{5995481}, Yang et al. used Convolutional neural networks for age estimation under surveillance scenarios.
+
 \subsection{Regression Methods}
+
 \note{Finish}
+
 \subsection{Hybrid Methods}
+
 \note{Finish}
+
+G. Guo et al. proposed different approaches to the age estimation problem such as \cite{4563041}, where they propose probabilistic fusion approach
 
 \begin{table}[h!]
 	\centering
