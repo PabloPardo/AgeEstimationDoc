@@ -77,6 +77,23 @@ Given an age representation, the next step is to determine the individual's age 
 
 \subsection{Classification Methods}
 
+The age estimation problem can be treated as a classification problem, where solution space is discrete and the objective is to classify each face image into one of the age classes (a class could be an age range of several years or a single year).
+
+A. Lanitis et al. \cite{Lanitis:2004:CDC:2225304.2226166} evaluated the performance of different classifiers such as quadratic function classifier, Artificial Neural Network (ANN) and nearest neighbour classifier with their AAM model. Among the classification methods they test, they claimed to perform better with the ANN, specifically the Multi Layer Perceptron (MLP), obtaining 4.78 MAE. The authors also proposed some extensions, for example, train age specific classifiers in a hierarchical fashion. With the extended methods the authors reduced the error to 4.38 MAE with the MLP and 3.82 MAE with the quadratic function (regression).
+
+K. Ueki \cite{Ueki:2006:SAC:1126250.1126269} classified the images from the WIT\_DB database into 11 age groups using Gaussian models in a low-dimensional 2DLDA+LDA feature space using the EM Algorithm. The accuracy rates they achieved were $46.3\%$, $67.8\%$ and $78.1\%$ for age groups that were in the 5-year, 10-year and 15-year range respectively.
+
+SVM have been also used for age classification, Guo et al. \cite{4544009} \cite{Guo:2008:IHA:2319085.2321608} trained an SVM for each pair of age classes and then using a binary tree search for testing, obtaining 5.55 MAE for females and 5.52 MAE for males in the YGA database and 7.16 MAE in the FG-NET database. 
+
+
+\subsection{Regression Methods}
+
+The age of an individual is nothing else than the time passed from the individual's birth, and time is a continuous dimension. Hence, the age estimation problem can be formulated as a regression problem where the objective is to find a regression function that explains the ageing in terms of the feature space.
+
+A. Lanitis et al. \cite{Lanitis:2004:CDC:2225304.2226166} evaluated three regression functions, linear, quadratic and cubic and claimed that the quadratic function was the one which better described the age from their feature space. 
+
+Guo et al. \cite{conf/cvpr/GuoMFH09} uses Support Vector Regressor (SVR) in the age estimation task obtaining 4.77 MAE in the FG-NE database.
+
 \note{Finish}
 
 With regards to the learning algorithm, Support Vector Machines
@@ -90,9 +107,6 @@ et al. in \cite{4563041} tackle age estimation as a discrete classification prob
 
 In \cite{5995481}, Yang et al. used Convolutional neural networks for age estimation under surveillance scenarios.
 
-\subsection{Regression Methods}
-
-\note{Finish}
 
 \subsection{Hybrid Methods}
 
