@@ -81,6 +81,12 @@ The age estimation problem can be treated as a classification problem, where sol
 
 A. Lanitis et al. \cite{Lanitis:2004:CDC:2225304.2226166} evaluated the performance of different classifiers such as quadratic function classifier, Artificial Neural Network (ANN) and nearest neighbour classifier with their AAM model. Among the classification methods they test, they claimed to perform better with the ANN, specifically the Multi Layer Perceptron (MLP), obtaining 4.78 MAE. The authors also proposed some extensions, for example, train age specific classifiers in a hierarchical fashion. With the extended methods the authors reduced the error to 4.38 MAE with the MLP and 3.82 MAE with the quadratic function (regression).
 
+There have been previous proposals training neural networks,
+which are able to learn complex mappings and deal with
+outliers, for age estimation. In \cite{Lanitis:2004:CDC:2225304.2226166}, Lanitis et al. used AAM encoded face parameters as an input for the supervised training
+of a neural network with a hidden layer. More recently, Geng
+et al. in \cite{6475129} tackle age estimation as a discrete classification problem using 70 classes, one for each age. The best algorithm proposed in this work (CPNN - Conditional Probability Neural Network) consists of a three-layered neural network, in which the input to the network includes both BIF features $x$ and a numerical value for age $y$, and the output neuron is a single value of the conditional probability density function $p(y|x)$. An extensive comparison of these classification schemes for age estimation has been reported in Fernandez et al. \cite{2014icprw}. In \cite{5995481}, Yang et al. used Convolutional neural networks for age estimation under surveillance scenarios.
+
 K. Ueki \cite{Ueki:2006:SAC:1126250.1126269} classified the images from the WIT\_DB database into 11 age groups using Gaussian models in a low-dimensional 2DLDA+LDA feature space using the EM Algorithm. The accuracy rates they achieved were $46.3\%$, $67.8\%$ and $78.1\%$ for age groups that were in the 5-year, 10-year and 15-year range respectively.
 
 SVM have been also used for age classification, Guo et al. \cite{4544009} \cite{Guo:2008:IHA:2319085.2321608} trained an SVM for each pair of age classes and then using a binary tree search for testing, obtaining 5.55 MAE for females and 5.52 MAE for males in the YGA database and 7.16 MAE in the FG-NET database. 
@@ -90,29 +96,18 @@ SVM have been also used for age classification, Guo et al. \cite{4544009} \cite{
 
 The age of an individual is nothing else than the time passed from the individual's birth, and time is a continuous dimension. Hence, the age estimation problem can be formulated as a regression problem where the objective is to find a regression function that explains the ageing in terms of the feature space.
 
-A. Lanitis et al. \cite{Lanitis:2004:CDC:2225304.2226166} evaluated three regression functions, linear, quadratic and cubic and claimed that the quadratic function was the one which better described the age from their feature space. 
+A. Lanitis et al. \cite{Lanitis:2004:CDC:2225304.2226166} evaluated three regression functions, linear, quadratic and cubic and claimed that the quadratic function was the one which better described the age from their feature space. Y. Fu et al. \cite{4523958} \cite{4284917} used linear, quadratic and cubic regression function as a learning algorithms from the manifold age representation. As Lenitis showed, Fu also report superior performance on the quadratic regression function, pointing out that cubic functions lead to over-fitting while linear functions lead to under-fitting.
 
-Guo et al. \cite{conf/cvpr/GuoMFH09} uses Support Vector Regressor (SVR) in the age estimation task obtaining 4.77 MAE in the FG-NE database.
-
-\note{Finish}
-
-With regards to the learning algorithm, Support Vector Machines
-(SVM) have commonly been used for age classification and regression, as in \cite{conf/cvpr/GuoMFH09}. A binary decision tree with SVMs at each node is proposed in \cite{han:age} by Han et al. Age ranges are coarsely assigned, and later are more precisely estimated by Support Vector Regressors (SVR) at the leaves. Chang et al. in \cite{5995437} used a particular ranking formulation of support vectors, OHRank. The approach uses cost-sensitive aggregation to estimate ordinal hyperplanes (OH) and ranks them according to the relative order of ages. In this paper AAM features are used. In \cite{6553772}, Weng et al. employs a similar ranking technique called MFOR, Local Binary Patterns (LBP) histogram features are combined with principal components of BIF, shape and textural features of AAM, and PCA projection of the original image pixels. Fusion of texture and local appearance descriptors (LBP and HOG features) have independently also been used for age estimation by Huerta et al. in \cite{HuFerPra14}.
-
-There have been previous proposals training neural networks,
-which are able to learn complex mappings and deal with
-outliers, for age estimation. In \cite{Lanitis:2004:CDC:2225304.2226166}, Lanitis et al. used AAM encoded face parameters as an input for the supervised training
-of a neural network with a hidden layer. More recently, Geng
-et al. in \cite{4563041} tackle age estimation as a discrete classification problem using 70 classes, one for each age. The best algorithm proposed in this work (CPNN - Conditional Probability Neural Network) consists of a three-layered neural network, in which the input to the network includes both BIF features x and a numerical value for age y, and the output neuron is a single value of the conditional probability density function p(y|x). An extensive comparison of these classification schemes for age estimation has been reported in Fernandez et al. \cite{2014icprw}.
-
-In \cite{5995481}, Yang et al. used Convolutional neural networks for age estimation under surveillance scenarios.
-
+Guo et al. \cite{4544009} \cite{Guo:2008:IHA:2319085.2321608} compared Support Vector Regressor (SVR) with Local Adjusted Robust Regression (LARR) performance in the YGA and the FG-NET databases, concluding that LARR performs a more accurate estimation, achieving 5.25 MAE in YGA for female images, 5.30 in YGA for male images and  5.07 in FG-NET database. In a posterior work \cite{conf/cvpr/GuoMFH09}, the authors improve the SVR performance in the FG-NET to 4.77 MAE by using BIF features.
 
 \subsection{Hybrid Methods}
 
 \note{Finish}
 
 G. Guo et al. proposed different approaches to the age estimation problem such as \cite{4563041}, where they propose probabilistic fusion approach
+
+With regards to the learning algorithm, Support Vector Machines
+(SVM) have commonly been used for age classification and regression, as in \cite{conf/cvpr/GuoMFH09}. A binary decision tree with SVMs at each node is proposed in \cite{han:age} by Han et al. Age ranges are coarsely assigned, and later are more precisely estimated by Support Vector Regressors (SVR) at the leaves. Chang et al. in \cite{5995437} used a particular ranking formulation of support vectors, OHRank. The approach uses cost-sensitive aggregation to estimate ordinal hyperplanes (OH) and ranks them according to the relative order of ages. In this paper AAM features are used. In \cite{6553772}, Weng et al. employs a similar ranking technique called MFOR, Local Binary Patterns (LBP) histogram features are combined with principal components of BIF, shape and textural features of AAM, and PCA projection of the original image pixels. Fusion of texture and local appearance descriptors (LBP and HOG features) have independently also been used for age estimation by Huerta et al. in \cite{HuFerPra14}.
 
 \begin{table}[h!]
 	\centering
