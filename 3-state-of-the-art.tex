@@ -114,7 +114,7 @@ SVM and SVR where used by Han et al. \cite{han:age} in a hierarchical fashion. T
 \begin{table}[h!]
 	\centering
 	\resizebox{\textwidth}{!}{
-		\begin{tabular}{|l|c|M{3cm}|M{3cm}|M{3cm}|c|c|N}
+		\begin{tabular}{|l|c|M{3cm}|M{3cm}|M{3cm}|M{3.5cm}|N}
 			\cline{1-7}
 			\rowcolor[HTML]{EFEFEF} 
 			\hline
@@ -122,13 +122,31 @@ SVM and SVR where used by Han et al. \cite{han:age} in a hierarchical fashion. T
 			\textbf{Year} &
 			\textbf{Database (\#subjects, \#images)} &
 			\textbf{Age Image Representation} &
-			\textbf{Method} & 
-			\textbf{Accuracy} & 
+			\textbf{Learning Method} & 
 			\textbf{MAE} &\\[8pt] \hline
-			\multicolumn{1}{|p{2.5cm}|}{\textbf{A. Lanitis et al. \cite{993553}}} & 2002 & Private (60, 500) & Active Appearance Models & Quadratic Aging Function & 71$\%$ & $3.94\pm3.8$&\\[5pt] \hline
-			\multicolumn{1}{|p{2.5cm}|}{\textbf{A. Lanitis et al. \cite{Lanitis:2004:CDC:2225304.2226166}}} & 2004 & Private (40, 400) & Active Appearance Models & Quadratic Aging Function & N/A & $3.82\pm5.58$&\\[5pt] \hline
-			\multicolumn{1}{|p{2.5cm}|}{\textbf{X. Geng et al. \cite{Geng:2006:LFA:1180639.1180711}}} & 2006 & FG-NET (82, 1.002) & AGES & Regression & N/A & $6.77$ &\\[5pt] \hline
-			\note{Add More Methods}&&&&&&&\\\hline
+			
+			\multicolumn{1}{|p{2.5cm}|}{\textbf{A. Lanitis et al. \cite{993553}}} & 2002 & Private (60, 500) & AAM & Quadratic Aging Function & $3.94\pm3.8$&\\[5pt] \hline
+			
+			\multicolumn{1}{|p{2.5cm}|}{\textbf{A. Lanitis et al. \cite{Lanitis:2004:CDC:2225304.2226166}}} & 2004 & Private (40, 400) & AAM & Quadratic Aging Function & $3.82\pm5.58$&\\[5pt] \hline
+			
+			\multicolumn{1}{|p{2.5cm}|}{\textbf{X. Geng et al. \cite{Geng:2006:LFA:1180639.1180711}}} & 2006 & FG-NET & AGES & Regression & $6.77$ &\\[5pt] \hline
+			
+			\multicolumn{1}{|p{2.5cm}|}{\textbf{Y. Fu et al. \cite{4284917}}} & 2007 & YGA & Manifold & Linear regression function& $5\sim 6$ &\\[5pt] \hline
+			
+			\multicolumn{1}{|p{2.5cm}|}{\textbf{G. Guo et al. \cite{conf/cvpr/GuoMFH09}}} & 2009 & FG-NET, YGA & BIF & SVR & FG-NET/YGA $4.77$/F:$3.91$, M:$3.47$ &\\[5pt] \hline
+			
+			\multicolumn{1}{|p{2.5cm}|}{\textbf{K. Luu et al. \cite{Luu:2009:AEU:1736406.1736456}}} & 2009 & FG-NET & AAM & Hierarchical framework (SVM, SVR) & $4.37$ &\\[5pt] \hline
+			
+			\multicolumn{1}{|p{2.5cm}|}{\textbf{K. Luu et al. \cite{LuuSSBS11}}} & 2011 & FG-NET, PAL & Contourlet Appearance Model (CAM) & Hierarchical framework (SVM, SVR) & FG-NET/PAL $4.12$ / $6.0$ &\\[5pt] \hline
+			
+			\multicolumn{1}{|p{2.5cm}|}{\textbf{G. Guo et al. \cite{5995404}}} & 2011 & MORPH-II & BIF & Kernel PLS Regression & $4.18$ &\\[5pt] \hline
+			
+			\multicolumn{1}{|p{2.5cm}|}{\textbf{H. Han et al. \cite{han:age}}} & 2013 & FG-NET, MORPH-II, PCSO & BIF + Active Shape Models & Hierarchical framework (SVM, SVR) &  FG-NET/PCSO $4.7\pm24.8$ / $7.2\pm32.0$ &\\[5pt] \hline
+			
+			\multicolumn{1}{|p{2.5cm}|}{\textbf{G. Guo et al. \cite{Guo2014761}}} & 2014 & MORPH-II & BIF & rKCCA\footnote{Regularized Kernel Canonical Correlation Analysis} + Linear SVM & $3.92$ &\\[5pt] \hline
+			
+			\multicolumn{1}{|p{2.5cm}|}{\textbf{I. Huerta et al. \cite{HuFerPra14}}} & 2014 & FG-NET, MORPH-II & BIF + HOG + LBP + SURF + Gradient & rCCA\footnote{Regularized Canonical Correlation Analysis} & FG-NET/MORPH $4.17$ / $4.25$ &\\[5pt] \hline
+
 		\end{tabular}
 	}
 	\caption{Age Estimation Methods}
