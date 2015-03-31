@@ -8,7 +8,7 @@ The idea of this work is to compare the performance between predicting real or a
 
 The aim of the web-based application was to speed up the collection and labelling processes and reach more people with broader backgrounds to create an age database as diverse as possible. These processes were implemented in a gamified \footnote{Gamification is the use of game thinking and game mechanics in non-game contexts to engage users in solving problems and increase users' self contributions \cite{Deterding:2011:GDE:2181037.2181040}.} fashion so the experience of the users with the application was satisfactory and engaging. 
 
-The application uses the API of Facebook to create a ranking with the user's Facebook friends and add a factor of competitiveness to the game, and also to collect information about the labellers such as gender, age and nationality.
+The application uses the API of Facebook to create a ranking with the user's Facebook friends and adding a factor of competitiveness to the game. It is also used to collect information about the labellers such as gender, age and nationality.
 
 \begin{figure}[!h]
 	\centering
@@ -32,7 +32,7 @@ The application uses the API of Facebook to create a ranking with the user's Fac
 \end{figure}
 
 \subsection{Gamification Strategy}
-The web-application is basically a platform to label and upload images, which is not funny or motivating. However, using gamification techniques the labeller engagement can be increased. The gamification strategies used were mainly three:
+The web-application is basically a platform to label and upload images, which is not funny or motivating. However, using gamification techniques the labeller engagement can be increased. The gamification strategies used were mainly four:
 
 \begin{itemize}
 	\item The users or players get \textbf{points} for uploading and voting (labelling) images. The closer the vote is to the apparent age (average current voted age) the more points the player gets. This strategy is pretended to persuade the users to wrongly label the images.
@@ -50,20 +50,20 @@ The web-application is basically a platform to label and upload images, which is
 		\caption{List of achievements with its description}
 		\label{tab:achiev}
 	\end{table}
-	\item Thanks to one of the Challenge sponsors, California Naturel \footnote{\url{http://www.californianaturel.com/}}, a bunch of cosmetic lots were offer as a \textbf{prize} for the ones who lid the global ranking. The aim of the prize was to push participation further.
+	\item Thanks to one of the Challenge sponsors, California Naturel \footnote{\url{http://www.californianaturel.com/}}, a bunch of cosmetic lots were offered as a \textbf{prize} for the ones who led the global ranking. The aim of the prize was to push participation further.
 \end{itemize}
 
 
 \subsection{Application Structure}
-When the users access the web for first time they have to register using their Facebook account and accept the terms and conditions for the application usage (further explanation of the legal terms in the Subsection \ref{sec:trouble}). After registration the \textit{How to play} panel will be displayed giving a short description of all the parts of the application.
+When users access the web for the first time they have to register using their Facebook account and accept the terms and conditions for the application usage (further explanation of the legal terms in the Appendix \ref{cha:TaC}). After registration the \textit{How to play} panel will be displayed giving a short description of all the parts of the application.
 
-As it is shown in the Figures \ref{fig:game}, \ref{fig:gallery} and \ref{fig:ranking}, at the top of the site, there is a control menu that allows the users to move through all the site with just one click. A description of the different panels is written below:
+As it is shown in Figures \ref{fig:game}, \ref{fig:gallery} and \ref{fig:ranking}, at the top of the site, there is a control menu that allows the users to move through the site with just one click. A description of the different panels is written below:
 
 \begin{itemize}
 	\item \textbf{Profile}: In this section the users can keep track of their statistics (Number of uploaded images, number of votes, points obtained and global ranking position).
-	\item \textbf{Game}: This is the main section (Figure \ref{fig:game}), four images are shown at the same time and the users are asked to guess the age of all of them. They can report the images if any of them is considered offensive, bad quality, more than one person appear in the image, etc.
-	\item \textbf{Achievements}: In this panel the users can keep track of their achievements and shows the next goals.
-	\item \textbf{Gallery}: In this section (Figure \ref{fig:gallery}) the players are able to see the images they have uploaded and see how many people have voted on them and get an estimation of the people opinion. They are also able to upload new images in this panel, while uploading they are asked to crop (if necessary) and specify the real age of the person in the image.
+	\item \textbf{Game}: This is the main section (Figure \ref{fig:game}), four images are shown at the same time and the users are asked to guess the age of all of them. They can report the images if any of them is considered offensive, bad quality, more than one person appears in the image, etc.
+	\item \textbf{Achievements}: In this panel users can keep track of their achievements and shows the next goals.
+	\item \textbf{Gallery}: In this section (Figure \ref{fig:gallery}) players are able to see the images they have uploaded and see how many people have voted on them and get an estimation of their apparent age according to other users opinion. They are also able to upload new images in this panel, while uploading they are asked to crop (if necessary) and specify the real age of the person in the image.
 	\item \textbf{Ranking}:	The last panel (Figure \ref{fig:ranking}) allows users to compare their scores with their Facebook friends in the \textit{Friends Ranking} and to all the players in the \textit{Global Ranking}.
 \end{itemize}
 
@@ -71,16 +71,16 @@ As it is shown in the Figures \ref{fig:game}, \ref{fig:gallery} and \ref{fig:ran
 
 When creating a public image database there are at least two things to keep in mind: image quality and image license.
 
-To have good quality images the users are asked to upload images of a single person, preferable a portrait. In order to facilitate these requisites, the option of cropping the image is given in the uploading step. Also a minimum image size is setted to avoid tiny images to be uploaded.
+To have good quality images the users are asked to upload images of a single person, preferable a portrait. In order to facilitate these requisites, the option of cropping the image is given in the uploading step. Also a minimum image size is enforced to avoid tiny images to be uploaded.
  
-When users first register in the website they are asked to read and accept the terms and conditions which stablish that the uploaded images rights must be hold by the user or the images have a license that allows the use of them and their redistribution free of charge. The users are also warned that the images will be used for research purposes and will be publicly available for this use. 
+When users first register in the website they are asked to read and accept the terms and conditions which establish that the uploaded images rights must be hold by the user or the images have a license that allows the use of them and their redistribution free of charge. The users are also warned that the images will be used for research purposes and will be publicly available for this use. 
 
 
 \section{HuPBA Age Dataset}
 
 This section will describe and analyse the collected database called HuPBA Age Dataset.
 
-The Table \ref{tab:charact} shows the main characteristics of the database. The web application gather more than 1500 images and almost 15000 votes, which means almost 10 votes pes image in average.
+The Table \ref{tab:charact} shows the main characteristics of the database. The web application gathered more than 1500 images and almost 15000 votes, which means almost 10 votes per image in average.
 
 \begin{table}[h]
 	\centering
@@ -98,7 +98,7 @@ The Table \ref{tab:charact} shows the main characteristics of the database. The 
 	\label{tab:charact}
 \end{table}
 	
-The distribution of the different age labels among the ages (Figure \ref{fig:distr}) is not uniform as ideally should be, but instead contains more instances of people form ages in between 20 and 30 than the rest of ages. There is also a very low incidence individuals under 15 years old and over 70 years old. It can also be observed that both real and apparent age have a very similar distribution.
+The ages distribution of the database (Figure \ref{fig:distr}) is not uniform as ideally should be, but instead contains more instances of people with ages between 20 and 30 than the rest of ages. There is also a very low incidence of individuals under 15 years old and over 70 years old. It can also be observed that both real and apparent age have a very similar distribution.
 
 \begin{figure}[h!]
 	\centering
@@ -129,15 +129,13 @@ Some of the properties of the database which is being collected with the web app
 	\item Thousands of faces labeled by many users.
 	\item Images with background.
 	\item Non-controlled environments.
-	\item Non-labeled faces neither landmarks, making the estima-
-	tion problem even harder.
+	\item Non-labeled faces neither landmarks, making the estimation problem even harder.
 	\item One of the first datasets in the literature including
 	estimated age labeled by many users to define the ground truth
 	with the objective of estimating the age.
 	\item The evaluation metric will be pondered by the mean and
 	the variance of the labeling by the participants.
-	\item The dataset also provides for each image the real age
-	although not used for recognition (just for analysis purposes).
+	\item The dataset also provides for each image the real age, although it is not used for recognition (just for analysis purposes).
 \end{itemize}
 
-In the same way for all the labelers we have their nationality, age, and gender, which will allow analyzing demographic and other interesting studies among the correlation of labelers. In relation to the properties of existing datasets shown in Table I, ours include labels of the real age of the individuals and the apparent age given by the collected votes, both age distributions are shown in the Figure 2. The images of our database has been taken under very different conditions, which makes it more challenging for recognition purposes.
+In the same way for all the labelers we have their nationality, age, and gender, which will allow us to analyse demographic and other interesting studies among the correlation of labelers. In relation to the properties of existing datasets shown in Table I, ours include labels of the real age of the individuals and the apparent age given by the collected votes, both age distributions are shown in Figure 2. The images in our database have been taken under very different conditions, which makes it more challenging for recognition purposes.
