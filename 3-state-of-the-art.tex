@@ -9,16 +9,16 @@ Age estimation has historically been one of the most challenging problems within
 
 The age estimation problem has generally two stages or blocks. The first one is the age representation in the images and the second one the learning algorithm. Several techniques have been published in order to deal with these two stages \cite{5406526}. In the Table \ref{tab:age-methods} there is a summary with some of the most important age estimation methods.
 
-\section{Age Representation}
+\section{Age Representation}\label{sec:ageRepre}
 
 Age Representation, i.e. the extraction of the features that will represent the ageing patterns, is a very important step in the age estimation process. A good age representation will contain enough variation of the data to express the full complexity of the problem. There are many ways in the literature to represent ageing factors from an image. The most influential ones are described next.
 
-\subsection{Anthropomorphic Models}
+\subsection{Anthropomorphic Models}\label{subsec:antropo}
 The first known work on age estimation from facial images was done by Y. Kwon and N. Lobo \cite{Kwon:1999:ACF:311844.311845}. Their approach is based in cranio-facial development theory using geometrical ratios between different face regions to classify images into one of three age groups (babies, young adults and senior adults). They used frontal images in a very strict setup to be able to locate all face components. N. Ramanathan et al. \cite{1640784, Ramanathan2009131} used a similar approach in this case using 8 ratios rather than the 6 used by Y. Kwon et al.
 
 The problem of this model is that it can only be applied to face images of young people in a growing age, since afterwards the facial geometry does not change as much. It is also a problem that the methods require frontal images, since it limits future applications.
 
-\subsection{Active Appearance Models}
+\subsection{Active Appearance Models}\label{subsec:AAM}
 
 Active Appearance Models (AAM) is a statistical shape model proposed by T.F Cootes et al. \cite{Cootes:2001:AAM:378040.378090}. This model contains the shape and grey-level appearance of the object of interest which can generalize to almost any valid example. This technique has been used to find the shape of faces by many researchers. A. Lanitis et al. \cite{791208} \cite{993553} \cite{Lanitis:2004:CDC:2225304.2226166} were the first to use the AAM model for age estimation by defining an ageing function $age=f(b)$, where \textbf{b} is a vector containing the parameters learned by the AAM.
 
@@ -30,7 +30,7 @@ Chang et al. in \cite{5995437} used AAM model with particular ranking formulatio
 
 This model captures shape and texture information and in general performs better than the \textit{Anthropomorphic Models}. This method can deal with any range of ages rather than just with young ages like the previous model. However, as suggested by X. Geng et al. \cite{Geng:2006:LFA:1180639.1180711}, the ageing function is empirically determined, so there is no evidence suggesting that the relation between face and age is described just by a quadratic function.
 
-\subsection{Ageing Pattern Subspace}
+\subsection{Ageing Pattern Subspace}\label{subsec:APS}
 
 X. Geng et al. \cite{4359348, Geng:2006:LFA:1180639.1180711} were the first ones to explore AGing pattErn Subspace (AGES) model. They define an \textit{ageing pattern} as a sequence of personal face images sorted in time order. Given a grey-scale face image $\textbf{I}$, where $\textbf{I}(x,y)$ determines the intensity of the pixel $(x,y)$, then an ageing pattern can be represented as a three-dimensional matrix $\textbf{P}$, where $\textbf{P}(x,y,t)$ is the intensity of the pixel $(x,y)$ in the face image at the time $t$. The images vector is filled with the available face images leaving empty the missing faces in the $t$ axis. Now, the images in the age pattern vector can be precessed and transformed into meaningful feature vectors.
 
@@ -38,7 +38,7 @@ In order to extract the features X. Geng use AAM as used in \cite{791208} since 
 
 The principal drawback of the AGES method is that assumes that there are images of the same individual at different ages, which is not true in many age databases. The databases that fulfil these requirements are small such as FG-NET \cite{FGNET} with just 1000 images and very few representations of the same individual over time.
 
-\subsection{Age Manifold}
+\subsection{Age Manifold}\label{subsec:manifold}
  
 Manifold learning methods are applied to find a sufficient embedding space and model the low-dimensional manifold data with a multiple linear regression function. Y. Fu et al. \cite{4523958, 4284917} were the first to propose a manifold embedding approach for the age estimation problem. 
 
@@ -48,7 +48,7 @@ Then T. Wu et al. \cite{journals/tifs/WuTC12} proposed to model the facial shape
 
 The main drawback of the age manifold representation is the large number of training instances required to learn the embedded manifold with statistical sufficiency.
 
-\subsection{Appearance Models}
+\subsection{Appearance Models}\label{subsec:BIF}
 
 Appearance Models focus on wrinkles, face texture and pattern analysis. From the beginning, researchers have tried to capture wrinkles and distinguish them from facial lines. Y. Kwon et al. \cite{Kwon:1999:ACF:311844.311845} proposed a wrinkle detector based on snakelets \cite{Kass88snakes:active} placed into key wrinkle areas of the face. Hayashi et al. \cite{969698} \cite{1195171} \cite{conf/icpr/HayashiYIK02} combined both shape and texture to estimate age and gender. In Hayashi's proposed approach, the skin is extracted based on a shape model and then a histogram equalization is applied to emphasize wrinkles.
 
@@ -62,7 +62,7 @@ In \cite{6553772}, Weng et al. employs a similar ranking technique than Chang et
 
 The outstanding results obtained by some of these works point out the suitability of BIF features for the age estimation via faces task.
 
-\subsection{Other Models}
+\subsection{Other Models}\label{subsec:oth}
 
 Depending on the available data the age estimation problem changes. Many researchers have tackled the age estimation problem with different types of data. A short overview is described below.
 
