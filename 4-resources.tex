@@ -7,7 +7,7 @@ The idea of this work is to compare the performance between predicting real or a
 In order to increase the number of images in the database, an exhaustive research was done to find similar applications which were collecting the same, or very close, type data. The result of this search was AgeGuess\footnote{AgeGuess: \url{http://www.ageguess.org/}} a web-based application developed by Dusan Misevic\footnote{Dusan Misevic is a researcher at Max-Planck Odense Center on the Biodemography of Aging, Biology department of the SDU} and 
 Ulrich Steiner\footnote{Ulrich Steiner is a researcher at the Center for Research and Interdisciplinarity in Paris, of the INSERM Unit 1001}, which collects nearly the same information as the collected for this work. The line of research of the AgeGuess team is focused on ageing and age perception from a biologically demographical point of view. The AgeGuess team agreed to partner with the HuPBA research group and the ChaLeran platform to joint effort in the data collection.
 
-\section{Web Application}
+\section{Web Application}\label{sec:web}
 
 The aim of the web-based application was to speed up the collection and labelling processes and reach more people with broader backgrounds to create an age database as diverse as possible. These processes were implemented in a gamified \footnote{Gamification is the use of game thinking and game mechanics in non-game contexts to engage users in solving problems and increase users' self contributions \cite{Deterding:2011:GDE:2181037.2181040}.} fashion so the experience of the users with the application was satisfactory and engaging. 
 
@@ -83,7 +83,7 @@ When users first register in the website they are asked to read and accept the t
 
 This section will describe and analyse the collected database called HuPBA-AgeGuess Dataset.  
 
-The Table \ref{tab:charact} shows the main characteristics of the database. The web application gathered more than 1500 images and almost 15000 votes, which means almost 10 votes per image in average.
+The Table \ref{tab:charact} shows the main characteristics of the database. The web application gathered in 5 months more than 1500 images and almost 15000 votes, which means near 10 votes per image in average.  
 
 \begin{table}[h]
 	\centering
@@ -105,37 +105,12 @@ The ages distribution of the database (Figure \ref{fig:distr}) is not uniform as
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=\textwidth]{figures/Label_Distribution}
+	\includegraphics[width=0.7\textwidth]{figures/Label_Distribution}
 	\caption{Labels Distribution}
 	\label{fig:distr}
 \end{figure}
 
-Figure \ref{fig:apparent_real} shows the apparent age of all the images sorted by real age. The apparent age is fitted into a curve that shows how younger people (0 - 25 years old) is overestimated while older people (50 - 100) is under estimated. The Figure \ref{fig:apparent_real} also shows that the ages where the apparent age has more variance are in between 18 and 30 years old.
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=\textwidth]{figures/Labels_across_img}
-	\caption{Apparent age }
-	\label{fig:apparent_real}
-\end{figure}
-
-In Figure \ref{fig:gender} illustrates a comparison between Male and Female age perception, which lids to think that the differences is not significant (if any).
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=\textwidth]{figures/Labels_across_img_gender}
-	\caption{Comparison between Male and Female age perception.}
-	\label{fig:gender}
-\end{figure}
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=\textwidth]{figures/real_vs_apparent_summer}
-	\caption{Real vs. Apparent age.}
-	\label{fig:RvsA}
-\end{figure}
-
-As a summary, some of the properties of the database are listed below:
+Some of the properties of the database are listed below:
 
 \begin{itemize}
 	\item Thousands of faces labelled by many users.
@@ -146,3 +121,57 @@ As a summary, some of the properties of the database are listed below:
 	estimated age labelled by many users to define the ground truth with the objective of estimating the age.
 	\item The dataset also provides for each image the real age, although it is not used for recognition (just for analysis purposes).
 \end{itemize}
+
+\subsection{Filtering Outliers}
+
+Outliers are a big problem in science because outliers show abnormality, fraudulent behaviour, human error, instrumental error, etc \cite{Hodge:2004:SOD:1028911.1028946}. In this particular case that are many reasons to find outliers in the data since the users have many different backgrounds and the web-application was not developed by a professional. Some of the detected causes of outliers are listed below.
+
+\begin{itemize}
+	\item To erroneously vote a different age than the one predicted.
+	\item To deliberately vote a wrong or random ages.
+	\item Server overload can slow down the loading process and make users vote wrongly.
+\end{itemize}
+
+This outliers are noise to the learning process so they can drop the performance of the learning algorithms. In order to disregard these outliers the votes are filtered with the following criterion,
+\begin{equation}
+f_V(v) = 
+\begin{cases}
+1,				& \text{if } |v - \tilde{V_i}| \leq 10\\
+0,              & \text{otherwise}
+\end{cases}
+,\ v\in V \text{ and } i\in I
+\end{equation}
+where $V$ and $I$ are the set of votes and images respectively and $V_i \subset V$ are the votes made to the image $i\in I$. Also note that $\tilde{V_i}$ is the median of the set of votes $V_i$. Basically this function filters out the votes which distance to the median is larger than 10 years.
+
+The images are also filtered by the number of valid votes they have, setting the minimum accepted number of votes to 6. In this way the mean of all votes, i.e. the apparent age, is more reliable.
+
+\subsection{Further Analysis}
+
+The collected data contains much more information than just the real and apparent age. As explained in Section \ref{sec:web} the database contains information about the users or labellers. An analysis of human age perception from a sociological and biological point of view can be done. This work does not aim to attempt such a study, however a simple and superficial study has been done. 
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\textwidth]{figures/Labels_across_img}
+	\caption{Apparent age }
+	\label{fig:apparent_real}
+\end{figure}
+
+One of the first things to be analysed is the relation between the real age and the apparent age. Figure \ref{fig:apparent_real} shows the apparent age of all the images sorted by real age. The apparent age is fitted into a curve for a better comparison. The variance of the data is also plotted as a blue area. The two curves (real and apparent) show how younger people (0 - 25 years old) is overestimated while older people (50 - 100) is under estimated. The Figure \ref{fig:apparent_real} also shows that the ages where the apparent age has more variance are in between 18 and 30 years old. The same data is illustrated in Figure \ref{fig:gender}, but distinguishing the male and female votes for calculating the apparent age. It is easily observed that there are no significant differences between male and female apparent ages.
+
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\textwidth]{figures/Labels_across_img_gender}
+	\caption{Comparison between Male and Female age perception.}
+	\label{fig:gender}
+\end{figure}
+
+Figure \ref{fig:RvsA} culminates the study by showing all the votes between real and apparent age axis. The intensity of the colour shows the distribution of the votes in the space. The red dashed line shows the subspace where both real and apparent age match. This line also confirms that young people are overestimated and old people are underestimated.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\textwidth]{figures/real_vs_apparent_summer}
+	\caption{Real vs. Apparent age.}
+	\label{fig:RvsA}
+\end{figure}
+
