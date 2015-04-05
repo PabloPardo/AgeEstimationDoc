@@ -1,15 +1,60 @@
 \chapter{Method} \label{chap:method}
 In this work tow methods combining state of the art techniques have been proposed. A full description is delineated in this Chapter.
 
+\section{Preprocessing}
+
+Given that the background information is not needed in any of the two proposed methods, it is required to first detect the faces from the images and second align all of them.
+
+\textbf{Face detection} was performed using the Viola Jones algorithm from the open source library OpenCV. A Haar Cascade classifier was trained with nearly 5000 face images and more than 9500 negative samples. After detecting the face, the image is cropped and resized into a $200 \times 200$.
+
+\textbf{Face alignment} and shape extraction was done with ...
+
+All the images where transformed into grey scale because of the variation of the data in terms of colour (some images are in grey scale other in RGB).
+
+
 \section{Biologically Inspired Method}
-As mentioned in Section \ref{subsec:BIF} Biologically Inspired Features (BIF) have been proven to work specially good in age estimation \cite{Riesenhuber99hierarchicalmodels}\cite{conf/cvpr/GuoMFH09}\cite{han:age}. In this work a method is proposed using BIF as age representation and a hierarchical framework with SVM and SVR as a learning method.
+As mentioned in Section \ref{subsec:BIF} Biologically Inspired Features (BIF) have been proven to work specially good in age estimation \cite{conf/cvpr/GuoMFH09}\cite{han:age}. In this work a method is proposed using BIF as age representation and a hierarchical framework with SVM and SVR as a learning method.
  
 \subsection{Background}
 
-Inspired by how the visual cortex works, Maximilian Riesenhuber and Tomaso Poggio proposed the BIF model
+Inspired by how the visual cortex works, Maximilian Riesenhuber and Tomaso Poggio \cite{Riesenhuber99hierarchicalmodels} proposed the BIF model for object recognition called ``HMAX'' based on the hierarchical model of the visual nervous system proposed by D. H. Hubel and T. N. Wiesel \cite{Hubel:62}. 
 
+The ``HMAX'' model is composed by layers that will contain increasingly sophisticated representations. There are two type of layers called simple ($S_1$) and complex ($C_1$). Layer $S_1$ consists a battery of Gabor filters with different orientation and scales and layer $C_1$ is a pooling layer, in this model is a ``MAX'' pooling layer. There are many variations and extensions of this model made by many authors, Serre et al. \cite{4069258}\cite{1467551} introducing two more layers $S_2$ and $C_2$ or Mayers and Wolf \cite{Meyers:2008:UBI:1325290.1325298} uses a spacial $S_2$ layer called $S_2$ facial features (S2FF) for face recognition.
+
+
+The proposed method in this work used the BIF model described by Guo et al. \cite{conf/cvpr/GuoMFH09} that uses ``STD'' pool operator instead of ``MAX'' operator. 
+
+More in detail, 
+
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|}
+		\hline
+		\multicolumn{3}{|c|}{$C_1$ Layer}                                               & \multicolumn{3}{c|}{$S_1$ Layer}                \\ \hline
+		Scale Band S            & Pool grid                       & Overlap             & Filter size s  & Gabor $\sigma$ & Gabor $\lambda$ \\ \hline
+		\multirow{2}{*}{Band 1} & \multirow{2}{*}{$6 \times 6$}   & \multirow{2}{*}{3}  & $5 \times 5$   & 2.0            & 2.5           \\
+		&                                 &                     & $7 \times 7$   & 2.8            & 3.5           \\ \hline
+		\multirow{2}{*}{Band 2} & \multirow{2}{*}{$8 \times 8$}   & \multirow{2}{*}{4}  & $9 \times 9$   & 3.6            & 4.6           \\
+		&                                 &                     & $11 \times 11$ & 4.5            & 5.6           \\ \hline
+		\multirow{2}{*}{Band 3} & \multirow{2}{*}{$10 \times 10$} & \multirow{2}{*}{5}  & $13 \times 13$ & 5.4            & 6.8           \\
+		&                                 &                     & $15 \times 15$ & 6.3            & 7.9           \\ \hline
+		\multirow{2}{*}{Band 4} & \multirow{2}{*}{$12 \times 12$} & \multirow{2}{*}{6}  & $17 \times 17$ & 7.3            & 9.1           \\
+		&                                 &                     & $19 \times 19$ & 8.2            & 10.3          \\ \hline
+		\multirow{2}{*}{Band 5} & \multirow{2}{*}{$14 \times 14$} & \multirow{2}{*}{7}  & $21 \times 21$ & 9.2            & 11.5          \\
+		&                                 &                     & $23 \times 23$ & 10.2           & 12.7          \\ \hline
+		\multirow{2}{*}{Band 6} & \multirow{2}{*}{$16 \times 16$} & \multirow{2}{*}{8}  & $25 \times 25$ & 11.3           & 14.1          \\
+		&                                 &                     & $27 \times 27$ & 12.3           & 15.4          \\ \hline
+		\multirow{2}{*}{Band 7} & \multirow{2}{*}{$18 \times 18$} & \multirow{2}{*}{9}  & $29 \times 29$ & 13.4           & 16.8          \\
+		&                                 &                     & $31 \times 31$ & 14.6           & 18.2          \\ \hline
+		\multirow{2}{*}{Band 8} & \multirow{2}{*}{$20 \times 20$} & \multirow{2}{*}{10} & $33 \times 33$ & 15.8           & 19.7          \\
+		&                                 &                     & $35 \times 35$ & 17.0           & 21.2          \\ \hline
+	\end{tabular}
+	\caption{$S_1$ and $C_1$ parameters.}
+	\label{tab:bif_param}
+\end{table}
 
 \subsection{System overview}
+
 
 \section{Deep Learning Method}
 \subsection{Background}
