@@ -3,7 +3,7 @@ In this work tow methods combining state of the art techniques have been propose
 
 \section{Preprocessing}
 
-Given that the background information is not needed in any of the two proposed methods, it is required to first detect the faces from the images and second align all of them.
+Given that the background information is not needed in any of the two proposed methods, it is required to first detect the faces from the images and second align all of them (Figure \ref{fig:preprocessing}).
 
 \textbf{Face detection} was performed using the Viola Jones algorithm from the open source library OpenCV. A Haar Cascade classifier was trained with nearly 5000 face images and more than 9500 negative samples. After detecting the face, the image is cropped and resized into a $200 \times 200$.
 
@@ -11,7 +11,13 @@ Given that the background information is not needed in any of the two proposed m
 
 All the images where transformed into \textbf{grey scale} because of the variation of the data in terms of colour (some images are in grey scale other in RGB).
 
-\note{Add figure of Face detected and Aligned}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=\textwidth]{figures/preprocessing}
+	\caption{Face Detection and Face Alignment}
+	\label{fig:preprocessing}
+\end{figure}
+
 
 \section{Biologically Inspired Method}
 As mentioned in Section \ref{subsec:BIF} Biologically Inspired Features (BIF) have been proven to work specially good in age estimation \cite{conf/cvpr/GuoMFH09}\cite{han:age}. In this work a method is proposed using BIF as age representation and a hierarchical framework with SVM and SVR as a learning method.
