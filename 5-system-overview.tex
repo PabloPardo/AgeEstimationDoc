@@ -22,22 +22,12 @@ Inspired by how the visual cortex works, Maximilian Riesenhuber and Tomaso Poggi
 
 The ``HMAX'' model is composed by layers that will contain increasingly sophisticated representations. There are two type of layers called simple ($S_1$) and complex ($C_1$). Layer $S_1$ consists a battery of Gabor filters with different orientation and scales and layer $C_1$ is a pooling layer, in this model is a ``MAX'' pooling layer. There are many variations and extensions of this model made by many authors, Serre et al. \cite{4069258}\cite{1467551} introducing two more layers $S_2$ and $C_2$ or Mayers and Wolf \cite{Meyers:2008:UBI:1325290.1325298} uses a spacial $S_2$ layer called $S_2$ facial features (S2FF) for face recognition.
 
-The proposed method in this work used the BIF model described by Guo et al. \cite{conf/cvpr/GuoMFH09} that uses ``STD'' pool operator instead of ``MAX'' operator. 
-
-More in detail, the $S_1$ layer takes as input a grey image $I$ of $200\times200$ pixels. The input image is analysed by an array of Gabor filters,
-
-\begin{equation}
-G(x,y) = exp(-\frac{X^2+\gamma^2 Y^2}{2\sigma^2})\cdot cos(\frac{2\pi}{\lambda}X)
-\end{equation}
-
-where $X=x\cos\theta + y\sin\theta$ and $Y = -x\sin\theta + y\cos\theta$ are the rotations of the filter with angle $\theta\in[0,\pi]$. The aspect ration $\gamma$ is set to $0.3$, the width $\sigma$, the wavelength $\lambda$ and the filter sizes $s$ are adjusted as in Table \ref{tab:bif_param}. These parameters are empirically set based on reactions of the visual cortex to real stimuli \cite{4069258}.
-
 \begin{table}[!h]
 	\centering
-	\begin{tabular}{|c|c|c|c|c|c|}
+	\begin{tabular}{|M{2cm}|M{2cm}|M{1.5cm}|c|c|c|}
 		\hline
 		\multicolumn{3}{|c|}{$C_1$ Layer}                                               & \multicolumn{3}{c|}{$S_1$ Layer}                \\ \hline
-		Scale Band S            & Pool grid                       & Overlap             & Filter size $s$  & Gabor $\sigma$ & Gabor $\lambda$ \\ \hline
+		Scale Band $S$    & Pool grid $(N_S\times N_S)$    & Overlap $\Delta s$     & Filter size $s$  & Gabor $\sigma$ & Gabor $\lambda$ \\ \hline
 		\multirow{2}{*}{Band 1} & \multirow{2}{*}{$6 \times 6$}   & \multirow{2}{*}{3}  & $5 \times 5$   & 2.0            & 2.5           \\
 		&                                 &                     & $7 \times 7$   & 2.8            & 3.5           \\ \hline
 		\multirow{2}{*}{Band 2} & \multirow{2}{*}{$8 \times 8$}   & \multirow{2}{*}{4}  & $9 \times 9$   & 3.6            & 4.6           \\
@@ -58,6 +48,32 @@ where $X=x\cos\theta + y\sin\theta$ and $Y = -x\sin\theta + y\cos\theta$ are the
 	\caption{$S_1$ and $C_1$ parameters.}
 	\label{tab:bif_param}
 \end{table}
+
+The proposed method in this work used the BIF model described by Guo et al. \cite{conf/cvpr/GuoMFH09} that uses ``STD'' pool operator instead of ``MAX'' operator. 
+
+\textbf{$S_1$ layer} is formed by $S_1$ units which take as input a grey image $I$ of $200\times200$ pixels. These units are usually modelled by Gabor filters,
+
+\begin{equation}
+G(x,y) = exp(-\frac{X^2+\gamma^2 Y^2}{2\sigma^2})\cdot cos(\frac{2\pi}{\lambda}X)
+\end{equation}
+
+where $X=x\cos\theta + y\sin\theta$ and $Y = -x\sin\theta + y\cos\theta$ are the rotations of the filter with angle $\theta\in[0,\pi]$. The aspect ration $\gamma$ is set to $0.3$, the width $\sigma$, the wavelength $\lambda$ and the filter sizes $s$ are adjusted as in Table \ref{tab:bif_param}. These parameters are empirically determined based on reactions of the visual cortex to real stimuli \cite{4069258}. 
+
+\textbf{$C_1$ layer} is formed by $C_1$ units which pool over the $S_1$ units with the same orientation and from the same scale band (see Table \ref{tab:bif_param}). Each scale band $S$ contains two adjacent filter sizes, for instance, scale band 1 contains filter with sizes $5\times5$ and $7\times7$. The scale band also determines the sizes of the neighbourhood over which the $C_1$ units pool ($N_S\times N_S$). The pooling operator used in this method is the ``STD'' operator proposed by Guo et al. \cite{conf/cvpr/GuoMFH09},
+
+\begin{equation}
+std_{j,j+1} = \sqrt{\frac{1}{N_S\times N_S}\sum_{i=1}^{N_S\times N_S}(F_i - \bar{F})^2} 
+\end{equation}
+
+where $F_i$ is the maximum value of two consecutive $S_1$ units output in the same scale band at pixel index $i$, 
+
+\begin{equation}
+F_i = \max(x_i^j,x_i^{j+1})
+\end{equation}
+
+where $x_i^j$ and $x_i^{j+1}$ are the filtered values with scales $j$ and $j+1$ at position $i$. $\bar{F}$ is the mean value of the filtered values in the neighbourhood $N_S\times N_S$.
+
+\note{Add image of BIF S1 C1 system}
 
 \subsection{System overview}
 
