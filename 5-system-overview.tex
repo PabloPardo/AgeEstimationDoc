@@ -7,10 +7,11 @@ Given that the background information is not needed in any of the two proposed m
 
 \textbf{Face detection} was performed using the Viola Jones algorithm from the open source library OpenCV. A Haar Cascade classifier was trained with nearly 5000 face images and more than 9500 negative samples. After detecting the face, the image is cropped and resized into a $200 \times 200$.
 
-\textbf{Face alignment} and shape extraction was done with ...
+\textbf{Face alignment}, 68 facial landmarks were extracted for every detected face with a version of the algorithm proposed by Shaoqing Ren et al. \cite{ren2014face}. The algorithm was trained with almost 5000 face labelled images from FG-NET, AFW, HELEN, IBUG and LFPW face databases. After extracting all the landmarks all the faces are aligned.
 
-All the images where transformed into grey scale because of the variation of the data in terms of colour (some images are in grey scale other in RGB).
+All the images where transformed into \textbf{grey scale} because of the variation of the data in terms of colour (some images are in grey scale other in RGB).
 
+\note{Add figure of Face detected and Aligned}
 
 \section{Biologically Inspired Method}
 As mentioned in Section \ref{subsec:BIF} Biologically Inspired Features (BIF) have been proven to work specially good in age estimation \cite{conf/cvpr/GuoMFH09}\cite{han:age}. In this work a method is proposed using BIF as age representation and a hierarchical framework with SVM and SVR as a learning method.
@@ -21,17 +22,22 @@ Inspired by how the visual cortex works, Maximilian Riesenhuber and Tomaso Poggi
 
 The ``HMAX'' model is composed by layers that will contain increasingly sophisticated representations. There are two type of layers called simple ($S_1$) and complex ($C_1$). Layer $S_1$ consists a battery of Gabor filters with different orientation and scales and layer $C_1$ is a pooling layer, in this model is a ``MAX'' pooling layer. There are many variations and extensions of this model made by many authors, Serre et al. \cite{4069258}\cite{1467551} introducing two more layers $S_2$ and $C_2$ or Mayers and Wolf \cite{Meyers:2008:UBI:1325290.1325298} uses a spacial $S_2$ layer called $S_2$ facial features (S2FF) for face recognition.
 
-
 The proposed method in this work used the BIF model described by Guo et al. \cite{conf/cvpr/GuoMFH09} that uses ``STD'' pool operator instead of ``MAX'' operator. 
 
-More in detail, 
+More in detail, the $S_1$ layer takes as input a grey image $I$ of $200\times200$ pixels. The input image is analysed by an array of Gabor filters,
+
+\begin{equation}
+G(x,y) = exp(-\frac{X^2+\gamma^2 Y^2}{2\sigma^2})\cdot cos(\frac{2\pi}{\lambda}X)
+\end{equation}
+
+where $X=x\cos\theta + y\sin\theta$ and $Y = -x\sin\theta + y\cos\theta$ are the rotations of the filter with angle $\theta\in[0,\pi]$. The aspect ration $\gamma$ is set to $0.3$, the width $\sigma$, the wavelength $\lambda$ and the filter sizes $s$ are adjusted as in Table \ref{tab:bif_param}. These parameters are empirically set based on reactions of the visual cortex to real stimuli \cite{4069258}.
 
 \begin{table}[!h]
 	\centering
 	\begin{tabular}{|c|c|c|c|c|c|}
 		\hline
 		\multicolumn{3}{|c|}{$C_1$ Layer}                                               & \multicolumn{3}{c|}{$S_1$ Layer}                \\ \hline
-		Scale Band S            & Pool grid                       & Overlap             & Filter size s  & Gabor $\sigma$ & Gabor $\lambda$ \\ \hline
+		Scale Band S            & Pool grid                       & Overlap             & Filter size $s$  & Gabor $\sigma$ & Gabor $\lambda$ \\ \hline
 		\multirow{2}{*}{Band 1} & \multirow{2}{*}{$6 \times 6$}   & \multirow{2}{*}{3}  & $5 \times 5$   & 2.0            & 2.5           \\
 		&                                 &                     & $7 \times 7$   & 2.8            & 3.5           \\ \hline
 		\multirow{2}{*}{Band 2} & \multirow{2}{*}{$8 \times 8$}   & \multirow{2}{*}{4}  & $9 \times 9$   & 3.6            & 4.6           \\
