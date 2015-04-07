@@ -104,9 +104,14 @@ This method combines a hierarchical framework and a hybrid face model, mixing BI
 \textbf{Feature extraction}: 
 After the face alignment is done, BIF features are extracted from each face image. Because of the high dimensionality of the data ($\sim3000$ BIF features and 138 shape landmark coordinates) feature reduction is needed. Principal Component Analysis (PCA) is used to reduce dimensionality of both shape and BIF. As shows Figure \ref{fig:pipeline} BIF and shape features are concatenated into a single feature vector.
 
-\textbf{Age Classification}:
+\textbf{Age Group Classification}:
+In this stage the images are classified into three age groups with age ranges (0-18), (19-45) and (45-100). The classifier used is a linear SVM as suggested in \cite{4531189}.
 
 \textbf{Age Estimation}:
+Three SVR with RBF kernel were trained to perform age regression in a specific age range. The data used to fit the regressors were images within 5-years-overlap between age ranges to reduce the misclassification error as proposed in \cite{han:age}. 
+
+In order to improve the system performance a last fusion step is done by averaging the two nearest age regressors, i.e. if the age group classifier predicts that a given face belongs to the adult age group (19-45)] and the adult-specific regression function predicts that the exact age is 43, then in the fusion step would average the adult regressor with the elder regressor.
+
 
 \section{Deep Learning Method}
 \subsection{Background}
