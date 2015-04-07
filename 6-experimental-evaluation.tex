@@ -1,8 +1,9 @@
 \chapter{Results} \label{chap:experiments}
 
+This Chapter is going to summarize the results achieved in this work.
+
 \section{Data}
 Two datasets were used in the experiments, our collected dataset HuPBA-AgeGuess and the classic benchmark database FG-NET.
-
 
 \textbf{FG-NET} consists of 1002 frontal face images of 82 different individuals. The image quality varies a lot in the dataset since there are images in grey scale and RGB. The face position is frontal and under similar illumination conditions. The dataset also contain 68 facial landmarks for each face image.
 
@@ -23,13 +24,43 @@ Two datasets were used in the experiments, our collected dataset HuPBA-AgeGuess 
 \end{figure}
 
 \section{Methods and Parameters}
+
 \section{Experimental Settings}
+
+\subsection{Evaluation Metrics} 
+
+The two most commonly used evaluation metrics in age estimation are Mean Absolute Error (MAE) and Cumulative Score (CS).
+
+The MAE is described as
+
+\begin{equation}
+MAE = \frac{1}{n}\sum_i^{n} |e_i|
+\end{equation}
+
+where $e_i$ is the error of the $ith$ instance, i.e. $e_i = |\hat{y_i} - y_i|$ where $y_i $ is the real label and $\hat{y_i}$ is the predicted label. This metric tells the average number of years that the prediction is wrong.
+
+CS is defined as the percentage of test images such that the absolute error is not higher than a threshold, $t$ (in years). i.e.,
+
+\begin{equation}
+CS(t) = (1 - \frac{1}{n}\sum_i^n h(|\hat{y_i} - y_i| - t))\cdot 100
+\end{equation}
+\begin{equation}
+h(x) = 
+\begin{cases}
+1,				& \text{if } x \geq 0\\
+0,              & \text{otherwise}
+\end{cases}
+\end{equation}
+
+where $y_i$ is the age label of the $ith$ test image and $\hat{y_i}$ is the age prediction of the $ith$ test image.
 
 \section{Experiments}
 
+\subsection{Biologically Inspired Method}
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=\textwidth]{figures/cum_score}
 	\caption{Cummulative Score }
 	\label{fig:cumS}
 \end{figure}
+\subsection{Deep Learning Method}
