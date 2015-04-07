@@ -55,7 +55,15 @@ The ``HMAX'' model is composed by layers that will contain increasingly sophisti
 	\label{tab:bif_param}
 \end{table}
 
-The proposed method in this work used the BIF model described by Guo et al. \cite{conf/cvpr/GuoMFH09} that uses ``STD'' pool operator instead of ``MAX'' operator. 
+The proposed method in this work used the BIF model described by Guo et al. \cite{conf/cvpr/GuoMFH09} that uses ``STD'' pool operator instead of ``MAX'' operator (Figure \ref{fig:bif}). 
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=\textwidth]{figures/BIF}
+	\caption{Biologically Inspired Features (BIF)}
+	\label{fig:bif}
+\end{figure}
+
 
 \textbf{$S_1$ layer} is formed by $S_1$ units which take as input a grey image $I$ of $200\times200$ pixels. These units are usually modelled by Gabor filters,
 
@@ -77,12 +85,28 @@ where $F_i$ is the maximum value of two consecutive $S_1$ units output in the sa
 F_i = \max(x_i^j,x_i^{j+1})
 \end{equation}
 
-where $x_i^j$ and $x_i^{j+1}$ are the filtered values with scales $j$ and $j+1$ at position $i$. $\bar{F}$ is the mean value of the filtered values in the neighbourhood $N_S\times N_S$.
+where $x_i^j$ and $x_i^{j+1}$ are the filtered values with scales $j$ and $j+1$ at position $i$. $\bar{F}$ is the mean of the filtered values in the neighbourhood $N_S\times N_S$.
 
-\note{Add image of BIF S1 C1 system}
+The $C_1$ units are concatenated into a single feature vector for each input image.
+
 
 \subsection{System overview}
 
+This method combines a hierarchical framework and a hybrid face model, mixing BIF features and face shape landmarks to optimize the performance. The pipeline consists of three steps (see Figure \ref{fig:pipeline}).
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=\textwidth]{figures/pipeline}
+	\caption{\note{Fix} Pipeline}
+	\label{fig:pipeline}
+\end{figure}
+
+\textbf{Feature extraction}: 
+After the face alignment is done, BIF features are extracted from each face image. Because of the high dimensionality of the data ($\sim3000$ BIF features and 138 shape landmark coordinates) feature reduction is needed. Principal Component Analysis (PCA) is used to reduce dimensionality of both shape and BIF. As shows Figure \ref{fig:pipeline} BIF and shape features are concatenated into a single feature vector.
+
+\textbf{Age Classification}:
+
+\textbf{Age Estimation}:
 
 \section{Deep Learning Method}
 \subsection{Background}
