@@ -33,7 +33,7 @@ The ``HMAX'' model is composed by layers that will contain increasingly sophisti
 	\begin{tabular}{|M{2cm}|M{2cm}|M{1.5cm}||c|c|c|}
 		\hline
 		\multicolumn{3}{|c||}{\textbf{$C_1$ layer}}                                               & \multicolumn{3}{c|}{\textbf{$S_1$ layer}}                \\ \hline
-		Scale Band $S$    & Pool grid $(N_S\times N_S)$    & Overlap $\Delta s$     & Filter size $s$  & Gabor $\sigma$ & Gabor $\lambda$ \\ \hline\hline
+		Scale Band $S$    & Pool grid $(q\times q)$    & Overlap $\Delta n$     & Filter size $n$  & Gabor $\sigma$ & Gabor $\lambda$ \\ \hline\hline
 		\multirow{2}{*}{Band 1} & \multirow{2}{*}{$6 \times 6$}   & \multirow{2}{*}{3}  & $5 \times 5$   & 2.0            & 2.5           \\
 		&                                 &                     & $7 \times 7$   & 2.8            & 3.5           \\ \hline
 		\multirow{2}{*}{Band 2} & \multirow{2}{*}{$8 \times 8$}   & \multirow{2}{*}{4}  & $9 \times 9$   & 3.6            & 4.6           \\
@@ -65,18 +65,18 @@ The proposed method in this work used the BIF model described by Guo et al. \cit
 \end{figure}
 
 
-\textbf{$S_1$ layer} is formed by $S_1$ units which take as input a grey image $I$ of $200\times200$ pixels. These units are usually modelled by Gabor filters,
+\textbf{$S_1$ layer} is formed by $S_1$ units which take as input a grey image of size $200\times 200$. These units are usually modelled by Gabor filters, given $(x,y)$ pixel coordinates of the input image,
 
 \begin{equation}
 G(x,y) = exp(-\frac{X^2+\gamma^2 Y^2}{2\sigma^2})\cdot cos(\frac{2\pi}{\lambda}X)
 \end{equation}
 
-where $X=x\cos\theta + y\sin\theta$ and $Y = -x\sin\theta + y\cos\theta$ are the rotations of the filter with angle $\theta\in[0,\pi]$. The aspect ration $\gamma$ is set to $0.3$, the width $\sigma$, the wavelength $\lambda$ and the filter sizes $s$ are adjusted as in Table \ref{tab:bif_param}. These parameters are empirically determined based on reactions of the visual cortex to real stimuli \cite{4069258}. 
+where $X=x\cos\theta + y\sin\theta$ and $Y = -x\sin\theta + y\cos\theta$ are the rotations of the filter with angle $\theta\in[0,\pi]$. The aspect ration $\gamma$ is set to $0.3$, the width $\sigma$, the wavelength $\lambda$ and the filter sizes $n$ are adjusted as in Table \ref{tab:bif_param}. These parameters are empirically determined based on reactions of the visual cortex to real stimuli \cite{4069258}. 
 
-\textbf{$C_1$ layer} is formed by $C_1$ units which pool over the $S_1$ units with the same orientation and from the same scale band (see Table \ref{tab:bif_param}). Each scale band $S$ contains two adjacent filter sizes, for instance, scale band 1 contains filter with sizes $5\times5$ and $7\times7$. The scale band also determines the sizes of the neighbourhood over which the $C_1$ units pool ($N_S\times N_S$). The pooling operator used in this method is the ``STD'' operator proposed by Guo et al. \cite{conf/cvpr/GuoMFH09},
+\textbf{$C_1$ layer} is formed by $C_1$ units which pool over the $S_1$ units with the same orientation and from the same scale band (see Table \ref{tab:bif_param}). Each scale band $S$ contains two adjacent filter sizes, for instance, scale band 1 contains filter with sizes $5\times5$ and $7\times7$. The scale band also determines the sizes of the neighbourhood over which the $C_1$ units pool ($q\times q$). The pooling operator used in this method is the ``STD'' operator proposed by Guo et al. \cite{conf/cvpr/GuoMFH09},
 
 \begin{equation}
-std_{j,j+1} = \sqrt{\frac{1}{N_S\times N_S}\sum_{i=1}^{N_S\times N_S}(F_i - \bar{F})^2} 
+std_{j,j+1} = \sqrt{\frac{1}{q\times q}\sum_{i=1}^{q\times q}(F_i - \bar{F})^2} 
 \end{equation}
 
 where $F_i$ is the maximum value of two consecutive $S_1$ units output in the same scale band at pixel index $i$, 
@@ -85,7 +85,7 @@ where $F_i$ is the maximum value of two consecutive $S_1$ units output in the sa
 F_i = \max(x_i^j,x_i^{j+1})
 \end{equation}
 
-where $x_i^j$ and $x_i^{j+1}$ are the filtered values with scales $j$ and $j+1$ at position $i$. $\bar{F}$ is the mean of the filtered values in the neighbourhood $N_S\times N_S$.
+where $x_i^j$ and $x_i^{j+1}$ are the filtered values with scales $j$ and $j+1$ at position $i$. $\bar{F}$ is the mean of the filtered values in the neighbourhood $q\times q$.
 
 The $C_1$ units are concatenated into a single feature vector for each input image.
 
@@ -102,7 +102,7 @@ This method combines a hierarchical framework and a hybrid face model, mixing BI
 \end{figure}
 
 \textbf{Feature extraction}: 
-After the face alignment is done, BIF features are extracted from each face image. Because of the high dimensionality of the data ($\sim3000$ BIF features and 138 shape landmark coordinates) feature reduction is needed. Principal Component Analysis (PCA) is used to reduce dimensionality of both shape and BIF. As shows Figure \ref{fig:pipeline} BIF and shape features are concatenated into a single feature vector.
+After the face alignment is done, BIF features are extracted from each face image as described above. Because of the high dimensionality of the data ($\sim3000$ BIF features and 138 shape landmark coordinates) feature reduction is needed. Principal Component Analysis (PCA) is used to reduce dimensionality of both shape and BIF. As shows Figure \ref{fig:pipeline} BIF and shape features are concatenated into a single feature vector.
 
 \textbf{Age Group Classification}:
 In this stage the images are classified into three age groups with age ranges (0-18), (19-45) and (45-100). The classifier used is a linear SVM as suggested in \cite{4531189}.
@@ -114,5 +114,31 @@ In order to improve the system performance a last fusion step is done by averagi
 
 
 \section{Deep Learning Method}
+
+Deep Learning methods have not been fully explored in the age estimation problem. However, the rise of Deep Learning methods these last few years makes very likely that more works will base their approaches on this technique.
+
+In this work a method based on Convolutional Neural Networks (CNN) is proposed.
+
 \subsection{Background}
+Convolutional Neural Networks were first proposed by Kunihiko Fukushima \cite{fukushima:neocognitronbc} in 1980 and then further improved by Y. LeCun et al. \cite{Lecun98gradient-basedlearning} in 1998. This particular type of Neural Network has been widely used in Computer Vision because of the way its ability to capture spacial relations. Some of the most successful applications were seen in the ImageNet Large Scale Visual Recognition Challenge \cite{DBLP:journals/corr/RussakovskyDSKSMHKKBBF14} in 2014 where the winner \cite{DBLP:journals/corr/SzegedyLJSRAEVR14} achieved object detection to $0.439329$, and reduced classification error to $0.06656$ in the ImageNet database which contains millions of images and thousands of classes. Also early this year S. Farfade et al. \cite{DBLP:journals/corr/FarfadeSL15} proposed a method of multi-view face detection using CNN achieving a hight accuracy being able to detect faces from an up-side down view or partially occluded.
+
+CNN consists of a number of convolutional and subsampling layers optionally followed by fully connected layers (see Figure \ref{fig:cnnSample}). The CNN input is an image of size $m\times m\times r$. The convolutional layer contains $k$ kernels (filters) of size $n\times n\times q$ where $n \leq m$ and $q \leq r$. The filters will produce $k$ feature maps of size $m - n - 1 $. Each map is then subsampled typically with max or mean pulling over $p\times p$ contiguous region where $p$ is small (typically between 2 and 5).
+
+After the convolutional layers there may be any number of fully connected layers.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=\textwidth]{figures/CNN_sample}
+	\caption{Example of Convolutional Neural Network}
+	\label{fig:cnnSample}
+\end{figure}
+
 \subsection{System overview}
+
+The CNN proposed in this work for age estimation is based on 
+
+
+
+
+
+
