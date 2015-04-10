@@ -27,9 +27,9 @@ Given the characteristics of the used descriptors in this work, both databases c
 
 \section{Evaluation Metrics} 
 
-The two most commonly used evaluation metrics in age estimation are Mean Absolute Error (MAE) and Cumulative Score (CS).
+The two most commonly used evaluation metrics in age estimation are \acrfull{mae} and \gls{cs}.
 
-The MAE is described as
+The \gls{mae} is described as
 
 \begin{equation}
 MAE = \frac{1}{N}\sum_i^{N} |e_i|
@@ -37,7 +37,7 @@ MAE = \frac{1}{N}\sum_i^{N} |e_i|
 
 where $e_i$ is the error of the $ith$ instance, i.e. $e_i = |\hat{y_i} - y_i|$ where $y_i $ is the real label and $\hat{y_i}$ is the predicted label. This metric tells the average number of years that the prediction is wrong.
 
-CS is defined as the percentage of test images such that the absolute error is not higher than a threshold, $t$ (in years). i.e.,
+\gls{cs} is defined as the percentage of test images such that the absolute error is not higher than a threshold, $t$ (in years). i.e.,
 
 \begin{equation}
 CS(t) = (1 - \frac{1}{N}\sum_i^N h(|\hat{y_i} - y_i| - t))\cdot 100
@@ -53,9 +53,19 @@ h(x) =
 where $y_i$ is the age label of the $ith$ test image and $\hat{y_i}$ is the age prediction of the $ith$ test image.
 
 \section{Experimental Settings}
-This section describes the experimental setup of the two proposed methods.
+This section describes the experimental setup and the parameters used in the two proposed methods.
 
 \subsection{Biologically Inspired Method}
+In order to test and validate the method a nested 10-fold cross validation was performed.
+
+As described in Section \ref{sec:BIF} a SVM classifier and three SMR regressors were trained.
+
+Age Group Classification 
+Train a linear SVM with parameters c = []
+
+Age Regressors
+
+10-Fold Cross Validation 
 
 \subsection{Deep Learning Method}
 

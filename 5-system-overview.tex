@@ -19,12 +19,12 @@ All the images where transformed into \textbf{grey scale} because of the variati
 \end{figure}
 
 
-\section{Biologically Inspired Method}
-As mentioned in Section \ref{subsec:BIF} Biologically Inspired Features (BIF) have been proven to work specially good in age estimation \cite{conf/cvpr/GuoMFH09}\cite{han:age}. In this work a method is proposed using BIF as age representation and a hierarchical framework with SVM and SVR as a learning method.
+\section{Biologically Inspired Method}\label{sec:BIF}
+As mentioned in Section \ref{subsec:BIF} \acrfull{bif} have been proven to work specially good in age estimation \cite{conf/cvpr/GuoMFH09}\cite{han:age}. In this work a method is proposed using \gls{bif} as age representation and a hierarchical framework with \gls{svm} and \gls{svr} as a learning method.
  
 \subsection{Background}
 
-Inspired by how the visual cortex works, Maximilian Riesenhuber and Tomaso Poggio \cite{Riesenhuber99hierarchicalmodels} proposed the BIF model for object recognition called ``HMAX'' based on the hierarchical model of the visual nervous system proposed by D. H. Hubel and T. N. Wiesel \cite{Hubel:62}. 
+Inspired by how the visual cortex works, Maximilian Riesenhuber and Tomaso Poggio \cite{Riesenhuber99hierarchicalmodels} proposed the \gls{bif} model for object recognition called ``HMAX'' based on the hierarchical model of the visual nervous system proposed by D. H. Hubel and T. N. Wiesel \cite{Hubel:62}. 
 
 The ``HMAX'' model is composed by layers that will contain increasingly sophisticated representations. There are two type of layers called simple ($S_1$) and complex ($C_1$). Layer $S_1$ consists a battery of Gabor filters with different orientation and scales and layer $C_1$ is a pooling layer, in this model is a ``MAX'' pooling layer. There are many variations and extensions of this model made by many authors, Serre et al. \cite{4069258}\cite{1467551} introducing two more layers $S_2$ and $C_2$ or Mayers and Wolf \cite{Meyers:2008:UBI:1325290.1325298} uses a spacial $S_2$ layer called $S_2$ facial features (S2FF) for face recognition.
 
@@ -55,12 +55,12 @@ The ``HMAX'' model is composed by layers that will contain increasingly sophisti
 	\label{tab:bif_param}
 \end{table}
 
-The proposed method in this work used the BIF model described by Guo et al. \cite{conf/cvpr/GuoMFH09} that uses ``STD'' pool operator instead of ``MAX'' operator (Figure \ref{fig:bif}). 
+The proposed method in this work used the \gls{bif} model described by Guo et al. \cite{conf/cvpr/GuoMFH09} that uses ``STD'' pool operator instead of ``MAX'' operator (Figure \ref{fig:bif}). 
 
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=\textwidth]{figures/BIF}
-	\caption{Biologically Inspired Features (BIF)}
+	\caption{\acrfull{bif}}
 	\label{fig:bif}
 \end{figure}
 
@@ -92,7 +92,7 @@ The $C_1$ units are concatenated into a single feature vector for each input ima
 
 \subsection{System overview}
 
-This method combines a hierarchical framework and a hybrid face model, mixing BIF features and face shape landmarks to optimize the performance. The pipeline consists of three steps (see Figure \ref{fig:pipeline}).
+This method combines a hierarchical framework and a hybrid face model, mixing \gls{bif} features and face shape landmarks to optimize the performance. The pipeline consists of three steps (see Figure \ref{fig:pipeline}).
 
 \begin{figure}[!h]
 	\centering
@@ -102,13 +102,13 @@ This method combines a hierarchical framework and a hybrid face model, mixing BI
 \end{figure}
 
 \textbf{Feature extraction}: 
-After the face alignment is done, BIF features are extracted from each face image as described above. Because of the high dimensionality of the data ($\sim3000$ BIF features and 138 shape landmark coordinates) feature reduction is needed. Principal Component Analysis (PCA) is used to reduce dimensionality of both shape and BIF. As shows Figure \ref{fig:pipeline} BIF and shape features are concatenated into a single feature vector.
+After the face alignment is done, \gls{bif} features are extracted from each face image as described above. Because of the high dimensionality of the data ($\sim3000$ \gls{bif} features and 138 shape landmark coordinates) feature reduction is needed. \gls{pca} is used to reduce dimensionality of both shape and \gls{bif}. As shows Figure \ref{fig:pipeline} \gls{bif} and shape features are concatenated into a single feature vector.
 
 \textbf{Age Group Classification}:
-In this stage the images are classified into three age groups with age ranges (0-18), (19-45) and (45-100). The classifier used is a linear SVM as suggested in \cite{4531189}.
+In this stage the images are classified into three age groups with age ranges (0-18), (19-45) and (45-100). The classifier used is a linear \gls{svm} as suggested in \cite{4531189}.
 
 \textbf{Age Estimation}:
-Three SVR with RBF kernel were trained to perform age regression in a specific age range. The data used to fit the regressors were images within 5-years-overlap between age ranges to reduce the misclassification error as proposed in \cite{han:age}. 
+Three \gls{svr} with \gls{rbf} kernel were trained to perform age regression in a specific age range. The data used to fit the regressors were images within 5-years-overlap between age ranges to reduce the misclassification error as proposed in \cite{han:age}. 
 
 In order to improve the system performance a last fusion step is done by averaging the two nearest age regressors, i.e. if the age group classifier predicts that a given face belongs to the adult age group (19-45)] and the adult-specific regression function predicts that the exact age is 43, then in the fusion step would average the adult regressor with the elder regressor.
 
@@ -117,14 +117,10 @@ In order to improve the system performance a last fusion step is done by averagi
 
 Deep Learning methods have not been fully explored in the age estimation problem. However, the rise of Deep Learning methods these last few years makes very likely that more works will base their approaches on this technique.
 
-In this work a method based on Convolutional Neural Networks (CNN) is proposed.
+In this work a method based on \gls{cnn} is proposed.
 
 \subsection{Background}
-Convolutional Neural Networks were first proposed by Kunihiko Fukushima \cite{fukushima:neocognitronbc} in 1980 and then further improved by Y. LeCun et al. \cite{Lecun98gradient-basedlearning} in 1998. This particular type of Neural Network has been widely used in Computer Vision because of the way its ability to capture spacial relations. Some of the most successful applications were seen in the ImageNet Large Scale Visual Recognition Challenge \cite{DBLP:journals/corr/RussakovskyDSKSMHKKBBF14} in 2014 where the winner \cite{DBLP:journals/corr/SzegedyLJSRAEVR14} achieved object detection to $0.439329$, and reduced classification error to $0.06656$ in the ImageNet database which contains millions of images and thousands of classes. Also early this year S. Farfade et al. \cite{DBLP:journals/corr/FarfadeSL15} proposed a method of multi-view face detection using CNN achieving a hight accuracy being able to detect faces from an up-side down view or partially occluded.
-
-CNN consists of a number of convolutional and subsampling layers optionally followed by fully connected layers (see Figure \ref{fig:cnnSample}). The CNN input is an image of size $m\times m\times r$. The convolutional layer contains $k$ kernels (filters) of size $n\times n\times q$ where $n \leq m$ and $q \leq r$. The filters will produce $k$ feature maps of size $m - n - 1 $. Each map is then subsampled typically with max or mean pulling over $p\times p$ contiguous region where $p$ is small (typically between 2 and 5).
-
-After the convolutional layers there may be any number of fully connected layers.
+\gls{cnn} were first proposed by Kunihiko Fukushima \cite{fukushima:neocognitronbc} in 1980 and then further improved by Y. LeCun et al. \cite{Lecun98gradient-basedlearning} in 1998. This particular type of Neural Network has been widely used in Computer Vision because of the way its ability to capture spacial relations. Some of the most successful applications were seen in the ImageNet Large Scale Visual Recognition Challenge \cite{DBLP:journals/corr/RussakovskyDSKSMHKKBBF14} in 2014 where the winner \cite{DBLP:journals/corr/SzegedyLJSRAEVR14} achieved object detection to $0.439329$, and reduced classification error to $0.06656$ in the ImageNet database which contains millions of images and thousands of classes. Also early this year S. Farfade et al. \cite{DBLP:journals/corr/FarfadeSL15} proposed a method of multi-view face detection using \gls{cnn} achieving a hight accuracy being able to detect faces from an up-side down view or partially occluded.
 
 \begin{figure}[!h]
 	\centering
@@ -133,9 +129,15 @@ After the convolutional layers there may be any number of fully connected layers
 	\label{fig:cnnSample}
 \end{figure}
 
+\gls{cnn} consists of a number of convolutional and subsampling layers optionally followed by fully connected layers (see Figure \ref{fig:cnnSample}). The \gls{cnn} input is an image of size $m\times m\times r$. The convolutional layer contains $k$ kernels (filters) of size $n\times n\times q$ where $n \leq m$ and $q \leq r$. The filters will produce $k$ feature maps of size $m - n - 1 $. Each map is then subsampled typically with max or mean pulling over $p\times p$ contiguous region where $p$ is small (typically between 2 and 5).
+
+After the convolutional layers there may be any number of fully connected layers.
+
 \subsection{System overview}
 
-The CNN proposed in this work for age estimation is based on \cite{yiage} \cite{yan2014}
+The \gls{cnn} proposed in this work for age estimation is based on \cite{yiage} \cite{yan2014}. The proposed network topology is composed by three convolutional layers each of these followed by a ``MAX'' pooling layers and a single fully connected layer at the end.
+
+More in detail, after the common image preprocessing, the images of $200\times 200$ are fed to the net as input. The first layer $conv1$ is composed by 30 filters of $15\times 15\times 1$ which outputs 
 
 \note{Expain final topology}
 

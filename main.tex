@@ -22,7 +22,8 @@
 \usepackage{pdflscape}
 \usepackage{titlesec}
 \usepackage{lipsum} %FIXME
-\usepackage[xindy, toc]{glossaries}
+%\usepackage[xindy, toc]{glossaries}
+\usepackage{glossaries}
 \usepackage{multicol}
 
 % Tabular setting
@@ -42,6 +43,7 @@
 \usepackage[numbers]{natbib}
 \usepackage{amsmath}
 \usepackage[toc,page]{appendix}
+\usepackage{calligra}
 
 %So that subsubsections appear in the TOC and are numbered
 \setcounter{secnumdepth}{3}
@@ -68,7 +70,7 @@
     pdfauthor={Pablo Pardo Garcia},
     pdfsubject={Master Thesis},
     pdftitle={Automatic Real and Apparent Age Estimation in Still Images},
-    pdfkeywords={gesture recognition, NAO, wifibot, robotics, Msc Thesis},
+    pdfkeywords={age estimation, deep learning, biologically inspired features, Msc Thesis},
 }
 
 %Commands for references
@@ -101,14 +103,6 @@
 \renewcommand{\lstlistlistingname}{List of Algorithms}
 
 
-%\title{\textbf{Automatic Age Estimation in Still Images}}
-%\author{Pablo Pardo Garcia \\ \\ \\
-%       {\small \emph{Supervisor:} Sergio Escalera Guerrero} \\ 
-%       {\small \emph{Cosupervisor:} Marc Oliu} }
-%\date{February 2015}
-
-%\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
-
 %% Glossary
 \makeglossaries
 \input{glossary_entries.tex}
@@ -116,15 +110,24 @@
 \begin{document}
 
 %Title page
-%\maketitle
-%\thispagestyle{empty}
 \setcounter{page}{3}
 \input{title.tex}
+
 \chapter*{} % empty chapter to have a blank page after the title
+\newpage
+\thispagestyle{empty}
+
+\par\vspace*{.35\textheight}{\centering Quan et trobis a tu mateix aquí hi serem.\par}
+
 \thispagestyle{empty}
 \chapter*{Acknowledgements}
 \thispagestyle{empty}
-To write some time in the future...
+
+I would like to thank my supervisor Sergio Escalera for supporting and believing in me. This work would have been much harder without the incredible help of Marc Oliu and Xavi Baró who guide me though the deep learning and web developer world respectively.
+
+I also want to thank Google, Microsoft and California Naturel for investing in ...
+
+And least but not last, this work would not have been the same without my gang, you are a source of inspiration and energy. Hope this still the same in our new and soon coming adventures.
 
 \pagenumbering{arabic}
 \setcounter{page}{0}
@@ -149,7 +152,6 @@ To write some time in the future...
 \input{5-system-overview.tex}
 \input{6-experimental-evaluation.tex}
 \input{7-conclusions-future.tex}
-\input{Appendix.tex}
 
 % References
 \renewcommand{\bibname}{\refname} % To change the heading of the chapter from Bibliography to References
@@ -158,8 +160,10 @@ To write some time in the future...
 %\nocite{*} % Should be removed at the end to make sure all references are cited
 \bibliography{references}
 
-%\glsaddall
+\glsaddall
 \printglossaries
+
+\input{Appendix.tex}
 
 \end{document}
 
