@@ -81,6 +81,18 @@
 \newcommand{\chapterref}[1]{\hyperref[#1]{\ref*{#1}~\nameref*{#1}}}
 \newcommand{\annexref}[1]{\hyperref[#1]{Appendix \ref*{#1}~\nameref*{#1}}}
 
+\usepackage{etoolbox}
+\preto\section{%
+	\ifnum\value{section}=0\addtocontents{toc}{\vskip10pt}\fi
+}
+\usepackage{tocloft}
+\preto\figure{%
+	\ifnum\value{figure}=0\addtocontents{lof}{{\bfseries Chapter \thechapter\vskip10pt}}\fi
+}
+\preto\table{%
+	\ifnum\value{table}=0\addtocontents{lot}{{\bfseries Chapter \thechapter\vskip10pt}}\fi
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \DontPrintSemicolon
 % To make listings and algorithms in the same table of contents.
@@ -136,8 +148,14 @@ And last but not least, this work would not have been the same without my gang, 
 \newpage
 \pagenumbering{roman} % Roman numerals
 \input{0-abstracts.tex} \selectlanguage{english}
+
+\newpage
 \tableofcontents
+
+\newpage
 \listoftables
+
+\newpage
 \listoffigures
 
 \newpage
