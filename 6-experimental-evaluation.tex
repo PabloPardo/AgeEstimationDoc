@@ -56,16 +56,23 @@ where $y_i$ is the age label of the $ith$ test image and $\hat{y_i}$ is the age 
 This section describes the experimental setup and the parameters used in the two proposed methods.
 
 \subsection{Biologically Inspired Method}
-In order to test and validate the method a nested 10-fold cross validation was performed.
 
-As described in Section \ref{sec:BIF} a SVM classifier and three SMR regressors were trained.
+As described in Section \ref{sec:BIF} a \gls{svm} classifier and three \gls{svr} regressors were trained for this method. 
 
-Age Group Classification 
-Train a linear SVM with parameters c = []
+In order to find the best parameters a grid search was performed to find the best parameters. The parameters that formed the search space were the ones required by the \gls{svm} and \glspl{svr} and its kernels, which are the following:
 
-Age Regressors
+\begin{itemize}
+	\item \textbf{Penalty term ($C$)}: This is the Support Vector parameter that deals with the cost of a misclassification over all the classification task. 
+	
+	The $C$ parameters tried in the search space were between 0.1 and 2. The best parameters in the Age Group Classification were between 1 and 2 and the best parameters for the \glspl{svr} were between 0.1 and 1.
+	
+	\item \textbf{Influence term ($\gamma$)}: It is the \gls{rbf} kernel parameter. It determines how far the influence of a single training example reaches.
+	
+	The $\gamma$ parameters used were between 0.001 and 1, being between 0.001 and 0.01 the ones with better performance.
+\end{itemize}
 
-10-Fold Cross Validation 
+In order to train and validate the parameters a nested 10-fold cross validation technique was used.
+
 
 \subsection{Deep Learning Method}
 

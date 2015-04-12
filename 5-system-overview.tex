@@ -5,7 +5,7 @@ In this work tow methods combining state of the art techniques have been propose
 
 Given that the background information is not needed in any of the two proposed methods, it is required to first detect the faces from the images and second align all of them (Figure \ref{fig:preprocessing}).
 
-\textbf{Face detection} was performed using the Viola Jones algorithm from the open source library OpenCV. A Haar Cascade classifier was trained with nearly 5000 face images and more than 9500 negative samples. After detecting the face, the image is cropped and resized into a $200 \times 200$.
+\textbf{Face detection} was performed using the Viola Jones algorithm from the open source library OpenCV. An heuristic method was used to detect faces. Given that each images of the database contains a single face the detection algorithm should choose among all the detected faces. A Haar Cascade classifier was trained with nearly 5000 face images from different mugshot databases and more than 9500 negative samples. This classifier plus the standard frontal and lateral OpenCV cascade classifiers were used to detect faces in the images. Then an eye cascade classifier was used among the detected faces to drop out the ones where no eyes were detected. Finally, the biggest detected face is selected. After detecting the face, the image is cropped and resized into a $200 \times 200$.
 
 \textbf{Face alignment}, 68 facial landmarks were extracted for every detected face with a version of the algorithm proposed by Shaoqing Ren et al. \cite{ren2014face}. The algorithm was trained with almost 5000 face labelled images from FG-NET, AFW, HELEN, IBUG and LFPW face databases. After extracting all the landmarks all the faces are aligned.
 
