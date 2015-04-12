@@ -81,16 +81,18 @@
 \newcommand{\chapterref}[1]{\hyperref[#1]{\ref*{#1}~\nameref*{#1}}}
 \newcommand{\annexref}[1]{\hyperref[#1]{Appendix \ref*{#1}~\nameref*{#1}}}
 
+\let\Chaptermark\chaptermark
+\def\chaptermark#1{\def\Chaptername{#1}\Chaptermark{#1}}
 \usepackage{etoolbox}
 \preto\section{%
 	\ifnum\value{section}=0\addtocontents{toc}{\vskip10pt}\fi
 }
 \usepackage{tocloft}
 \preto\figure{%
-	\ifnum\value{figure}=0\addtocontents{lof}{{\bfseries Chapter \thechapter\vskip10pt}}\fi
+	\ifnum\value{figure}=0\addtocontents{lof}{{\bfseries\thechapter~\Chaptername\vskip10pt}}\fi
 }
 \preto\table{%
-	\ifnum\value{table}=0\addtocontents{lot}{{\bfseries Chapter \thechapter\vskip10pt}}\fi
+	\ifnum\value{table}=0\addtocontents{lot}{{\bfseries\thechapter~\Chaptername\vskip10pt}}\fi
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
