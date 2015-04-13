@@ -114,38 +114,37 @@ G. Guo et al. \cite{4563041} proposed a probabilistic fusion approach. They use 
 \begin{table}[h!]
 	\centering
 	\resizebox{\textwidth}{!}{
-		\begin{tabular}{|l|c|M{3cm}|M{3cm}|M{3cm}|M{3.5cm}|N}
-			\cline{1-7}
-			\rowcolor[HTML]{EFEFEF} 
+		\begin{tabular}{|l||c|M{3cm}|M{3cm}|M{3cm}|M{3.5cm}|N}
+			%cline{1-7}
 			\hline
 			\textbf{Publication} & 
 			\textbf{Year} &
 			\textbf{Database (\#subjects, \#images)} &
 			\textbf{Age Image Representation} &
 			\textbf{Learning Method} & 
-			\textbf{MAE} &\\[8pt] \hline
+			\textbf{MAE} &\\[8pt] \hhline{=#=====}
 			
-			\multicolumn{1}{|p{2.5cm}|}{\textbf{A. Lanitis et al. \cite{993553}}} & 2002 & Private (60, 500) & AAM & Quadratic Aging Function & $3.94\pm3.8$&\\[5pt] \hline
+			\multicolumn{1}{|p{2.5cm}||}{\textbf{A. Lanitis et al. \cite{993553}}} & 2002 & Private (60, 500) & AAM & Quadratic Aging Function & $3.94\pm3.8$&\\[5pt] \hline
 			
-			\multicolumn{1}{|p{2.5cm}|}{\textbf{A. Lanitis et al. \cite{Lanitis:2004:CDC:2225304.2226166}}} & 2004 & Private (40, 400) & AAM & Quadratic Aging Function & $3.82\pm5.58$&\\[5pt] \hline
+			\multicolumn{1}{|p{2.5cm}||}{\textbf{A. Lanitis et al. \cite{Lanitis:2004:CDC:2225304.2226166}}} & 2004 & Private (40, 400) & AAM & Quadratic Aging Function & $3.82\pm5.58$&\\[5pt] \hline
 			
-			\multicolumn{1}{|p{2.5cm}|}{\textbf{X. Geng et al. \cite{Geng:2006:LFA:1180639.1180711}}} & 2006 & FG-NET & AGES & Regression & $6.77$ &\\[5pt] \hline
+			\multicolumn{1}{|p{2.5cm}||}{\textbf{X. Geng et al. \cite{Geng:2006:LFA:1180639.1180711}}} & 2006 & FG-NET & AGES & Regression & $6.77$ &\\[5pt] \hline
 			
-			\multicolumn{1}{|p{2.5cm}|}{\textbf{Y. Fu et al. \cite{4284917}}} & 2007 & YGA & Manifold & Linear regression function& $5\sim 6$ &\\[5pt] \hline
+			\multicolumn{1}{|p{2.5cm}||}{\textbf{Y. Fu et al. \cite{4284917}}} & 2007 & YGA & Manifold & Linear regression function& $5\sim 6$ &\\[5pt] \hline
 			
-			\multicolumn{1}{|p{2.5cm}|}{\textbf{G. Guo et al. \cite{conf/cvpr/GuoMFH09}}} & 2009 & FG-NET, YGA & BIF & SVR & FG-NET/YGA $4.77$/F:$3.91$, M:$3.47$ &\\[5pt] \hline
+			\multicolumn{1}{|p{2.5cm}||}{\textbf{G. Guo et al. \cite{conf/cvpr/GuoMFH09}}} & 2009 & FG-NET, YGA & BIF & SVR & FG-NET/YGA $4.77$/F:$3.91$, M:$3.47$ &\\[5pt] \hline
 			
-			\multicolumn{1}{|p{2.5cm}|}{\textbf{K. Luu et al. \cite{Luu:2009:AEU:1736406.1736456}}} & 2009 & FG-NET & AAM & Hierarchical framework (SVM, SVR) & $4.37$ &\\[5pt] \hline
+			\multicolumn{1}{|p{2.5cm}||}{\textbf{K. Luu et al. \cite{Luu:2009:AEU:1736406.1736456}}} & 2009 & FG-NET & AAM & Hierarchical framework (SVM, SVR) & $4.37$ &\\[5pt] \hline
 			
-			\multicolumn{1}{|p{2.5cm}|}{\textbf{K. Luu et al. \cite{LuuSSBS11}}} & 2011 & FG-NET, PAL & Contourlet Appearance Model (CAM) & Hierarchical framework (SVM, SVR) & FG-NET/PAL $4.12$ / $6.0$ &\\[5pt] \hline
+			\multicolumn{1}{|p{2.5cm}||}{\textbf{K. Luu et al. \cite{LuuSSBS11}}} & 2011 & FG-NET, PAL & Contourlet Appearance Model (CAM) & Hierarchical framework (SVM, SVR) & FG-NET/PAL $4.12$ / $6.0$ &\\[5pt] \hline
 			
-			\multicolumn{1}{|p{2.5cm}|}{\textbf{G. Guo et al. \cite{5995404}}} & 2011 & MORPH-II & BIF & Kernel PLS Regression & $4.18$ &\\[5pt] \hline
+			\multicolumn{1}{|p{2.5cm}||}{\textbf{G. Guo et al. \cite{5995404}}} & 2011 & MORPH-II & BIF & Kernel PLS Regression & $4.18$ &\\[5pt] \hline
 			
-			\multicolumn{1}{|p{2.5cm}|}{\textbf{H. Han et al. \cite{han:age}}} & 2013 & FG-NET, MORPH-II, PCSO & BIF + Active Shape Models & Hierarchical framework (SVM, SVR) &  FG-NET/PCSO $4.7\pm24.8$ / $7.2\pm32.0$ &\\[5pt] \hline
+			\multicolumn{1}{|p{2.5cm}||}{\textbf{H. Han et al. \cite{han:age}}} & 2013 & FG-NET, MORPH-II, PCSO & BIF + Active Shape Models & Hierarchical framework (SVM, SVR) &  FG-NET/PCSO $4.7\pm24.8$ / $7.2\pm32.0$ &\\[5pt] \hline
 			
-			\multicolumn{1}{|p{2.5cm}|}{\textbf{G. Guo et al. \cite{Guo2014761}}} & 2014 & MORPH-II & BIF & rKCCA\footnote{Regularized Kernel Canonical Correlation Analysis} + Linear SVM & $3.92$ &\\[5pt] \hline
+			\multicolumn{1}{|p{2.5cm}||}{\textbf{G. Guo et al. \cite{Guo2014761}}} & 2014 & MORPH-II & BIF & rKCCA\footnote{Regularized Kernel Canonical Correlation Analysis} + Linear SVM & $3.92$ &\\[5pt] \hline
 			
-			\multicolumn{1}{|p{2.5cm}|}{\textbf{I. Huerta et al. \cite{HuFerPra14}}} & 2014 & FG-NET, MORPH-II & BIF + HOG + LBP + SURF + Gradient & rCCA\footnote{Regularized Canonical Correlation Analysis} & FG-NET/MORPH $4.17$ / $4.25$ &\\[5pt] \hline
+			\multicolumn{1}{|p{2.5cm}||}{\textbf{I. Huerta et al. \cite{HuFerPra14}}} & 2014 & FG-NET, MORPH-II & BIF + HOG + LBP + SURF + Gradient & rCCA\footnote{Regularized Canonical Correlation Analysis} & FG-NET/MORPH $4.17$ / $4.25$ &\\[5pt] \hline
 
 		\end{tabular}
 	}
@@ -179,41 +178,41 @@ After an initial interest in automatic age estimation from images dated back to 
 \centering
 \resizebox{\textwidth}{!}{
 
-\begin{tabular}{|l|c|c|c|c|M{2.5cm}|M{2.5cm}|M{2.5cm}|N}
+\begin{tabular}{|l||c|c|c|c|M{2.5cm}|M{2.5cm}|M{2.5cm}|N}
 	\hline
 	\cline{1-8}
 	\hline
-	\cellcolor[HTML]{EFEFEF}\textbf{Database} & \cellcolor[HTML]{EFEFEF}\textbf{\#Faces} & \cellcolor[HTML]{EFEFEF}\textbf{\#Subj.} & \cellcolor[HTML]{EFEFEF}\textbf{Range} & \cellcolor[HTML]{EFEFEF}\textbf{Type of age} & \cellcolor[HTML]{EFEFEF}\textbf{Controlled Env.} & \cellcolor[HTML]{EFEFEF}\textbf{Balanced age Distr.} & \cellcolor[HTML]{EFEFEF}\textbf{Other annotation} &\\[8pt] \hline
+	\textbf{Database} & \textbf{\#Faces} & \textbf{\#Subj.} & \textbf{Range} & \textbf{Type of age} & \textbf{Controlled Env.} & \textbf{Balanced age Distr.} & \textbf{Other annotation} &\\[8pt] \hhline{=#=======}
 	
-	\multicolumn{1}{|p{2cm}|}{\textbf{FG-NET \cite{993553, FGNET}}} & 1,002 & 82 & 0 - 69 & Real Age & No & No & 68 Facial Landmarks &\\[5pt] \hline
+	\multicolumn{1}{|p{2cm}||}{\textbf{FG-NET \cite{993553, FGNET}}} & 1,002 & 82 & 0 - 69 & Real Age & No & No & 68 Facial Landmarks &\\[5pt] \hline
 	
-	\multicolumn{1}{|p{2cm}|}{\textbf{GROUPS \cite{gallagher_cvpr_09_groups}}} & 28,231 & 28,231 & 0 - 66+ & Age group & No & No & - &\\[5pt] \hline
+	\multicolumn{1}{|p{2cm}||}{\textbf{GROUPS \cite{gallagher_cvpr_09_groups}}} & 28,231 & 28,231 & 0 - 66+ & Age group & No & No & - &\\[5pt] \hline
 	
-	\multicolumn{1}{|p{2cm}|}{\textbf{PAL \cite{palDB}}} & 580 & 580 & 19 - 93 & Age group & No & No & - &\\[5pt] \hline
+	\multicolumn{1}{|p{2cm}||}{\textbf{PAL \cite{palDB}}} & 580 & 580 & 19 - 93 & Age group & No & No & - &\\[5pt] \hline
 	
-	\multicolumn{1}{|p{2cm}|}{\textbf{FRGC \cite{frgcDB}}} & 44,278 & 568 & 18 - 70 & Real Age & Partially & No & - &\\[5pt] \hline
+	\multicolumn{1}{|p{2cm}||}{\textbf{FRGC \cite{frgcDB}}} & 44,278 & 568 & 18 - 70 & Real Age & Partially & No & - &\\[5pt] \hline
 	
-	\multicolumn{1}{|p{2cm}|}{\textbf{MORPH2 \cite{1613043}}} & 55,134 & 13,618 & 16 - 77 & Real Age & Yes & No & - &\\[5pt] \hline
+	\multicolumn{1}{|p{2cm}||}{\textbf{MORPH2 \cite{1613043}}} & 55,134 & 13,618 & 16 - 77 & Real Age & Yes & No & - &\\[5pt] \hline
 	
-	\multicolumn{1}{|p{2cm}|}{\textbf{YGA \cite{4523958}}} & 8,000 & 1,600 & 0 - 93 & Real Age & No & No & - &\\[5pt] \hline
+	\multicolumn{1}{|p{2cm}||}{\textbf{YGA \cite{4523958}}} & 8,000 & 1,600 & 0 - 93 & Real Age & No & No & - &\\[5pt] \hline
 	
-	\multicolumn{1}{|p{2cm}|}{\textbf{FERET\cite{Phillips1998295}}} & 14,126 & 1,199 & - & Real Age & Partially & No & - &\\[5pt] \hline
+	\multicolumn{1}{|p{2cm}||}{\textbf{FERET\cite{Phillips1998295}}} & 14,126 & 1,199 & - & Real Age & Partially & No & - &\\[5pt] \hline
 	
-	\multicolumn{1}{|p{2cm}|}{\textbf{Iranian face \cite{4469272}}} & ~3,600 & 616 & 2 - 85 & Real Age & No & No & Kind of skin and cosmetic points \footnote{Surgical points, fracture or laceration on face.}  &\\[5pt] \hline
+	\multicolumn{1}{|p{2cm}||}{\textbf{Iranian face \cite{4469272}}} & ~3,600 & 616 & 2 - 85 & Real Age & No & No & Kind of skin and cosmetic points \footnote{Surgical points, fracture or laceration on face.}  &\\[5pt] \hline
 	
-	\multicolumn{1}{|p{2cm}|}{\textbf{PIE \cite{1004130}}} & 41,638 & 68 & - & Real Age & Yes & No & - &\\[5pt] \hline
+	\multicolumn{1}{|p{2cm}||}{\textbf{PIE \cite{1004130}}} & 41,638 & 68 & - & Real Age & Yes & No & - &\\[5pt] \hline
 	
-	\multicolumn{1}{|p{2cm}|}{\textbf{WIT-BD \cite{Ueki:2006:SAC:1126250.1126269}}} & 26,222 & 5,500 & 3 - 85 & Age group & No & No & - &\\[5pt] \hline
+	\multicolumn{1}{|p{2cm}||}{\textbf{WIT-BD \cite{Ueki:2006:SAC:1126250.1126269}}} & 26,222 & 5,500 & 3 - 85 & Age group & No & No & - &\\[5pt] \hline
 	
-	\multicolumn{1}{|p{2cm}|}{\textbf{Caucasian Face Database \cite{burt1995perception}}} & 147 & - & 20 - 62 & Real Age & Yes & No & Shape represented in 208 key points &\\[5pt] \hline
+	\multicolumn{1}{|p{2cm}||}{\textbf{Caucasian Face Database \cite{burt1995perception}}} & 147 & - & 20 - 62 & Real Age & Yes & No & Shape represented in 208 key points &\\[5pt] \hline
 	
-	\multicolumn{1}{|p{2cm}|}{\textbf{LHI \cite{LHI}}} & 8,000 & 8,000 & 9 - 89 & Real Age & Yes & Yes & - &\\[5pt] \hline
+	\multicolumn{1}{|p{2cm}||}{\textbf{LHI \cite{LHI}}} & 8,000 & 8,000 & 9 - 89 & Real Age & Yes & Yes & - &\\[5pt] \hline
 	
-	\multicolumn{1}{|p{2cm}|}{\textbf{HOIP \cite{HOIP}}} & 306,600 & 300 & 15 - 64 & Age Group & Yes & No & - &\\[5pt] \hline
+	\multicolumn{1}{|p{2cm}||}{\textbf{HOIP \cite{HOIP}}} & 306,600 & 300 & 15 - 64 & Age Group & Yes & No & - &\\[5pt] \hline
 	
-	\multicolumn{1}{|p{2cm}|}{\textbf{Ni's Web-Collected Database \cite{Ni:2009:WIM:1631272.1631287}}} & 219,892 & - & 1 - 80 & Real Age & No & No & - &\\[5pt] \hline
+	\multicolumn{1}{|p{2cm}||}{\textbf{Ni's Web-Collected Database \cite{Ni:2009:WIM:1631272.1631287}}} & 219,892 & - & 1 - 80 & Real Age & No & No & - &\\[5pt] \hline
 	
-	\multicolumn{1}{|p{2cm}|}{\textbf{OUI-Adience \cite{6906255}}} & 26.580 & 2.284 & 0 - 60+ & Age Group & No & No & Gender &\\[5pt] \hline
+	\multicolumn{1}{|p{2cm}||}{\textbf{OUI-Adience \cite{6906255}}} & 26.580 & 2.284 & 0 - 60+ & Age Group & No & No & Gender &\\[5pt] \hline
 
 \end{tabular}
 

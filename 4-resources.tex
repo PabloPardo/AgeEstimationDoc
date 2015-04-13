@@ -44,7 +44,7 @@ The web-application is basically a platform to label and upload images, which is
 	\begin{table}[!h]
 		\centering
 		\begin{tabular}{l|l}
-			\textbf{Achievement} & \textbf{Description} \\ \hline
+			\textbf{Achievement} & \textbf{Description} \\\hline\hline
 			Share it! &	Invite your friends to play and you will get stars.	\\
 			Precision &	The better your guesses, the higher your rank. \\
 			Vote! &	Vote on more images to get more stars.\\	
@@ -87,11 +87,10 @@ The Table \ref{tab:charact} shows the main characteristics of the database. The 
 
 \begin{table}[h]
 	\centering
-	\begin{tabular}{|c|l|l|l|l|}
-		\rowcolor[HTML]{EFEFEF} 
+	\begin{tabular}{|c|l||l|l|l|}
 		\hline
-		\multicolumn{2}{|l|}{\cellcolor[HTML]{EFEFEF}\textbf{Features}} & HuPBA & AgeGuess & Total \\ \hline
-		\multicolumn{2}{|l|}{Images}                                    & 1506  & 33592 & 4865\\ \hline
+		\multicolumn{2}{|l||}{\textbf{Features}} & HuPBA & AgeGuess & Total \\ \hhline{==#===}
+		\multicolumn{2}{|l||}{Images}                                    & 1506  & 33592 & 4865\\ \hline
 		& female                & 44  & 1828 & 1872  \\ \cline{2-3} 
 		\multirow{-2}{*}{Users}                 & male                  & 110 & 1143 & 1253 \\ \hline
 		& female                & 1753  & 75136 & 76889\\ \cline{2-3} 
