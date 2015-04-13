@@ -89,10 +89,10 @@
 }
 \usepackage{tocloft}
 \preto\figure{%
-	\ifnum\value{figure}=0\addtocontents{lof}{{\bfseries\thechapter~\Chaptername\vskip10pt}}\fi
+	\ifnum\value{figure}=0\addtocontents{lof}{{\bfseries\thechapter~~\Chaptername\vskip10pt}}\fi
 }
 \preto\table{%
-	\ifnum\value{table}=0\addtocontents{lot}{{\bfseries\thechapter~\Chaptername\vskip10pt}}\fi
+	\ifnum\value{table}=0\addtocontents{lot}{{\bfseries\thechapter~~\Chaptername\vskip10pt}}\fi
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
