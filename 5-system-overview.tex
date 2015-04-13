@@ -135,13 +135,38 @@ After the convolutional layers there may be any number of fully connected layers
 
 \subsection{System overview}
 
-The \gls{cnn} proposed in this work for age estimation is based on \cite{yiage} \cite{yan2014}. The proposed network topology is composed by three convolutional layers each of these followed by a ``MAX'' pooling layers and a single fully connected layer at the end.
+The \gls{cnn} proposed in this work for age estimation is based on \cite{yiage} \cite{yan2014}. The proposed network topology is composed by three convolutional layers each of these followed by subsampling pooling layers and three fully connected layers at the end.
 
-More in detail, after the common image preprocessing, the images of $200\times 200$ are fed to the net as input. The first layer $conv1$ is composed by 30 filters of $15\times 15\times 1$ which outputs 
+More in detail Table \ref{tab:cnnTopo} shows the network topology layer by layer. The pooling layers use all the ``MAX'' operator and the fully-connected layers have ReLu \cite{conf/icml/NairH10} activation function. The proposed \gls{cnn} is designed to do regression returning a single value for each input instance.
 
-\note{Expain final topology}
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|l||c|c|c|c|}
+		\hline
+		\textbf{Layer} & \textbf{Input size} & \textbf{Output size} & \textbf{Filter size} & \textbf{Pooling size} \\ \hhline{=#====}
+		
+		Conv1 & $200\times 200$ & $190\times190$ & $10*(11\times11)$ & -\\ \hline
+		
+		Pool1 & $190\times190$ & $95\times95$ & - & $(2,2)$\\ \hline
+		
+		Conv2 & $95\times95$ & $89\times89$ & $20*(7\times7)$ & - \\ \hline
+		
+		Pool2 & $89\times89$ & $44\times44$ & - & $(2,2)$\\ \hline
+		
+		Conv3 & $44\times44$ & $40\times40$ & $40*(5\times5)$ & - \\ \hline
+		
+		Pool3 & $40\times40$ & $20\times20$ & - & $(2,2)$\\ \hline
+		
+		Full1 & $16,000$ & $500$ & - & - \\ \hline
+		
+		Full2 & $500$ & $200$ & - & - \\ \hline
+		
+		Full3 & $200$ & $1$ & - & - \\ \hline
+	\end{tabular}
+	\caption{Proposed \gls{cnn} topology.}
+	\label{tab:cnnTopo}
+\end{table}
 
-\note{Image ilustrating used topologi}
 
 
 
