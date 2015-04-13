@@ -135,7 +135,7 @@ After the convolutional layers there may be any number of fully connected layers
 
 \subsection{System overview}
 
-The \gls{cnn} proposed in this work for age estimation is based on \cite{yiage} \cite{yan2014}. The proposed network topology is composed by three convolutional layers each of these followed by subsampling pooling layers and three fully connected layers at the end.
+The \gls{cnn} proposed in this work for age estimation is based on \cite{yiage} \cite{yan2014}. The network was implemented using the Python library Theano to optimize the training using the GPU. The proposed network topology is composed by three convolutional layers each of these followed by subsampling pooling layers and three fully connected layers at the end.
 
 More in detail Table \ref{tab:cnnTopo} shows the network topology layer by layer. The pooling layers use all the ``MAX'' operator and the fully-connected layers have ReLu \cite{conf/icml/NairH10} activation function. The proposed \gls{cnn} is designed to do regression returning a single value for each input instance.
 

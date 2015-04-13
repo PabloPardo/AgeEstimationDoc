@@ -89,6 +89,8 @@ In order to validate and test the method a 10-fold cross validation was performe
 
 \section{Analysis of the Experiments}
 
+The results of the performed experiments are shown in the Table \ref{tab:results}.
+
 \begin{table}[!h]
 	\centering
 	\begin{tabular}{|l|l|c|}
@@ -98,7 +100,9 @@ In order to validate and test the method a 10-fold cross validation was performe
 		\multirow{3}{*}{Bio-Inspired Method} & FG-NET & $7.99 \pm 0.66$\\ 		\cline{2-3} 
 				& HuPBA-AgeGuess real age & $10.73 \pm 0.35$\\ \cline{2-3}
 				& HuPBA-AgeGuess apparent age & $9.34 \pm 0.35$\\ \hline\hline%\hhline{====}
-		\multirow{2}{*}{CNN Method} & HuPBA-AgeGuess real age & \\ \cline{2-3}
+		\multirow{3}{*}{CNN Method} & FG-NET & \\ \cline{2-3}
+				& HuPBA-AgeGuess real age & \\ \cline{2-3}
+			
 				& HuPBA-AgeGuess apparent age & \\ \hline
 		
 		
@@ -106,6 +110,7 @@ In order to validate and test the method a 10-fold cross validation was performe
 	\caption{Experiments Results}
 	\label{tab:results}
 \end{table}
+
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=\textwidth]{figures/cum_score}
