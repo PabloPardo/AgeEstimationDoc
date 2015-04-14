@@ -20,7 +20,7 @@ The problem of this model is that it can only be applied to face images of young
 
 \subsection{Active Appearance Models}\label{subsec:AAM}
 
-\gls{aam} is a statistical shape model proposed by T.F Cootes et al. \cite{Cootes:2001:AAM:378040.378090}. This model contains the shape and grey-level appearance of the object of interest which can generalize to almost any valid example. This technique has been used to find the shape of faces by many researchers. A. Lanitis et al. \cite{791208} \cite{993553} \cite{Lanitis:2004:CDC:2225304.2226166} were the first to use the \gls{aam} model for age estimation by defining an ageing function $age=f(b)$, where \textbf{b} is a vector containing the parameters learned by the \gls{aam}.
+\gls{aam} is a statistical shape model proposed by T.F Cootes et al. \cite{Cootes:2001:AAM:378040.378090}. This model contains the shape and grey-level appearance of the object of interest which can generalize to almost any valid example. This technique has been used to find the shape of faces by many researchers. A. Lanitis et al. \cite{791208} \cite{993553} \cite{Lanitis:2004:CDC:2225304.2226166} were the first to use the \gls{aam} model for age estimation by defining an ageing function $age=f(b)$, where $b$ is a vector containing the parameters learned by the \gls{aam}.
 
 A. Lanitis et al. \cite{Lanitis:2004:CDC:2225304.2226166} also tried different classifiers such as Quadratic Functions, Shortest Distance Classifier, Supervised Neural Network and Unsupervised Neural Network. Among all of them they reported that Quadratic Functions where the ones performing best.
 
@@ -87,7 +87,7 @@ There have been previous proposals training neural networks,
 which are able to learn complex mappings and deal with
 outliers, for age estimation. In \cite{Lanitis:2004:CDC:2225304.2226166}, Lanitis et al. used \gls{aam} encoded face parameters as an input for the supervised training
 of a neural network with a hidden layer. More recently, Geng
-et al. \cite{6475129} tackled age estimation as a discrete classification problem using 70 classes, one for each age. The best algorithm proposed in this work (CPNN - Conditional Probability Neural Network) consists of a three-layered neural network, in which the input to the network includes both \gls{bif} features $x$ and a numerical value for age $y$, and the output neuron is a single value of the conditional probability density function $p(y|x)$. An extensive comparison of these classification schemes for age estimation has been reported in Fernandez et al. \cite{2014icprw}. In \cite{5995481}, Yang et al. used Convolutional neural networks for age estimation under surveillance scenarios.
+et al. \cite{6475129} tackled age estimation as a discrete classification problem using 70 classes, one for each age. The best algorithm proposed in this work (CPNN - Conditional Probability Neural Network) consists of a three-layered neural network, in which the input to the network includes both \gls{bif} features $x$ and a numerical value for age $y$, and the output neuron is a single value of the conditional probability density function $p(y|x)$. An extensive comparison of these classification schemes for age estimation has been reported in Fernandez et al. \cite{2014icprw}. In \cite{5995481}, Yang et al. used \gls{cnn} for age estimation under surveillance scenarios and recently Dong Yi et al. \cite{yiage} and Chenjing Yan et al. \cite{yan2014} have used \gls{cnn} in the age estimation problem reporting very promising results in the MORPH dataset (3.63 \gls{mae}). 
 
 K. Ueki \cite{Ueki:2006:SAC:1126250.1126269} classified the images from the WIT\_DB database into 11 age groups using Gaussian models in a low-dimensional 2DLDA+LDA feature space using the EM Algorithm. The accuracy rates they achieved were $46.3\%$, $67.8\%$ and $78.1\%$ for age groups that were in the 5-year, 10-year and 15-year range respectively.
 
@@ -148,7 +148,7 @@ G. Guo et al. \cite{4563041} proposed a probabilistic fusion approach. They use 
 
 		\end{tabular}
 	}
-	\caption{Summary of some of the most important age estimation methods}
+	\caption{Summary of some of the most important age estimation methods.}
 	\label{tab:age-methods}
 \end{table}
 
@@ -218,7 +218,7 @@ After an initial interest in automatic age estimation from images dated back to 
 
 }
 
-\caption{Age-based Databases}
+\caption{Age-based Databases and its characteristics.}
 \label{tab:age-db}
 
 \end{table}

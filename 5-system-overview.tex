@@ -5,7 +5,7 @@ In this work tow methods combining state of the art techniques have been propose
 
 Given that the background information is not needed in any of the two proposed methods, it is required to first detect the faces from the images and second align all of them (Figure \ref{fig:preprocessing}).
 
-\textbf{Face detection} was performed using the Viola Jones algorithm from the open source library OpenCV. An heuristic method was used to detect faces. Given that each images of the database contains a single face the detection algorithm should choose among all the detected faces. A Haar Cascade classifier was trained with nearly 5000 face images from different mugshot databases and more than 9500 negative samples. This classifier plus the standard frontal and lateral OpenCV cascade classifiers were used to detect faces in the images. Then an eye cascade classifier was used among the detected faces to drop out the ones where no eyes were detected. Finally, the biggest detected face is selected. After detecting the face, the image is cropped and resized into a $200 \times 200$.
+\textbf{Face detection} was performed using the Viola Jones algorithm from the open source library OpenCV \cite{opencv_library}. An heuristic method was used to detect faces. Given that each images of the database contains a single face the detection algorithm should choose among all the detected faces. A Haar Cascade classifier was trained with nearly 5000 face images from different mugshot databases and more than 9500 negative samples. This classifier plus the standard frontal and lateral OpenCV cascade classifiers were used to detect faces in the images. Then an eye cascade classifier was used among the detected faces to drop out the ones where no eyes were detected. Finally, the biggest detected face is selected. After detecting the face, the image is cropped and resized into a $200 \times 200$.
 
 \textbf{Face alignment}, 68 facial landmarks were extracted for every detected face with a version of the algorithm proposed by Shaoqing Ren et al. \cite{ren2014face}. The algorithm was trained with almost 5000 face labelled images from FG-NET, AFW, HELEN, IBUG and LFPW face databases. After extracting all the landmarks all the faces are aligned.
 
@@ -14,7 +14,7 @@ All the images where transformed into \textbf{grey scale} because of the variati
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=\textwidth]{figures/preprocessing}
-	\caption{Face Detection and Face Alignment}
+	\caption{Face Detection and Face Alignment.}
 	\label{fig:preprocessing}
 \end{figure}
 
@@ -60,7 +60,7 @@ The proposed method in this work used the \gls{bif} model described by Guo et al
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=\textwidth]{figures/BIF}
-	\caption{\acrfull{bif}}
+	\caption{\acrfull{bif}.}
 	\label{fig:bif}
 \end{figure}
 
@@ -68,7 +68,7 @@ The proposed method in this work used the \gls{bif} model described by Guo et al
 \textbf{$S_1$ layer} is formed by $S_1$ units which take as input a grey image of size $200\times 200$. These units are usually modelled by Gabor filters, given $(x,y)$ pixel coordinates of the input image,
 
 \begin{equation}
-G(x,y) = exp(-\frac{X^2+\gamma^2 Y^2}{2\sigma^2})\cdot cos(\frac{2\pi}{\lambda}X)
+G(x,y) = exp\bigg(-\frac{X^2+\gamma^2 Y^2}{2\sigma^2}\bigg)\cdot cos(\frac{2\pi}{\lambda}X)\ ,
 \end{equation}
 
 where $X=x\cos\theta + y\sin\theta$ and $Y = -x\sin\theta + y\cos\theta$ are the rotations of the filter with angle $\theta\in[0,\pi]$. The aspect ration $\gamma$ is set to $0.3$, the width $\sigma$, the wavelength $\lambda$ and the filter sizes $n$ are adjusted as in Table \ref{tab:bif_param}. These parameters are empirically determined based on reactions of the visual cortex to real stimuli \cite{4069258}. 
@@ -76,13 +76,13 @@ where $X=x\cos\theta + y\sin\theta$ and $Y = -x\sin\theta + y\cos\theta$ are the
 \textbf{$C_1$ layer} is formed by $C_1$ units which pool over the $S_1$ units with the same orientation and from the same scale band (see Table \ref{tab:bif_param}). Each scale band $S$ contains two adjacent filter sizes, for instance, scale band 1 contains filter with sizes $5\times5$ and $7\times7$. The scale band also determines the sizes of the neighbourhood over which the $C_1$ units pool ($q\times q$). The pooling operator used in this method is the ``STD'' operator proposed by Guo et al. \cite{conf/cvpr/GuoMFH09},
 
 \begin{equation}
-std_{j,j+1} = \sqrt{\frac{1}{q\times q}\sum_{i=1}^{q\times q}(F_i - \bar{F})^2} 
+std_{j,j+1} = \sqrt{\frac{1}{q\times q}\sum_{i=1}^{q\times q}(F_i - \bar{F})^2} \ ,
 \end{equation}
 
 where $F_i$ is the maximum value of two consecutive $S_1$ units output in the same scale band at pixel index $i$, 
 
 \begin{equation}
-F_i = \max(x_i^j,x_i^{j+1})
+F_i = \max(x_i^j,x_i^{j+1})\ ,
 \end{equation}
 
 where $x_i^j$ and $x_i^{j+1}$ are the filtered values with scales $j$ and $j+1$ at position $i$. $\bar{F}$ is the mean of the filtered values in the neighbourhood $q\times q$.
@@ -97,7 +97,7 @@ This method combines a hierarchical framework and a hybrid face model, mixing \g
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=\textwidth]{figures/pipeline}
-	\caption{Biologically Inspired Method Pipeline}
+	\caption{Biologically Inspired Method Pipeline.}
 	\label{fig:pipeline}
 \end{figure}
 
@@ -115,9 +115,7 @@ In order to improve the system performance a last fusion step is done by averagi
 
 \section{Deep Learning Method}
 
-Deep Learning methods have not been fully explored in the age estimation problem. However, the rise of Deep Learning methods these last few years makes very likely that more works will base their approaches on this technique.
-
-In this work a method based on \gls{cnn} is proposed.
+Deep Learning methods have not been fully explored in the age estimation problem. However, the rise of Deep Learning methods these last few years makes very likely that more works will base their approaches on this technique. In this work a method based on \gls{cnn} is analysed.
 
 \subsection{Background}
 \gls{cnn} were first proposed by Kunihiko Fukushima \cite{fukushima:neocognitronbc} in 1980 and then further improved by Y. LeCun et al. \cite{Lecun98gradient-basedlearning} in 1998. This particular type of Neural Network has been widely used in Computer Vision because of the way its ability to capture spacial relations. Some of the most successful applications were seen in the ImageNet Large Scale Visual Recognition Challenge \cite{DBLP:journals/corr/RussakovskyDSKSMHKKBBF14} in 2014 where the winner \cite{DBLP:journals/corr/SzegedyLJSRAEVR14} achieved object detection to $0.439329$, and reduced classification error to $0.06656$ in the ImageNet database which contains millions of images and thousands of classes. Also early this year S. Farfade et al. \cite{DBLP:journals/corr/FarfadeSL15} proposed a method of multi-view face detection using \gls{cnn} achieving a hight accuracy being able to detect faces from an up-side down view or partially occluded.
@@ -125,7 +123,7 @@ In this work a method based on \gls{cnn} is proposed.
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=\textwidth]{figures/CNN_sample}
-	\caption{Example of Convolutional Neural Network}
+	\caption{Example of Convolutional Neural Network.}
 	\label{fig:cnnSample}
 \end{figure}
 
@@ -135,7 +133,7 @@ After the convolutional layers there may be any number of fully connected layers
 
 \subsection{System overview}
 
-The \gls{cnn} proposed in this work for age estimation is based on \cite{yiage} \cite{yan2014}. The network was implemented using the Python library Theano to optimize the training using the GPU. The proposed network topology is composed by three convolutional layers each of these followed by subsampling pooling layers and three fully connected layers at the end.
+The \gls{cnn} proposed in this work for age estimation is inspired on \cite{yiage} \cite{yan2014}. The network was implemented using the Python library Theano \cite{Bastien-Theano-2012}\cite{bergstra+al:2010-scipy} to optimize the training using the GPU. The proposed network topology is composed by three convolutional layers each of these followed by subsampling pooling layers and three fully connected layers at the end.
 
 More in detail Table \ref{tab:cnnTopo} shows the network topology layer by layer. The pooling layers use all the ``MAX'' operator and the fully-connected layers have ReLu \cite{conf/icml/NairH10} activation function. The proposed \gls{cnn} is designed to do regression returning a single value for each input instance.
 
