@@ -89,7 +89,22 @@ In order to validate and test the method a 10-fold cross validation was performe
 
 \section{Analysis of the Experiments}
 
-The results of the performed experiments are shown in the Table \ref{tab:results}.
+The experiments were run in the two datasets, FG-NET and HuPBA-AgeGuess, amd with the two different age labels (just in HuPBA-AgeGuess).
+
+\note{Experiments results}
+
+The \glspl{mae} achieved in the performed experiments are shown in the Table \ref{tab:results}.
+
+The \glspl{cs} obtained in all the experiments is sketched in the Figure \ref{fig:cumS}.
+
+The best result in the HuPBA-AgeGuess database was achieved by \gls{cnn}
+
+\note{Experiments analysis}
+
+In both methods we can appreciate that the performance is higher with apparent age estimation than real age estimation. 
+
+In both \gls{cnn} and \gls{bif} methods the FG-NET dataset achieved better results. This is because the images in that dataset are frontal faces and the 68 landmarks were manually placed, while the HuPBA-AgeGuess database contains non frontal face images and the landmarks are automatically regressed.
+
 
 \begin{table}[!h]
 	\centering
@@ -97,23 +112,23 @@ The results of the performed experiments are shown in the Table \ref{tab:results
 		\hline
 		\multicolumn{1}{|c|}{\textbf{Method}} & 
 		\multicolumn{1}{|c|}{\textbf{Database}} & \textbf{\gls{mae}}\\ \hline\hline%\hhline{====}
-		\multirow{3}{*}{Bio-Inspired Method} & FG-NET & $7.99 \pm 0.66$\\ 		\cline{2-3} 
-				& HuPBA-AgeGuess real age & $10.73 \pm 0.35$\\ \cline{2-3}
-				& HuPBA-AgeGuess apparent age & $9.34 \pm 0.35$\\ \hline\hline%\hhline{====}
+		\multirow{3}{*}{Bio-Inspired Method} & FG-NET & $7.99$\\ 		\cline{2-3} 
+				& HuPBA-AgeGuess real age & $10.73$\\ \cline{2-3}
+				& HuPBA-AgeGuess apparent age & $9.34$\\ \hline\hline%\hhline{====}
 		\multirow{3}{*}{CNN Method} & FG-NET & \\ \cline{2-3}
 				& HuPBA-AgeGuess real age & \\ \cline{2-3}
 			
-				& HuPBA-AgeGuess apparent age & \\ \hline
+				& HuPBA-AgeGuess apparent age & $8.71$ \\ \hline
 		
 		
 	\end{tabular}
-	\caption{Experiments Results}
+	\caption{\gls{mae} of the different experiments.}
 	\label{tab:results}
 \end{table}
 
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=\textwidth]{figures/cum_score}
-	\caption{Cummulative Score }
+	\caption{\gls{cs} achieved in the experiments.}
 	\label{fig:cumS}
 \end{figure}
