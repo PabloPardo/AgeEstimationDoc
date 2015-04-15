@@ -89,7 +89,56 @@ In order to validate and test the method a 10-fold cross validation was performe
 
 \section{Analysis of the Experiments}
 
+% además de la discusión de los resultados recuerda poner muchas imágenes:
+
+%-ejemplos de landmark fitting (1 página de imágenes)
+
+%-imagenes ejem de perfecto reconocim- algunas que fallen.
+
+%-en el caso de deep learning estaría bien mostrar las features encontradas!!!!! (los filtros) e incluso el resultado de aplicar los filtros a imagenes de caras !!!!
+
+%incluir discusion de pros contras y comparativa de los 2 métodos.
+
+%cuando lo tratas como multi-clasificación mostrar visualmente con colores la matriz de confusión
+
 In this section the results of all the experiments is described and analysed in detail. The experiments were run in the two datasets, FG-NET and HuPBA-AgeGuess, amd with the two different age labels (just in HuPBA-AgeGuess).
+
+\subsection{Face Detection and Alignment}
+
+This preprocessing step was just applied to the HuPBA-AgeGuess dataset since the FG-NET already contains the 68 facial landmarks manually placed. The database HuPBA-AgeGuess was preprocessed as described in Section \ref{sec:preproces}. The face detection was $92.52\%$ accurate and face alignment was $84.54\%$ accurate, hence the total accuracy of the preprocessing was $78.26\%$. Some examples of good and bad face detections and alignments are shown in Figure \ref{fig:sampPP}.
+
+\begin{figure}
+	\centering
+	\begin{subfigure}[b]{\textwidth}
+		\includegraphics[width=\textwidth]{figures/good_pp}
+		\caption{Well detected and aligned faces.}
+		\label{fig:goodPP}
+	\end{subfigure}%
+	
+	 %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.
+	%(or a blank line to force the subfigure onto a new line)
+	\begin{subfigure}[b]{\textwidth}
+		\includegraphics[width=\textwidth]{figures/bad_detection}
+		\caption{Samples of bad face detection.}
+		\label{fig:badDet}
+	\end{subfigure}
+	~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.
+	%(or a blank line to force the subfigure onto a new line)
+	\begin{subfigure}[b]{\textwidth}
+		\includegraphics[width=\textwidth]{figures/bad_alignment}
+		\caption{Samples of bad face alignment.}
+		\label{fig:badAl}
+	\end{subfigure}
+	\caption{Samples of preprocessed faces.}\label{fig:sampPP}
+\end{figure}
+
+The detection and alignment were tricky since the images are not taken in a controlled environment, the multiple illumination changes and the multiple head orientations made the preprocessing very difficult.
+
+\subsection{Biologically Inspired Method}
+
+\subsection{Deep Learning Method}
+
+\subsection{Comparison}
 
 \note{TODO: Experiments results}
 
