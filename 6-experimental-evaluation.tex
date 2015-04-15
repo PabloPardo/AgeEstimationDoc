@@ -117,7 +117,7 @@ In this section the results of all the experiments is described and analysed in 
 
 This preprocessing step was just applied to the HuPBA-AgeGuess dataset since the FG-NET already contains the 68 facial landmarks manually placed. The database HuPBA-AgeGuess was preprocessed as described in Section \ref{sec:preproces}. The face detection was $92.52\%$ accurate and face alignment was $84.54\%$ accurate, hence the total accuracy of the preprocessing was $78.26\%$. Some examples of good and bad face detections and alignments are shown in Figure \ref{fig:sampPP}.
 
-\begin{figure}
+\begin{figure}[!h]
 	\centering
 	\begin{subfigure}[b]{\textwidth}
 		\includegraphics[width=\textwidth]{figures/good_pp}
@@ -147,12 +147,38 @@ The detection and alignment were tricky since the images are not taken in a cont
 
 \subsection{Biologically Inspired Method}
 
-The \gls{mae} achieved by this method in both databases is shown in the Table \ref{tab:results}. As it was expected the algorithm performed better with the FG-NET dataset since the landmarks were manually placed.
+The \gls{mae} achieved by this method in both databases is shown in the Table \ref{tab:results}. As it was expected the algorithm performed better with the FG-NET dataset since the landmarks were manually placed. Between both experiments with the HuPBA-AgeGuess dataset this method performed best in the apparent age labels.
 
-In Figure \ref{} we can see the \gls{cs} ...
+In Figure \ref{} we can see the \gls{cs} ... \note{finish}
 
-The group classification achieves a 
-In Figure \ref{} we can se the 
+The group classification achieves a $0.895$ accuracy with FG-NET and $0.87$ with HuPBA-AgeGuess dataset. Figure \ref{fig:cm} shows the confusion matrix obtained in each one of the three datasets.
+
+\begin{figure}[!h]
+	\centering
+	\begin{subfigure}[b]{0.5\textwidth}
+		\includegraphics[width=\textwidth]{figures/FG-NETconf_mat}
+		\caption{FG-NET dataset.}
+		\label{fig:cmfgnet}
+	\end{subfigure}%
+	~
+	%add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.
+	%(or a blank line to force the subfigure onto a new line)
+	\begin{subfigure}[b]{0.5\textwidth}
+		\includegraphics[width=\textwidth]{figures/FG-NETconf_mat}
+		\captionsetup{width=1.1\textwidth}
+		\caption{HuPBA-AgeGuess with Real Age labels.}
+		\label{fig:cmreal}
+	\end{subfigure} %
+	
+	%add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.
+	%(or a blank line to force the subfigure onto a new line)
+	\begin{subfigure}[b]{0.5\textwidth}
+		\includegraphics[width=\textwidth]{figures/FG-NETconf_mat}
+		\caption{HuPBA-AgeGuess with Apparent Age labels.}
+		\label{fig:cmapp}
+	\end{subfigure}
+	\caption{Confusion Matrices of the Age Group Classification.}\label{fig:cm}
+\end{figure}
 
 \subsection{Deep Learning Method}
 
