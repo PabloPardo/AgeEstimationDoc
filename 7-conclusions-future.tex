@@ -6,11 +6,34 @@
 
 
 \section{Future Work}
+%¿cuáles son otros hot topics?
+
+%-> analizar las limitaciones en el reconocimiento en funcion de la resolución de entrada
+
+
+%-> face landmark still needs to deal with poses que varien mucho y oclusiones y reduce la fiabilidad de etapas posteriores
+
+%-> interesante ver el análisis multi-modal a ver si depth o thermal images complement discriminative informacion for age recognition
+
 
 As a future work, the three main parts of this project -proposed database, proposed methods and challenge organization- can be further explored.
 
-The proposed methods can be improve by using face frontalization in the preprocessing step or by using the landmark location to calculate the \gls{bif} in local areas, not in a holistic fashion. Other methods should also be explored.
-
 The web-application could be improved by collecting further information about the database face images such as gender, ethnic, whether the individual is wearing make-up or no, etc. It should also be maintained in order to keep the users playing, uploading more images, guessing the already existent ones and engaging other users to play.
 
-After the organized challenge, the methods proposed by the contestants should be further analysed.
+There are several aspect of the proposed methods that could be exhaustively explored.
+
+\begin{itemize}
+	\item \textit{Input Quality}: Determine until which extent the quality of the input images affects the performance of the state of the art method for age estimation.
+	
+	\item \textit{Landmark Regression}: This step in the preprocessing is crucial since the features will be extracted locally in the aligned face. Therefore it is very important to improve the landmark regression to being able to localise the landmarks correctly despite the occlusions and facial expressions.
+	
+	\item \textit{Face Frontalization}: The feature extraction could be improved by frontalizing the faces.
+	
+	\item \textit{Local Multi-scale Patch \gls{bif}}: Calculate the \gls{bif} features from localized multi-scale patches using the landmark position could give less noisy and more reliable information about the analysed face.
+	
+	\item \textit{Multi-modal Age Extimation}: Analyse the utility of depth and thermal images in a multi-modal fashion to determine how they complement discriminative information for age estimation.
+\end{itemize}
+
+After the organized challenge, the methods proposed by the contestants should be further analysed and see how they tackle the problems described in this work.
+
+

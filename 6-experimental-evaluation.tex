@@ -147,9 +147,30 @@ The detection and alignment were tricky since the images are not taken in a cont
 
 \subsection{Biologically Inspired Method}
 
-The \gls{mae} achieved by this method in both databases is shown in the Table \ref{tab:results}. As it was expected the algorithm performed better with the FG-NET dataset since the landmarks were manually placed. Between both experiments with the HuPBA-AgeGuess dataset this method performed best in the apparent age labels.
+The \gls{mae} achieved by this method in both databases is shown in the Table \ref{tab:BIFresults}. As it was expected the algorithm performed better with the FG-NET dataset since the landmarks were manually placed. Between both experiments with the HuPBA-AgeGuess dataset this method performed best in the apparent age labels.
 
-In Figure \ref{} we can see the \gls{cs} ... \note{finish}
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|l||c|}
+		\hline
+		\multicolumn{1}{|c||}{\textbf{Database}} & \textbf{\gls{mae}}\\ \hhline{=#=}
+		FG-NET & $7.99$\\ 		\hline
+		HuPBA-AgeGuess real age & $10.73$\\ \hline
+		HuPBA-AgeGuess apparent age & $9.34$\\ \hline
+			
+	\end{tabular}
+	\caption{\gls{mae} achieved with \gls{bif}.}
+	\label{tab:BIFresults}
+\end{table}
+
+Figure \ref{fig:cumS_BIF} shows the \gls{cs} obtained with this method. It shows that the performance is better over apparent age than real age.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=\textwidth]{figures/cum_score}
+	\caption{\gls{cs} achieved with the Biologically Inspired Method.}
+	\label{fig:cumS_BIF}
+\end{figure}
 
 The group classification achieves a $0.895$ accuracy with FG-NET and $0.87$ with HuPBA-AgeGuess dataset. Figure \ref{fig:cm} shows the confusion matrix obtained in each one of the three datasets.
 
@@ -180,21 +201,30 @@ The group classification achieves a $0.895$ accuracy with FG-NET and $0.87$ with
 	\caption{Confusion Matrices of the Age Group Classification.}\label{fig:cm}
 \end{figure}
 
+\note{Study the CS and MAE by group of ages (maybe images in Appendix)}
+
 \subsection{Deep Learning Method}
+
+The Table \ref{tab:CNNresults} shows the achieved \gls{mae} with this method in all three datasets. 
+
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|l||c|}
+		\hline
+		\multicolumn{1}{|c||}{\textbf{Database}} & \textbf{\gls{mae}}\\ \hhline{=#=}
+		FG-NET & \\ 		\hline
+		HuPBA-AgeGuess real age & $10.29$\\ \hline
+		HuPBA-AgeGuess apparent age & $8.71$\\ \hline
+		
+	\end{tabular}
+	\caption{\gls{mae} achieved with \gls{cnn}.}
+	\label{tab:CNNresults}
+\end{table}
+
+\note{Show weight masks (maybe in the Apendix)}
 
 \subsection{Comparison}
 
-\note{TODO: Experiments results}
-
-The \glspl{mae} achieved in the performed experiments are shown in the Table \ref{tab:results}.
-
-The \glspl{cs} obtained in all the experiments is sketched in the Figure \ref{fig:cumS}.
-
-The best result in the HuPBA-AgeGuess database was achieved by \gls{cnn}
-
-\note{TODO: Experiments analysis\\}
-\note{ TODO: Genaral Overview of the results\\}
-\note{ TODO: Results by Age Groups}
 
 In both methods can be appreciated that the performance is higher with apparent age estimation than real age estimation. 
 
@@ -207,22 +237,15 @@ In both \gls{cnn} and \gls{bif} methods the FG-NET dataset achieved better resul
 		\multicolumn{1}{|c|}{\textbf{Method}} & 
 		\multicolumn{1}{|c|}{\textbf{Database}} & \textbf{\gls{mae}}\\ \hline\hline%\hhline{====}
 		\multirow{3}{*}{Bio-Inspired Method} & FG-NET & $7.99$\\ 		\cline{2-3} 
-				& HuPBA-AgeGuess real age & $10.73$\\ \cline{2-3}
-				& HuPBA-AgeGuess apparent age & $9.34$\\ \hline\hline%\hhline{====}
+		& HuPBA-AgeGuess real age & $10.73$\\ \cline{2-3}
+		& HuPBA-AgeGuess apparent age & $9.34$\\ \hline\hline%\hhline{====}
 		\multirow{3}{*}{CNN Method} & FG-NET & \\ \cline{2-3}
-				& HuPBA-AgeGuess real age & $10.29$\\ \cline{2-3}
-			
-				& HuPBA-AgeGuess apparent age & $8.71$ \\ \hline
+		& HuPBA-AgeGuess real age & $10.29$\\ \cline{2-3}
+		
+		& HuPBA-AgeGuess apparent age & $8.71$ \\ \hline
 		
 		
 	\end{tabular}
 	\caption{\gls{mae} of the different experiments.}
 	\label{tab:results}
 \end{table}
-
-\begin{figure}[!h]
-	\centering
-	\includegraphics[width=\textwidth]{figures/cum_score}
-	\caption{\gls{cs} achieved in the experiments.}
-	\label{fig:cumS}
-\end{figure}
