@@ -123,7 +123,7 @@ Three \gls{svr} with \gls{rbf} kernel were trained to perform age regression in 
 In order to improve the system performance a last fusion step is done by averaging the two nearest age regressors, i.e. if the age group classifier predicts that a given face belongs to the adult age group (19-45)] and the adult-specific regression function predicts that the exact age is 43, then in the fusion step would average the adult regressor with the elder regressor.
 
 
-\section{Deep Learning Method}
+\section{Deep Learning Method}\label{sec:deep}
 
 Deep Learning methods have not been fully explored in the age estimation problem. However, the rise of Deep Learning methods these last few years makes very likely that more works will base their approaches on this technique. In this work a method based on \gls{cnn} is analysed.
 
@@ -171,7 +171,7 @@ More in detail Table \ref{tab:cnnTopo} shows the network topology layer by layer
 		
 		Full3 & $200$ & $1$ & - & - \\ \hline
 	\end{tabular}
-	\caption{Proposed \gls{cnn} topology.}
+	\caption{Proposed \acrshort{cnn} topology.}
 	\label{tab:cnnTopo}
 \end{table}
 
