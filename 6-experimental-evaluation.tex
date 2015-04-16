@@ -161,7 +161,7 @@ Figure \ref{fig:cumS_BIF} shows the \gls{cs} obtained with this method. It shows
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[width=\textwidth]{figures/cum_score}
+	\includegraphics[width=\textwidth]{figures/results_hybrid_cum_score_good}
 	\caption{\acrshort{cs} achieved with the Biologically Inspired Method.}
 	\label{fig:cumS_BIF}
 \end{figure}
@@ -196,9 +196,35 @@ The group classification achieves $0.895$ accuracy with FG-NET and $0.87$ with H
 	\caption{Confusion Matrices of the Age Group Classification.}\label{fig:cm}
 \end{figure}
 
-The poor age group classification causes an overall bad performance of the age estimation algorithm with the HuPBA-AgeGuess dataset.
+The poor age group classification causes an overall bad performance of the age estimation algorithm with the HuPBA-AgeGuess dataset. The same problem can be seen in the Figures \ref{fig:cumBIF_gr}, where the cumulative score achieved in the three disjoint are groups is shown. The Figure \ref{fig:cumS_BIF_ag0} shows the \gls{cs} of the young age group and it can be observe that the performance in the FG-NET is very good, while (as shown in the confusion matrix in the intermediate classification) the method performs poorly in the HuPBA-AgeGuess. The \gls{cs} from the elder age group (see Figure \ref{fig:cumS_BIF_ag2}) is very low, showing that very few instances of that age range are well classified. 
 
-\note{Study the CS and MAE by group of ages (maybe images in Appendix)}
+
+\begin{figure}[!h]
+	\centering
+	\begin{subfigure}[b]{0.5\textwidth}
+		\includegraphics[width=\textwidth]{figures/results_hybrid_cum_score_good_ag0}
+		\caption{\acrshort{cs} with age range [0 - 18].}
+		\label{fig:cumS_BIF_ag0}
+	\end{subfigure}%
+	~
+	%add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.
+	%(or a blank line to force the subfigure onto a new line)
+	\begin{subfigure}[b]{0.5\textwidth}
+		\includegraphics[width=\textwidth]{figures/results_hybrid_cum_score_good_ag1}
+		\caption{\acrshort{cs} with age range [19 - 45].}
+		\label{fig:cumS_BIF_ag1}
+	\end{subfigure} %
+	
+	\vspace{0.5cm}
+	%add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.n
+	%(or a blank line to force the subfigure onto a new line)
+	\begin{subfigure}[b]{0.5\textwidth}
+		\includegraphics[width=\textwidth]{figures/results_hybrid_cum_score_good_ag2}
+		\caption{\acrshort{cs} with age range [46 - 100].}
+		\label{fig:cumS_BIF_ag2}
+	\end{subfigure}
+	\caption{Cumulative Score achieved in each age group with the BIF method.}\label{fig:cumBIF_gr}
+\end{figure}
 
 \subsection{Deep Learning Method}
 
@@ -222,22 +248,46 @@ Figure \ref{fig:cumS_CNN} shows the \gls{cs} obtained with this method. It shows
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[width=\textwidth]{figures/cum_score}
+	\includegraphics[width=\textwidth]{figures/results_cnn_cum_score_good}
 	\caption{\acrshort{cs} achieved with the \acrshort{cnn} Method.}
 	\label{fig:cumS_CNN}
 \end{figure}
 
-\note{Show weight masks (maybe in the Apendix)}
+The \gls{cs} of the individual age groups are plotted in the Figure \ref{fig:cumCNN_gr}. It shows that the \gls{cnn} performs better over the adult age group, Figure \ref{fig:cumS_CNN_ag1}, than the other two age groups, Figures \ref{fig:cumS_CNN_ag0} and \ref{fig:cumS_CNN_ag2}.
+
+\begin{figure}[!h]
+	\centering
+	\begin{subfigure}[b]{0.5\textwidth}
+		\includegraphics[width=\textwidth]{figures/results_cnn_cum_score_good_ag0}
+		\caption{\acrshort{cs} with age range [0 - 18].}
+		\label{fig:cumS_CNN_ag0}
+	\end{subfigure}%
+	~
+	%add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.
+	%(or a blank line to force the subfigure onto a new line)
+	\begin{subfigure}[b]{0.5\textwidth}
+		\includegraphics[width=\textwidth]{figures/results_cnn_cum_score_good_ag1}
+		\caption{\acrshort{cs} with age range [19 - 45].}
+		\label{fig:cumS_CNN_ag1}
+	\end{subfigure} %
+	
+	\vspace{0.5cm}
+	%add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc.n
+	%(or a blank line to force the subfigure onto a new line)
+	\begin{subfigure}[b]{0.5\textwidth}
+		\includegraphics[width=\textwidth]{figures/results_cnn_cum_score_good_ag2}
+		\caption{\acrshort{cs} with age range [46 - 100].}
+		\label{fig:cumS_CNN_ag2}
+	\end{subfigure}
+	\caption{Cumulative Score achieved in each age group with the CNN method.}\label{fig:cumCNN_gr}
+\end{figure}
 
 \subsection{Comparison}
 
-From the two tables of results (Tables \ref{tab:BIFresults} and \ref{tab:CNNresults}) can be seen that the \gls{cnn} method achieves better results with the HuPBA-AgeGuess, reducing the \gls{mae} $0.65$ years with apparent age and $0.44$ years with real age annotations.
+From the two tables of results (Tables \ref{tab:BIFresults} and \ref{tab:CNNresults}) it can be seen that the \gls{cnn} method achieves better results with the HuPBA-AgeGuess, reducing the \gls{mae} $0.65$ years with apparent age and $0.44$ years with real age annotations. From the Figures \ref{fig:cumBIF_gr} and \ref{fig:cumS_CNN} we can find a similarity in both methods, they have higher performance in the adult age group (between 19 and 45 years old). This could be caused because of the unbalanced data or because the features did not capture the hole variability of the data as they should.
 
-It also can be observed that the performance with apparent age is in all the cases higher than with real age.
+It also can be deduced from the results that the performance with apparent age is higher than with real age using both proposed methods. This observation could be caused because 
 
-Despite the fact that the FG-NET database could not be tested with the \gls{cnn} method, the lowest \gls{mae} achieved in the experiments was using the 
-
-In both \gls{cnn} and \gls{bif} methods the FG-NET dataset achieved better results. This is because the images in that dataset are frontal faces and the 68 landmarks were manually placed, while the HuPBA-AgeGuess database contains non frontal face images and the landmarks are automatically regressed.
 
 %\begin{table}[!h]
 %	\centering
