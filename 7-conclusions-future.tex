@@ -1,27 +1,26 @@
 \chapter{Conclusions and Future work} \label{chap:conclusions}
 
+This Chapter closes this Master Thesis by reviewing the work done, presenting a final analysis of the experiment results and commenting its future implications.
+
 \section{Conclusions}
 
 An exhaustive study of the age estimation problem has been done in this Master Thesis. Also a novel face image database with real and apparent age annotations has been created and proposed for this work.
 
 % Proposed database: resaltar novedad y posible impacto
-The proposed database is the first face image database where the faces are labelled with real and apparent age. It is also a very challenging database since the face images were taken in unconstrained conditions, having huge variation in face position, background and illumination.
+A web-based application using the Facebook API was developed in order to collect and label the proposed database in a gamified fashion engaging the participants to upload images and guess the age of other users images. The proposed database is the first face image database where the images are labelled with real and apparent age. It is also a very challenging database since the face images were taken in unconstrained conditions, having huge variation in face position, background and illumination.
 
-\note{Real Age vs Apparent Age}
-
-% Diferencias en performance
-
-
-\note{Proposed Methods}
-
-From the extensive analysis of the literature in Chapter \ref{chap:sota} two methods have been proposed. The first one based on \gls{bif} features combined with shape information in a hierarchical fashion combining \glspl{svm} and \glspl{svr} and the second proposed method is based on deep \glspl{cnn}.
+% Proposed Methods 
+From the extensive analysis of the literature in Chapter \ref{chap:sota} two methods have been proposed. The first one based on \gls{bif} features combined with shape information in a hierarchical fashion combining \glspl{svm} and \glspl{svr} and the second proposed method is based on deep \glspl{cnn}. Both methods has been tested in the proposed database (HuPBA-AgeGuess).
 
 % Conclusiones sobre los metodos, ventajas y desventajas
-The performance of the proposed methods is not as good as expected, however, it could be observed that both methods could predict more accurately the age of faces between 19 and 45 years old. 
+The performance of the proposed methods is not as good as expected. However, it could be observed that both methods could predict more accurately the age of faces between 19 and 45 years old. This fact could be because of the over representation of the adult age group class.
+
+% Diferencias en performance
+From the experiments done in this work can be seen that the proposed age estimation algorithms get better \gls{mae} estimating apparent age rather than real age. This result could be because the apparent age is the human perceived age from visual stimuli and accumulated experience , while real age can not always be related to the face appearance.
 
 \section{Future Work}
 
-As a future work, the three main parts of this project -proposed database, proposed methods and challenge organization- can be further explored.
+As a future work, the three main parts of this project -proposed database, proposed methods and real vs apparent age analysis- can be further explored.
 
 The web-application could be improved by collecting further information about the database face images such as gender, ethnic, whether the individual is wearing make-up or no, etc. It should also be maintained in order to keep the users playing, uploading more images, guessing the already existent ones and engaging other users to play.
 
@@ -32,13 +31,13 @@ There are several aspect of the proposed methods that could be exhaustively expl
 	
 	\item \textit{Landmark Regression}: This step in the preprocessing is crucial since the features will be extracted locally in the aligned face. Therefore it is very important to improve the landmark regression to being able to localise the landmarks correctly despite the occlusions and facial expressions.
 	
-	\item \textit{Face Frontalization}: The feature extraction could be improved by frontalizing the faces.
+	\item \textit{Face Frontalization}: The feature extraction could be improved by frontalizing the faces, making it easier to the age estimation algorithms to compare same regions.
 	
 	\item \textit{Local Multi-scale Patch \gls{bif}}: Calculate the \gls{bif} features from localized multi-scale patches using the landmark position could give less noisy and more reliable information about the analysed face.
 	
 	\item \textit{Multi-modal Age Extimation}: Analyse the utility of depth and thermal images in a multi-modal fashion to determine how they complement discriminative information for age estimation.
 \end{itemize}
 
-After the organized challenge, the methods proposed by the contestants should be further analysed and see how they tackle the problems described in this work.
+After the organized challenge, the methods proposed by the contestants should be further analysed and see how they tackle the problems described in this work. Also will be interesting to compare their performance with real and apparent age and see if the results of the experiments performed in this work hold.
 
 
